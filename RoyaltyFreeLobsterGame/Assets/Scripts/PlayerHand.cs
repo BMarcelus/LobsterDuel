@@ -8,6 +8,7 @@ public class PlayerHand : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+		playerFloor = GameObject.FindObjectOfType<PlayerFloor>().GetComponent<PlayerFloor>();
 	}
 	
 	// Update is called once per frame
@@ -53,6 +54,7 @@ public class PlayerHand : MonoBehaviour {
 	// Move Cards
 	//========================================================================
 	private Camera mainCamera;
+	private PlayerFloor playerFloor;
 	private bool dragingCard = false;
 	private int dragingCardIndex;
 
@@ -68,6 +70,7 @@ public class PlayerHand : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0))
 		{
 			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+			//use raycast to test if mouse is over a card
 			RaycastHit result;
 			if(Physics.Raycast(new Vector3(mousePosition.x, mousePosition.y, -10), new Vector3(0,0,1), out result) && result.collider.tag == "CardInHand")
 			{
@@ -77,6 +80,7 @@ public class PlayerHand : MonoBehaviour {
 		}
 	}
 
+	//draging a card in hand
 	private void TestDragCard()
 	{
 		if(dragingCard)
@@ -90,7 +94,21 @@ public class PlayerHand : MonoBehaviour {
 	{
 		if(Input.GetMouseButtonUp(0))
 		{
+			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 			dragingCard = false;
+			//check if the card is inside a floor spot
+			GameObject spot = playerFloor.SpotTouched(mousePosition);
+			//touch a spot, see if able to put card there
+			if(spot)
+			{
+				//Debug.Log(spot.GetComponent<FloorSpot>().GetCardInPlay());
+				if(spot.GetComponent<FloorSpot>().GetCardInPlay() == null)
+				{
+					spot.GetComponent<FloorSpot>().SetCard(cardsInHand[dragingCardIndex]);
+					cardsInHand.RemoveAt(dragingCardIndex);
+				}
+			}
+			ResetCardPositions();
 		}	
 	}
 
