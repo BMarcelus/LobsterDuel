@@ -7,7 +7,7 @@ public class PlayerHand : MonoBehaviour {
 	public float cardInterval;
 	// Use this for initialization
 	void Start () {
-		
+		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
@@ -52,6 +52,7 @@ public class PlayerHand : MonoBehaviour {
 	//========================================================================
 	// Move Cards
 	//========================================================================
+	private Camera mainCamera;
 	private bool dragingCard = false;
 	private int dragingCardIndex;
 
@@ -63,20 +64,34 @@ public class PlayerHand : MonoBehaviour {
 	}
 	private void TestChoseCard()
 	{
+		//Debug.Log(mousePosition);
 		if(Input.GetMouseButtonDown(0))
 		{
-			
+			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+			RaycastHit result;
+			if(Physics.Raycast(new Vector3(mousePosition.x, mousePosition.y, -10), new Vector3(0,0,1), out result) && result.collider.tag == "CardInHand")
+			{
+				dragingCard = true;
+				dragingCardIndex = cardsInHand.IndexOf(result.collider.gameObject);
+			}
 		}
 	}
 
 	private void TestDragCard()
 	{
-
+		if(dragingCard)
+		{
+			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+			cardsInHand[dragingCardIndex].transform.position = new Vector3(mousePosition.x, mousePosition.y,cardsInHand[dragingCardIndex].transform.position.z);
+		}
 	}
 
 	private void TestReleaseCard()
 	{
-
+		if(Input.GetMouseButtonUp(0))
+		{
+			dragingCard = false;
+		}	
 	}
 
 }

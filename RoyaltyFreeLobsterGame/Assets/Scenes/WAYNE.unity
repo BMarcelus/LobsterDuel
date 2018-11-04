@@ -123,9 +123,10 @@ GameObject:
   - component: {fileID: 58756123}
   - component: {fileID: 58756122}
   - component: {fileID: 58756124}
+  - component: {fileID: 58756125}
   m_Layer: 0
   m_Name: TestCard
-  m_TagString: Untagged
+  m_TagString: CardInHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,6 +201,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6091bc4b356247048abbdc400346969c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  width: 0
+  height: 0
+--- !u!65 &58756125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58756121}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &250809701
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +486,7 @@ GameObject:
   - component: {fileID: 490490318}
   m_Layer: 0
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: CardInHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c9cd8e88013db43a400c5d270dad9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardWidth: 1.1
+  cardInterval: 1.1
 --- !u!1 &660974781
 GameObject:
   m_ObjectHideFlags: 0

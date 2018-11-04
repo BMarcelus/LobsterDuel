@@ -17,10 +17,10 @@ public class CardInHand : MonoBehaviour {
 		
 	}
 
-	public bool MouseOnCard()
+	public bool InBound(Vector2 pos)
 	{
-		return (Input.mousePosition.x < transform.position.x + width/2) && (Input.mousePosition.x > transform.position.x - width/2) 
-		&& (Input.mousePosition.y < transform.position.y + height/2) && (Input.mousePosition.y > transform.position.y - height/2);
+		return (pos.x < transform.position.x + width/2) && (pos.x > transform.position.x - width/2) 
+		&& (pos.y < transform.position.y + height/2) && (pos.y > transform.position.y - height/2);
 	}
 
 
