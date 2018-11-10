@@ -10,13 +10,15 @@ public class CardStats : MonoBehaviour {
   public PipsDisplay defenseDisplay;
 
 
-  // Use this for initialization
-  void OnValidate () {
-    if (!cardData)
-      return;
-
-    levelDisplay.setLevel(cardData.level);
-    attackDisplay.setLevel(cardData.attack);
-    defenseDisplay.setLevel(cardData.defense);
+  public void UpdateDisplay() {
+		levelDisplay.setLevel(cardData.level);
+		attackDisplay.setLevel(cardData.attack);
+		defenseDisplay.setLevel(cardData.defense);
   }
+
+	// Use this for initialization
+	void OnValidate () {
+    if (cardData)
+      UpdateDisplay();
+	}
 }
