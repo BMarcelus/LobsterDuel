@@ -37,7 +37,10 @@ public class FloorSpot : MonoBehaviour {
 			card.transform.localScale = new Vector3(1,1,1);
 			card.transform.parent = transform;
 			card.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
-		}
+            //turn the card to a lobster
+            card.GetComponent<CardInHand>().enabled = false;
+            card.GetComponent<Lobster>().enabled = true;
+        }
 	}
 
 }
