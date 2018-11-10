@@ -52,13 +52,14 @@ public class PlayerHand : MonoBehaviour {
 	private enum MoveMode
 	{
 		Drag,
-		Select
+		Click
 	}
 	
 	private Camera mainCamera;
 	private PlayerFloor playerFloor;
     private Vector2 lastMousePosition;
     private bool selectingCard = false;
+    private int cardClicking = -1;
 	private int selectedCardIndex = -1;
     private MoveMode moveMode = MoveMode.Drag;
     private float clickTimer = 0; //how much is the time from click to release, to test if player is click on card or draging
@@ -74,7 +75,6 @@ public class PlayerHand : MonoBehaviour {
 
 	private void TestChoseCard()
 	{
-		//Debug.Log(mousePosition);
 		if(Input.GetMouseButtonDown(0))
 		{
 			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -83,9 +83,11 @@ public class PlayerHand : MonoBehaviour {
 			RaycastHit result;
 			if(Physics.Raycast(new Vector3(mousePosition.x, mousePosition.y, -10), new Vector3(0,0,1), out result) && result.collider.tag == "CardInHand")
 			{
-				SelectCard(cardsInHand.IndexOf(result.collider.gameObject));
+                int index = cardsInHand.IndexOf(result.collider.gameObject);
+                SelectCard(index);
                 moveMode = MoveMode.Drag;
                 clickTimer = 0;
+
 			}
 		}
 	}
@@ -112,11 +114,22 @@ public class PlayerHand : MonoBehaviour {
 		{
 			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             //if player release in 0.05s, they are selecting instead of dragging
-            if(clickTimer < humansClickTime && moveMode == MoveMode.Drag)
+            if (clickTimer < humansClickTime && moveMode == MoveMode.Drag)
             {
-                moveMode = MoveMode.Select;
-                ResetCardPositions();
-                SelectCard(selectedCardIndex);
+                //if player clicked the selected card again, unselect the card
+                if (cardClicking == selectedCardIndex)
+                {
+                    UnselectCard();
+                    cardClicking = -1;
+                    ResetCardPositions();
+                }
+                else
+                {
+                    moveMode = MoveMode.Click;
+                    ResetCardPositions();
+                    SelectCard(selectedCardIndex);
+                    cardClicking = selectedCardIndex;
+                }                
                 return;
             }
 			//check if the card is inside a floor spot
@@ -130,6 +143,7 @@ public class PlayerHand : MonoBehaviour {
 					cardsInHand.RemoveAt(selectedCardIndex);	
 				}
 			}
+            cardClicking = -1;
 			UnselectCard();
 			ResetCardPositions();
 		}	
