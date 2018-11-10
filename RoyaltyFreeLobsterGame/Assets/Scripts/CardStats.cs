@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardStats : MonoBehaviour {
-  [Range(0, 3)]
-  public int level;
-  [Range(0, 3)]
-  public int attack;
-  [Range(0, 3)]
-  public int defense;
+  public CardData cardData;
 
   public PipsDisplay levelDisplay;
   public PipsDisplay attackDisplay;
   public PipsDisplay defenseDisplay;
 
 
-	// Use this for initialization
-	void OnValidate () {
+  // Use this for initialization
+  void OnValidate () {
+    if (!cardData)
+      return;
 
-		levelDisplay.setLevel(level);
-		attackDisplay.setLevel(attack);
-		defenseDisplay.setLevel(defense);
-	}
+    levelDisplay.setLevel(cardData.level);
+    attackDisplay.setLevel(cardData.attack);
+    defenseDisplay.setLevel(cardData.defense);
+  }
 }
