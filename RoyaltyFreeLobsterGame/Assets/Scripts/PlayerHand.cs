@@ -13,12 +13,8 @@ public class PlayerHand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		TestCardDraging();
+        TestCardDraging();
 	}
-
-	//========================================================================
-	// Temporary for Test
-	//========================================================================
 
 	//========================================================================
 	// Hand Cards Manipulate
@@ -51,31 +47,45 @@ public class PlayerHand : MonoBehaviour {
 	}
 
 	//========================================================================
-	// Move Cards
+	// Move/Selecting Cards
 	//========================================================================
+	private enum MoveMode
+	{
+		Drag,
+		Select
+	}
+	
 	private Camera mainCamera;
 	private PlayerFloor playerFloor;
-	private bool dragingCard = false;
-	private int dragingCardIndex;
+    private Vector2 lastMousePosition;
+    private bool selectingCard = false;
+	private int selectedCardIndex = -1;
+    private MoveMode moveMode = MoveMode.Drag;
+    private float clickTimer = 0; //how much is the time from click to release, to test if player is click on card or draging
+    public float humansClickTime;
 
 	public void TestCardDraging()
 	{
 		TestChoseCard();
+        clickTimer += Time.deltaTime;
 		TestDragCard();
 		TestReleaseCard();
 	}
+
 	private void TestChoseCard()
 	{
 		//Debug.Log(mousePosition);
 		if(Input.GetMouseButtonDown(0))
 		{
 			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            lastMousePosition = mousePosition; //set lastMousePosition for dragging
 			//use raycast to test if mouse is over a card
 			RaycastHit result;
 			if(Physics.Raycast(new Vector3(mousePosition.x, mousePosition.y, -10), new Vector3(0,0,1), out result) && result.collider.tag == "CardInHand")
 			{
-				dragingCard = true;
-				dragingCardIndex = cardsInHand.IndexOf(result.collider.gameObject);
+				SelectCard(cardsInHand.IndexOf(result.collider.gameObject));
+                moveMode = MoveMode.Drag;
+                clickTimer = 0;
 			}
 		}
 	}
@@ -83,11 +93,17 @@ public class PlayerHand : MonoBehaviour {
 	//draging a card in hand
 	private void TestDragCard()
 	{
-		if(dragingCard)
-		{
-			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-			cardsInHand[dragingCardIndex].transform.position = new Vector3(mousePosition.x, mousePosition.y,cardsInHand[dragingCardIndex].transform.position.z);
-		}
+        if (selectingCard && moveMode == MoveMode.Drag)
+        {
+            Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            if (mousePosition != lastMousePosition)
+            {
+                cardsInHand[selectedCardIndex].transform.position = new Vector3(mousePosition.x, mousePosition.y, cardsInHand[selectedCardIndex].transform.position.z);
+                lastMousePosition = mousePosition;
+                //if the card ever moves, does not consider it a click. We set timer to a large number so it cannot be considered a click
+                //clickTimer = 10;
+            }
+        }
 	}
 
 	private void TestReleaseCard()
@@ -95,21 +111,53 @@ public class PlayerHand : MonoBehaviour {
 		if(Input.GetMouseButtonUp(0))
 		{
 			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-			dragingCard = false;
+            //if player release in 0.05s, they are selecting instead of dragging
+            if(clickTimer < humansClickTime && moveMode == MoveMode.Drag)
+            {
+                moveMode = MoveMode.Select;
+                ResetCardPositions();
+                SelectCard(selectedCardIndex);
+                return;
+            }
 			//check if the card is inside a floor spot
 			GameObject spot = playerFloor.SpotTouched(mousePosition);
 			//touch a spot, see if able to put card there
 			if(spot)
 			{
-				//Debug.Log(spot.GetComponent<FloorSpot>().GetCardInPlay());
-				if(spot.GetComponent<FloorSpot>().GetCardInPlay() == null)
+				if(spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
 				{
-					spot.GetComponent<FloorSpot>().SetCard(cardsInHand[dragingCardIndex]);
-					cardsInHand.RemoveAt(dragingCardIndex);
+					spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
+					cardsInHand.RemoveAt(selectedCardIndex);	
 				}
 			}
+			UnselectCard();
 			ResetCardPositions();
 		}	
+	}
+
+	private void SelectCard(int cardIndex)
+	{
+		UnselectCard();
+        selectedCardIndex = cardIndex;
+        selectingCard = true;
+        //make the selected card larger
+		cardsInHand[selectedCardIndex].transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+		//make the card above all others
+		Vector3 temp = cardsInHand[selectedCardIndex].transform.position;
+		temp.z = -9;
+		cardsInHand[selectedCardIndex].transform.position = temp;
+	}
+
+	private void UnselectCard()
+	{
+        //is selecting somecard -> reset its size
+        //the card may have just been used and is not in list
+        if (selectedCardIndex != -1 && selectedCardIndex < cardsInHand.Count)
+		{
+			cardsInHand[selectedCardIndex].transform.localScale = new Vector3(1, 1, 1);
+		}
+		selectingCard = false;
+		selectedCardIndex = -1;
 	}
 
 }

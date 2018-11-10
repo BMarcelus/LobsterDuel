@@ -34,8 +34,9 @@ public class FloorSpot : MonoBehaviour {
 			this.cardInPlay = card;
 			//temporary
 			card.tag = "Untagged";
+			card.transform.localScale = new Vector3(1,1,1);
 			card.transform.parent = transform;
-			card.transform.position = new Vector3(transform.position.x, transform.position.y, card.transform.position.z);
+			card.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
 		}
 	}
 

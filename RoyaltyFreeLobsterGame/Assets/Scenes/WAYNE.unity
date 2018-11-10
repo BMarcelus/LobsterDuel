@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardInterval: 1.1
+  humansClickTime: 0.1
 --- !u!1 &660974781
 GameObject:
   m_ObjectHideFlags: 0
