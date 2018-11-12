@@ -62,13 +62,15 @@ public class PlayerHand : MonoBehaviour {
     private int cardClicking = -1;
 	private int selectedCardIndex = -1;
     private MoveMode moveMode = MoveMode.Drag;
-    private float clickTimer = 0; //how much is the time from click to release, to test if player is click on card or draging
-    public float humansClickTime;
+    private float dragDistance;
+    private float clickAllowedDistance = 0.2f;
+    //private float clickTimer = 0; //how much is the time from click to release, to test if player is click on card or draging
+    //public float humansClickTime;
 
 	public void TestCardDraging()
 	{
 		TestChoseCard();
-        clickTimer += Time.deltaTime;
+        //clickTimer += Time.deltaTime;
 		TestDragCard();
 		TestReleaseCard();
 	}
@@ -86,8 +88,8 @@ public class PlayerHand : MonoBehaviour {
                 int index = cardsInHand.IndexOf(result.collider.gameObject);
                 SelectCard(index);
                 moveMode = MoveMode.Drag;
-                clickTimer = 0;
-
+                //clickTimer = 0;
+                dragDistance = 0;
 			}
 		}
 	}
@@ -101,6 +103,7 @@ public class PlayerHand : MonoBehaviour {
             if (mousePosition != lastMousePosition)
             {
                 cardsInHand[selectedCardIndex].transform.position = new Vector3(mousePosition.x, mousePosition.y, cardsInHand[selectedCardIndex].transform.position.z);
+                dragDistance += Vector2.Distance(lastMousePosition, mousePosition);
                 lastMousePosition = mousePosition;
                 //if the card ever moves, does not consider it a click. We set timer to a large number so it cannot be considered a click
                 //clickTimer = 10;
@@ -114,7 +117,7 @@ public class PlayerHand : MonoBehaviour {
 		{
 			Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             //if player release in 0.05s, they are selecting instead of dragging
-            if (clickTimer < humansClickTime && moveMode == MoveMode.Drag)
+            if (dragDistance < clickAllowedDistance && moveMode == MoveMode.Drag)//(clickTimer < humansClickTime && moveMode == MoveMode.Drag)
             {
                 //if player clicked the selected card again, unselect the card
                 if (cardClicking == selectedCardIndex)

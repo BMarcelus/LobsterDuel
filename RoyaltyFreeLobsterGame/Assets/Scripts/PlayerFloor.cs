@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class PlayerFloor : MonoBehaviour {
@@ -27,17 +28,27 @@ public class PlayerFloor : MonoBehaviour {
 		return null;
 	}
 
+    //=======================================================================================
+    //User interaction with the spot
+    //=======================================================================================
+    private int lastSpotIndex = -1;
     public void CheckLobsterClick()
     {
         if(Input.GetMouseButtonUp(0))
         {
             ResetLobsters();
             //if mouse is down on any spot which has lobster, open the move menu
+            //if players click on the same spot, should not open the menu but reset/close it
             Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             GameObject spot = SpotTouched(mousePosition);
-            if(spot && spot.GetComponent<FloorSpot>().GetCardInPlay()!= null)
+            if(spot && spot.GetComponent<FloorSpot>().GetCardInPlay()!= null && lastSpotIndex != Array.IndexOf(spots, spot))
             {
                 spot.GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().OpenMoveMenu();
+                lastSpotIndex = Array.IndexOf(spots, spot);
+            }
+            else
+            {
+                lastSpotIndex = -1;
             }
         }
     }
