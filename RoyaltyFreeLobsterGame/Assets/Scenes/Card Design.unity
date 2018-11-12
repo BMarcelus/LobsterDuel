@@ -715,6 +715,45 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114084628538374934, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
+        type: 2}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: fb1142e9b66b2485a91bbbae2075d8a2,
+        type: 2}
+    - target: {fileID: 1078793085291100, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856614791781768, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239702791407862, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777875378823072, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300377231576828, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764494250774118, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856453638076070, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114300522113597294, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
+        type: 2}
+      propertyPath: m_Text
+      value: 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
   m_IsPrefabAsset: 0
@@ -7794,9 +7833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f826b10275d4e0999401bb1866790d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 3
-  attack: 3
-  defense: 3
+  cardData: {fileID: 0}
   levelDisplay: {fileID: 765344516}
   attackDisplay: {fileID: 1391758283}
   defenseDisplay: {fileID: 2129164717}
