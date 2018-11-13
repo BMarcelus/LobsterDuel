@@ -11,7 +11,7 @@ public enum LobsterState
 public class Lobster : MonoBehaviour {
     [Header("info stored")]
     public CardData data;
-    [Header("using on floor")]
+    [Header("UI on floor")]
     public GameObject moveMenu;
     public GameObject sprite;
     private LobsterState state;

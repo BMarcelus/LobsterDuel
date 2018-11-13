@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 
-public class PlayerFloor : MonoBehaviour {
+public class Floor : MonoBehaviour {
 	public GameObject[] spots;
     private Camera mainCamera;
 	// Use this for initialization
@@ -62,5 +62,16 @@ public class PlayerFloor : MonoBehaviour {
                 spot.GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().CloseMoveMenu();
         }
     }
+
+    //=======================================================================================
+    //Battle
+    //=======================================================================================
+    
+     /*if there are lobsters defending, return a list of defend lobsters
+      * *
+    public List<GameObject> GetAttackableLobsters()
+    {
+
+    }*/
 
 }

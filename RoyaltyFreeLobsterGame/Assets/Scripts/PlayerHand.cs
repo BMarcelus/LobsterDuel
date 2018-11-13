@@ -8,7 +8,7 @@ public class PlayerHand : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-		playerFloor = GameObject.FindObjectOfType<PlayerFloor>().GetComponent<PlayerFloor>();
+        playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
 	}
 	
 	// Update is called once per frame
@@ -56,7 +56,7 @@ public class PlayerHand : MonoBehaviour {
 	}
 	
 	private Camera mainCamera;
-	private PlayerFloor playerFloor;
+	private Floor playerFloor;
     private Vector2 lastMousePosition;
     private bool selectingCard = false;
     private int cardClicking = -1;
