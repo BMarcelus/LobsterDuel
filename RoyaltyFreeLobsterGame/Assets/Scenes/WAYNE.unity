@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 111111577}
   m_Layer: 0
   m_Name: PlayerFloor
-  m_TagString: Untagged
+  m_TagString: PlayerFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 304970817}
   m_Layer: 0
   m_Name: EnemyFloor
-  m_TagString: Untagged
+  m_TagString: EnemyFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1186,7 +1186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardInterval: 1.1
-  humansClickTime: 0.11
 --- !u!1 &660974781
 GameObject:
   m_ObjectHideFlags: 0
