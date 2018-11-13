@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CardType
+{
+    Lobster,
+    Attachment
+}
+
 public class FloorSpot : MonoBehaviour {
 	private GameObject cardInPlay;
+    private CardType cardType;
 	public float width;
 	public float height;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
 	public bool InBound(Vector2 pos)
 	{
@@ -26,8 +25,14 @@ public class FloorSpot : MonoBehaviour {
 	{
 		return cardInPlay;
 	}
+    
+    //return what is the type of card in this spot, null there is no card here
+    public CardType GetCardType()
+    {
+            return cardType;
+    }
 
-	public void SetCard(GameObject card)
+    public void SetCard(GameObject card)
 	{
 		if(this.cardInPlay == null)
 		{
@@ -39,7 +44,14 @@ public class FloorSpot : MonoBehaviour {
 			card.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
             //turn the card to a lobster
             card.GetComponent<CardInHand>().enabled = false;
-            card.GetComponent<Lobster>().enabled = true;
+            //if the card set here is a lobster
+            if (card.GetComponent<Lobster>() != null)
+            {
+                card.GetComponent<Lobster>().enabled = true;
+                cardType = CardType.Lobster;
+            }
+            //if the card set here is an attachment
+
         }
 	}
 
