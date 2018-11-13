@@ -238,6 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69041001}
+  - component: {fileID: 69041002}
   m_Layer: 0
   m_Name: TurnManager
   m_TagString: Untagged
@@ -258,6 +259,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69041002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69041000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2814d8da1ae91409cfb4b050644ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104619958
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +487,7 @@ MonoBehaviour:
   - {fileID: 2147448646}
   - {fileID: 1688693512}
   - {fileID: 778219353}
+  test: {fileID: 0}
 --- !u!1 &250809701
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +705,7 @@ MonoBehaviour:
   - {fileID: 482114659}
   - {fileID: 432503725}
   - {fileID: 322823947}
+  test: {fileID: 58756121}
 --- !u!212 &304970818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -765,7 +779,7 @@ GameObject:
   - component: {fileID: 322823949}
   - component: {fileID: 322823948}
   m_Layer: 0
-  m_Name: rightSpot
+  m_Name: eRightSpot
   m_TagString: CardInHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,7 +945,7 @@ GameObject:
   - component: {fileID: 432503727}
   - component: {fileID: 432503726}
   m_Layer: 0
-  m_Name: centerSpot
+  m_Name: eCenterSpot
   m_TagString: CardInHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,7 +1109,7 @@ GameObject:
   - component: {fileID: 482114661}
   - component: {fileID: 482114660}
   m_Layer: 0
-  m_Name: leftSpot
+  m_Name: eLeftSpot
   m_TagString: CardInHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1576,7 +1590,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 810906605}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 58756126}
+        m_MethodName: AttackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &810906605

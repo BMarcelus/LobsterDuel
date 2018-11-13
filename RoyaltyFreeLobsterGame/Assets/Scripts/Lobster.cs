@@ -14,9 +14,10 @@ public class Lobster : MonoBehaviour {
     [Header("UI on floor")]
     public GameObject moveMenu;
     public GameObject sprite;
+    [SerializeField]
     private LobsterState state;
 
-    private void Start()
+    private void Awake()
     {
         state = LobsterState.Attack;
     }
@@ -48,6 +49,11 @@ public class Lobster : MonoBehaviour {
             state = LobsterState.Attack;
             StartCoroutine(Rotate(new Vector3(0, 0, 9), 10));
         }
+    }
+
+    public void AttackButton()
+    {
+        GameObject.FindObjectOfType<TurnManager>().PrepareToAttack(this);
     }
 
     private IEnumerator Rotate(Vector3 angle, int times)
