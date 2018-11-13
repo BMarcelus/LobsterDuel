@@ -22,6 +22,7 @@ public class Floor : MonoBehaviour {
             spots[2].GetComponent<FloorSpot>().SetCard(test3);
 
             spots[1].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().SwitchState();
+            
         }
 	}
 	
