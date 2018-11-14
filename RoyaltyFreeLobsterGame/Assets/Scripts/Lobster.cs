@@ -36,15 +36,28 @@ public class Lobster : MonoBehaviour {
     public void OpenMoveMenu()
     {
         moveMenu.SetActive(true);
+        moveMenu.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void CloseMoveMenu()
     {
+        if(moveMenu.active)
+            StartCoroutine(CloseMoveMenuAnimation());
+    }
+
+    private IEnumerator CloseMoveMenuAnimation()
+    {
+        for(float x = 1; x>= 0;x-= 0.05f)
+        {
+            moveMenu.transform.localScale = new Vector3(x, x, 1);
+            yield return new WaitForSeconds(0.01f);
+        }
         moveMenu.SetActive(false);
     }
 
     public void SwitchState()
     {
+        Debug.Log(1);
         CloseMoveMenu();
         switchButton.SetActive(false);
         //change the state and rotate card
