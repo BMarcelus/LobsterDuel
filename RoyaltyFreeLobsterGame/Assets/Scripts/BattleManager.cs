@@ -104,7 +104,7 @@ public class BattleManager : MonoBehaviour {
                 //reset Color and get attacked lobster
                 foreach (Lobster lob in possibleChoice)
                 {
-                    SpriteRenderer sprite = lob.sprite.GetComponent<SpriteRenderer>();
+                    SpriteRenderer sprite = lob.GetComponent<SpriteRenderer>();
                     sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1f);
                     //check if touched lobster      
                     if (lob.MouseIsOn(mousePos))

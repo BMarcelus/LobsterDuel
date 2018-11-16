@@ -15,7 +15,7 @@ public class Lobster : MonoBehaviour {
     public GameObject moveMenu;
     public GameObject attackButton;
     public GameObject switchButton;
-    public GameObject sprite;
+    //public GameObject sprite;
     [SerializeField]
     private LobsterState state;
 
@@ -41,7 +41,7 @@ public class Lobster : MonoBehaviour {
 
     public void CloseMoveMenu()
     {
-        if(moveMenu.active)
+        if(moveMenu.activeSelf == true)
             StartCoroutine(CloseMoveMenuAnimation());
     }
 
@@ -57,7 +57,7 @@ public class Lobster : MonoBehaviour {
 
     public void SwitchState()
     {
-        Debug.Log(1);
+       // Debug.Log(1);
         CloseMoveMenu();
         switchButton.SetActive(false);
         //change the state and rotate card
@@ -87,7 +87,8 @@ public class Lobster : MonoBehaviour {
     {
         for(int x = 0; x<times; ++x)
         {
-            sprite.transform.Rotate(angle);
+            //sprite.transform.Rotate(angle);
+            transform.Rotate(angle);
             yield return new WaitForSeconds(0.01f);
         }
     }

@@ -158,7 +158,7 @@ public class PlayerHand : MonoBehaviour {
         selectedCardIndex = cardIndex;
         selectingCard = true;
         //make the selected card larger
-		cardsInHand[selectedCardIndex].transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+		cardsInHand[selectedCardIndex].transform.localScale = new Vector3(2f, 2f, 1f);
 		//make the card above all others
 		Vector3 temp = cardsInHand[selectedCardIndex].transform.position;
 		temp.z = -9;
@@ -171,7 +171,7 @@ public class PlayerHand : MonoBehaviour {
         //the card may have just been used and is not in list
         if (selectedCardIndex != -1 && selectedCardIndex < cardsInHand.Count)
 		{
-			cardsInHand[selectedCardIndex].transform.localScale = new Vector3(1, 1, 1);
+			cardsInHand[selectedCardIndex].transform.localScale = new Vector3(1.5f, 1.5f, 1);
 		}
 		selectingCard = false;
 		selectedCardIndex = -1;
