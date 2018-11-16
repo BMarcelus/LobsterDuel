@@ -76,8 +76,10 @@ public class Lobster : MonoBehaviour {
     }
     public void DefendButton()
     {
+
         HideMoveButtons();
         state = LobsterState.Defence;
+        GetComponent<Animator>().Play("Defend", -1, 0);
     }
     public void HideMoveButtons()
     {
