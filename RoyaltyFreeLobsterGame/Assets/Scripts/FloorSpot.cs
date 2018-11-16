@@ -34,12 +34,17 @@ public class FloorSpot : MonoBehaviour {
 
     public void SetCard(GameObject card)
 	{
-		if(this.cardInPlay == null)
+		//if null is set, no need to do extra work.
+		if(card == null)
+		{
+			cardInPlay = null;
+			return;
+		}else if(this.cardInPlay == null)
 		{
 			this.cardInPlay = card;
 			//temporary
 			card.tag = "Untagged";
-			card.transform.localScale = new Vector3(1,1,1);
+			card.transform.localScale = new Vector3(1.5f, 1.5f, 1);
 			card.transform.parent = transform;
 			card.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
             //turn the card to a lobster
@@ -48,6 +53,7 @@ public class FloorSpot : MonoBehaviour {
             if (card.GetComponent<Lobster>() != null)
             {
                 card.GetComponent<Lobster>().enabled = true;
+				card.GetComponent<Lobster>().floorAssigned = gameObject;
                 cardType = CardType.Lobster;
             }
             //if the card set here is an attachment

@@ -21,7 +21,7 @@ public class Floor : MonoBehaviour {
             spots[1].GetComponent<FloorSpot>().SetCard(test2);
             spots[2].GetComponent<FloorSpot>().SetCard(test3);
 
-            spots[1].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().SwitchState();
+            spots[1].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().DefendButton();
             
         }
 	}
@@ -57,7 +57,6 @@ public class Floor : MonoBehaviour {
                 && floorSpot.GetCardInPlay().GetComponent<Lobster>().GetState() == LobsterState.Defence)
             {
                 result.Add(floorSpot.GetCardInPlay().GetComponent<Lobster>());
-                Debug.Log(1);
             }
         }
         //if the list is not empty, we have defending lobsters, return them

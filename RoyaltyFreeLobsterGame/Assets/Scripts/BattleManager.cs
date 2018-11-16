@@ -78,8 +78,7 @@ public class BattleManager : MonoBehaviour {
         {
             foreach(Lobster lob in possibleChoice)
             {
-                SpriteRenderer sprite = lob.transform.Find("sprite").GetComponent<SpriteRenderer>();
-                sprite.color = new Color(sprite.color.r, sprite.color.g,sprite.color.b, 0.5f);
+                lob.transform.Find("sprite").gameObject.SetActive(true);
             }
         }
         else //no lobster exist...
@@ -104,8 +103,7 @@ public class BattleManager : MonoBehaviour {
                 //reset Color and get attacked lobster
                 foreach (Lobster lob in possibleChoice)
                 {
-                    SpriteRenderer sprite = lob.sprite.GetComponent<SpriteRenderer>();
-                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1f);
+                    lob.transform.Find("sprite").gameObject.SetActive(false);
                     //check if touched lobster      
                     if (lob.MouseIsOn(mousePos))
                         attacked = lob;
@@ -113,7 +111,7 @@ public class BattleManager : MonoBehaviour {
                 if (attacked)
                 {
                     attacked.GetHurt(attackerLobster.GetClaw());
-                    attackerLobster.HideAttackButton();
+                    attackerLobster.HideMoveButtons();
                 }
             }
             else//when attacking opponent directly
@@ -127,8 +125,8 @@ public class BattleManager : MonoBehaviour {
                 RaycastHit2D result = Physics2D.Raycast(mousePos, Vector2.zero);
                 if (result && result.collider.gameObject == opponent)
                 {
-                    attackerLobster.HideAttackButton();
-                    Debug.Log("Sniffle");
+                    attackerLobster.HideMoveButtons();
+                    result.collider.GetComponent<Player>().GetHurt(attackerLobster.GetClaw());
                 }
 
             }
