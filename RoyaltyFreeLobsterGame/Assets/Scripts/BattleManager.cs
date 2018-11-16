@@ -6,6 +6,7 @@ using System;
 public class BattleManager : MonoBehaviour {
     private Floor enemyFloor;
     private Floor playerFloor;
+    public GameObject rock;
     private GameObject opponent;
 
     private Camera mainCamera;
