@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: pizza
   m_EditorClassIdentifier: 
   cardName: full
-  level: 3
-  attack: 3
-  defense: 3
+  level: 1
+  attack: 1
+  defense: 1

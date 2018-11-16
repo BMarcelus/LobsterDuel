@@ -500,27 +500,27 @@ Prefab:
         type: 2}
     - target: {fileID: 1078793085291100, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1856614791781768, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239702791407862, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1777875378823072, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1300377231576828, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1764494250774118, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1856453638076070, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
@@ -529,7 +529,12 @@ Prefab:
     - target: {fileID: 114300522113597294, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
         type: 2}
       propertyPath: m_Text
-      value: Craig fights to free the lobsters of royalty
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114984512306782306, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
+        type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
