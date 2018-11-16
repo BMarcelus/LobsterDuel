@@ -8,15 +8,17 @@ public enum LobsterState
     Defence
 }
 
+
 public class Lobster : MonoBehaviour {
     [Header("info stored")]
     public CardData data;
+    public GameObject owner;
+    public GameObject floorAssigned;
     [Header("UI on floor")]
     public GameObject moveMenu;
     public GameObject attackButton;
-    public GameObject switchButton;
-    //public GameObject sprite;
-    [SerializeField]
+    public GameObject defendButton;
+    
     private LobsterState state;
 
     private void Awake()
@@ -30,7 +32,7 @@ public class Lobster : MonoBehaviour {
     public void RestMoveButton()
     {
         attackButton.SetActive(true);
-        switchButton.SetActive(true);
+        defendButton.SetActive(true);
     }
 
     public void OpenMoveMenu()
@@ -55,21 +57,16 @@ public class Lobster : MonoBehaviour {
         moveMenu.SetActive(false);
     }
 
-    public void SwitchState()
+    private void SwitchState()
     {
-       // Debug.Log(1);
-        CloseMoveMenu();
-        switchButton.SetActive(false);
         //change the state and rotate card
         if(state == LobsterState.Attack)
         {
             state = LobsterState.Defence;
-            StartCoroutine(Rotate(new Vector3(0, 0, -9), 10));
         }
         else
         {
             state = LobsterState.Attack;
-            StartCoroutine(Rotate(new Vector3(0, 0, 9), 10));
         }
     }
 
@@ -77,10 +74,15 @@ public class Lobster : MonoBehaviour {
     {
         FindObjectOfType<BattleManager>().PrepareToAttackEnemy(this);
     }
-
-    public void HideAttackButton()
+    public void DefendButton()
+    {
+        HideMoveButtons();
+        state = LobsterState.Defence;
+    }
+    public void HideMoveButtons()
     {
         attackButton.SetActive(false);
+        defendButton.SetActive(false);
     }
 
     private IEnumerator Rotate(Vector3 angle, int times)
@@ -101,7 +103,15 @@ public class Lobster : MonoBehaviour {
     
     public void GetHurt(int damage)
     {
-        Debug.Log("Cry");
+        //when damage > shell, die and owner get hurt
+        int overflow = damage - data.defense;
+        if(overflow >= 0)
+        {
+            //destroy itself, hurt owner
+            floorAssigned.GetComponent<FloorSpot>().SetCard(null);
+            owner.GetComponent<Player>().GetHurt(overflow);
+            Destroy(gameObject);
+        }
     }
     //=========================================================================
     //Interaction
@@ -113,7 +123,6 @@ public class Lobster : MonoBehaviour {
 
     public int GetClaw()
     {
-        //return data.attack;
-        return 1;
+        return data.attack;
     }
 }

@@ -17,4 +17,12 @@ public class Player : MonoBehaviour {
         hpText.text = health.ToString();
     }
 
+	public void GetHurt(int damage)
+	{
+		health -= damage;
+		if(health < 0) health = 0;
+		UpdateHealthUI();
+		//if(health == 0) check game over
+	}
+
 }
