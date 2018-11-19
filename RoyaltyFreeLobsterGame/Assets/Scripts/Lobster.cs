@@ -18,6 +18,7 @@ public class Lobster : MonoBehaviour {
     public GameObject moveMenu;
     public GameObject attackButton;
     public GameObject defendButton;
+    public AudioSource deathSound;
     
     private LobsterState state;
 
@@ -120,6 +121,7 @@ public class Lobster : MonoBehaviour {
             }
             //destroy itself, hurt owner
             owner.GetComponent<Player>().GetHurt(overflow);
+            deathSound.Play();
             Destroy(gameObject);
         }
     }

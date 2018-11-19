@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerHand : MonoBehaviour {
 	private List<GameObject> cardsInHand = new List<GameObject>();
 	public float cardInterval;
+  public AudioSource cardSelectSound;
+  public AudioSource cardPlaceSound;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -144,6 +146,7 @@ public class PlayerHand : MonoBehaviour {
 				{
 					spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
 					cardsInHand.RemoveAt(selectedCardIndex);	
+          cardPlaceSound.Play();
 				}
 			}
             cardClicking = -1;
@@ -154,6 +157,9 @@ public class PlayerHand : MonoBehaviour {
 
 	private void SelectCard(int cardIndex)
 	{
+    if(selectedCardIndex != cardIndex) {
+      cardSelectSound.Play();
+    }
 		UnselectCard();
         selectedCardIndex = cardIndex;
         selectingCard = true;
