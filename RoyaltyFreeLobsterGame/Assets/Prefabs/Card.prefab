@@ -1980,6 +1980,7 @@ MonoBehaviour:
   moveMenu: {fileID: 1621876946712812}
   attackButton: {fileID: 1459659094232698}
   defendButton: {fileID: 1309103331846668}
+  deathSound: {fileID: 0}
 --- !u!114 &114491372295172754
 MonoBehaviour:
   m_ObjectHideFlags: 1
