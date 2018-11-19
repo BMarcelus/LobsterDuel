@@ -109,8 +109,16 @@ public class Lobster : MonoBehaviour {
         int overflow = damage - data.defense;
         if(overflow >= 0)
         {
-            //destroy itself, hurt owner
+            //spare place for new card
             floorAssigned.GetComponent<FloorSpot>().SetCard(null);
+            //spawn a rock here if it is a lobster
+            if(data.cardName != "Rock")
+            {
+                GameObject newRock = Instantiate(FindObjectOfType<BattleManager>().rock, Vector3.zero, Quaternion.identity);
+                newRock.GetComponent<Lobster>().owner = owner;
+                floorAssigned.GetComponent<FloorSpot>().SetCard(newRock);
+            }
+            //destroy itself, hurt owner
             owner.GetComponent<Player>().GetHurt(overflow);
             Destroy(gameObject);
         }
@@ -121,6 +129,7 @@ public class Lobster : MonoBehaviour {
     public LobsterState GetState()
     {
         return state;
+        
     }
 
     public int GetClaw()
