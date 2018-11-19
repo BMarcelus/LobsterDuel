@@ -11,7 +11,6 @@ using Uri = System.Uri;
 public class CardDataImporterWindow : EditorWindow {
 
     static string url = "";
-    static Object fileObject = null;
     static string cardDataDestination = "Assets/Cards";
 
     #region MenuItems
