@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Material
+  m_Name: OceanTop
   m_Shader: {fileID: 4800000, guid: 4c8dff23c5af846278089899ba724bde, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -23,5 +23,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _transparency: 0.2
+    - _transparency: 0.25
+    - _transparencyOscillation: 0.8
     m_Colors: []

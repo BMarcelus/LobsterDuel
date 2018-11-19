@@ -116,24 +116,40 @@ public class CardDataImporterWindow : EditorWindow {
 
                     CardData card = ScriptableObject.CreateInstance<CardData>();
                     string[] parsedLine = SplitCsvLine(line);
+                    bool valid = true;
                     for (int i = 0; i < parsedLine.Length; ++i) {
                         string lineItem = parsedLine[i];
+                        int n;
                         switch (i) {
                             case 0:
+                                valid = lineItem != "";
                                 card.cardName = lineItem;
                                 break;
                             case 1:
-                                card.level = int.Parse(lineItem);
+                                valid = int.TryParse(lineItem, out n);
+                                if (valid) {
+                                  card.level = n;
+                                }
                                 break;
                             case 2:
-                                card.attack = int.Parse(lineItem);
+                                valid = int.TryParse(lineItem, out n);
+                                if (valid) {
+                                  card.attack = n;
+                                }
                                 break;
                             case 3:
-                                card.defense = int.Parse(lineItem);
+                                valid = int.TryParse(lineItem, out n);
+                                if (valid) {
+                                  card.defense = n;
+                                }
                                 break;
                         }
+                        if (!valid) break;
                     }
-
+                    if (!valid) {
+                      ++lineNumber;
+                      continue;
+                    }
                     // Create CardItem as an asset
 
                     // Create folder(s) up to the destination folder

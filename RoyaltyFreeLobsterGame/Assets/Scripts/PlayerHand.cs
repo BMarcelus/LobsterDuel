@@ -7,7 +7,7 @@ public class PlayerHand : MonoBehaviour {
 	public float cardInterval;
   public AudioSource cardSelectSound;
   public AudioSource cardPlaceSound;
-	private bool canPlaceCard = true;
+	public bool canPlaceCard = true;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();

@@ -217,8 +217,7 @@ Prefab:
         type: 2}
       propertyPath: cardData
       value: 
-      objectReference: {fileID: 11400000, guid: fb1142e9b66b2485a91bbbae2075d8a2,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1764494250774118, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -1055,6 +1054,7 @@ MonoBehaviour:
   cardInterval: 1.3
   cardSelectSound: {fileID: 490490320}
   cardPlaceSound: {fileID: 490490319}
+  canPlaceCard: 1
 --- !u!82 &490490319
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2128,20 +2128,6 @@ Prefab:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1841428619}
-    - target: {fileID: 82126241068941862, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224357123863385306, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4136741181781596, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 114314779763341412, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
         type: 2}
       propertyPath: deathSound
@@ -2549,6 +2535,12 @@ Prefab:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 999799204}
+    - target: {fileID: 114314779763341412, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
+        type: 2}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 26f8270aded6c49bea6ddfc83f4e982e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
   m_IsPrefabAsset: 0
