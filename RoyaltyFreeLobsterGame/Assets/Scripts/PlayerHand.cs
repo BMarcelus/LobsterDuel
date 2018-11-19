@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHand : MonoBehaviour {
 	private List<GameObject> cardsInHand = new List<GameObject>();
 	public float cardInterval;
+	private bool canPlaceCard = true;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -14,6 +15,11 @@ public class PlayerHand : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         TestCardDraging();
+	}
+
+	public void ResetForNewTurn()
+	{
+		canPlaceCard = true;
 	}
 
 	//========================================================================
@@ -140,11 +146,7 @@ public class PlayerHand : MonoBehaviour {
 			//touch a spot, see if able to put card there
 			if(spot)
 			{
-				if(spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
-				{
-					spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
-					cardsInHand.RemoveAt(selectedCardIndex);	
-				}
+				PlaceCard(spot);
 			}
             cardClicking = -1;
 			UnselectCard();
@@ -176,5 +178,16 @@ public class PlayerHand : MonoBehaviour {
 		selectingCard = false;
 		selectedCardIndex = -1;
 	}
+
+	private void PlaceCard(GameObject spot)
+	{
+		if(canPlaceCard && spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
+		{
+			spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
+			cardsInHand.RemoveAt(selectedCardIndex);	
+			canPlaceCard = false;
+		}
+	}
+
 
 }
