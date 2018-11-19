@@ -14,4 +14,4 @@ MonoBehaviour:
   cardName: Rock
   level: 1
   attack: 0
-  defense: 1
+  defense: 2
