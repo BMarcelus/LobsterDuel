@@ -115,9 +115,13 @@ public class Lobster : MonoBehaviour {
             //spawn a rock here if it is a lobster
             if(data.cardName != "Rock")
             {
-                GameObject newRock = Instantiate(FindObjectOfType<BattleManager>().rock, Vector3.zero, Quaternion.identity);
-                newRock.GetComponent<Lobster>().owner = owner;
-                floorAssigned.GetComponent<FloorSpot>().SetCard(newRock);
+                //create a card and assign rock data to it
+                BattleManager battleManager = FindObjectOfType<BattleManager>();
+                GameObject newRock = Instantiate(battleManager.lobsterCard, Vector3.zero, Quaternion.identity);
+                newRock.GetComponent<CardStats>().cardData = battleManager.rock;
+                newRock.GetComponent<Lobster>().data = battleManager.rock;
+                //use the rock in the floor
+                floorAssigned.GetComponent<FloorSpot>().SetCard(newRock, owner);
             }
             //destroy itself, hurt owner
             owner.GetComponent<Player>().GetHurt(overflow);

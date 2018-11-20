@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerHand : MonoBehaviour {
 	private List<GameObject> cardsInHand = new List<GameObject>();
 	public float cardInterval;
-  public AudioSource cardSelectSound;
-  public AudioSource cardPlaceSound;
+	public CardData testCarData;
+  	public AudioSource cardSelectSound;
+  	public AudioSource cardPlaceSound;
 	public bool canPlaceCard = true;
 	// Use this for initialization
 	void Start () {
@@ -40,8 +41,13 @@ public class PlayerHand : MonoBehaviour {
 	}
 	public void AddCardToHand(GameObject card)
 	{
+		Debug.Log(0);
 		GameObject newCard = GameObject.Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
+		Debug.Log(1);
 		newCard.transform.parent = transform;
+		newCard.GetComponent<CardStats>().cardData = testCarData;
+		newCard.GetComponent<Lobster>().data = testCarData;
+		newCard.GetComponent<CardStats>().UpdateDisplay();
 		cardsInHand.Add(newCard);
 		ResetCardPositions();
 	}

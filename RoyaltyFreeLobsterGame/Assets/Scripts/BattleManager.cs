@@ -6,7 +6,8 @@ using System;
 public class BattleManager : MonoBehaviour {
     private Floor enemyFloor;
     private Floor playerFloor;
-    public GameObject rock;
+    public GameObject lobsterCard;
+    public CardData rock;
     private GameObject opponent;
 
     private Camera mainCamera;
