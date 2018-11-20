@@ -7,7 +7,7 @@ public class BattleManager : MonoBehaviour {
     private Floor enemyFloor;
     private Floor playerFloor;
     public GameObject lobsterCard;
-    public CardData rock;
+    public CardData rockData;
     private GameObject opponent;
 
     private Camera mainCamera;

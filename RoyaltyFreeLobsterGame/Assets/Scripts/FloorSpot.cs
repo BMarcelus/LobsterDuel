@@ -55,8 +55,6 @@ public class FloorSpot : MonoBehaviour {
                 card.GetComponent<Lobster>().enabled = true;
 				card.GetComponent<Lobster>().floorAssigned = gameObject;
                 cardType = CardType.Lobster;
-				//update the stats
-				card.GetComponent<CardStats>().UpdateDisplay();
             }
             //if the card set here is an attachment
         }
@@ -68,4 +66,11 @@ public class FloorSpot : MonoBehaviour {
 		SetCard(card);
 	}
 
+	public void ResetCardForNewTurn()
+	{
+		if(cardInPlay && cardInPlay.GetComponent<Lobster>())
+		{
+			cardInPlay.GetComponent<Lobster>().ResetForNewTurn();
+		}
+	}
 }

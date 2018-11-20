@@ -27,13 +27,32 @@ public class Lobster : MonoBehaviour {
         state = LobsterState.Attack;
     }
 
+    private void Start()
+    {
+        deathSound = FindObjectOfType<TurnManager>().transform.Find("DeathSound").GetComponent<AudioSource>();
+    }
+
+    public void SetData(CardData newData)
+    {
+        data = newData;
+        GetComponent<CardStats>().cardData = newData;
+        GetComponent<CardStats>().UpdateDisplay();
+    }
+
     //=========================================================================
     //Battle, most functions only used for players
     //=========================================================================
-    public void RestMoveButton()
+    public void ResetForNewTurn()
+    {
+        if(state == LobsterState.Defence)
+            SwitchState();
+        ResetMoveButton();
+    }
+    public void ResetMoveButton()
     {
         attackButton.SetActive(true);
         defendButton.SetActive(true);
+        moveMenu.SetActive(false);
     }
 
     public void OpenMoveMenu()
@@ -67,6 +86,7 @@ public class Lobster : MonoBehaviour {
         }
         else
         {
+            GetComponent<Animator>().Play("idle", -1, 0);
             state = LobsterState.Attack;
         }
     }
@@ -118,8 +138,7 @@ public class Lobster : MonoBehaviour {
                 //create a card and assign rock data to it
                 BattleManager battleManager = FindObjectOfType<BattleManager>();
                 GameObject newRock = Instantiate(battleManager.lobsterCard, Vector3.zero, Quaternion.identity);
-                newRock.GetComponent<CardStats>().cardData = battleManager.rock;
-                newRock.GetComponent<Lobster>().data = battleManager.rock;
+                newRock.GetComponent<Lobster>().SetData(battleManager.rockData);
                 //use the rock in the floor
                 floorAssigned.GetComponent<FloorSpot>().SetCard(newRock, owner);
             }
