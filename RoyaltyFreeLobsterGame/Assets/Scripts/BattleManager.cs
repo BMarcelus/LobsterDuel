@@ -6,7 +6,8 @@ using System;
 public class BattleManager : MonoBehaviour {
     private Floor enemyFloor;
     private Floor playerFloor;
-    public GameObject rock;
+    public GameObject lobsterCard;
+    public CardData rockData;
     private GameObject opponent;
 
     private Camera mainCamera;
@@ -22,9 +23,14 @@ public class BattleManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        CheckLobsterClick();
-        if (choosingTarget)
-            CheckChoosingTarget();
+        //in user's turn, they can make movements of their lobsters
+        if(GetComponent<TurnManager>().IsPlayerTurn())
+        {
+            CheckLobsterClick();
+            if (choosingTarget)
+                CheckChoosingTarget();
+        }
+
     }
 
     //=======================================================================================

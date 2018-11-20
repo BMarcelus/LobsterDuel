@@ -76,4 +76,11 @@ public class Floor : MonoBehaviour {
 
     }
 
+    public void ResetSpotsForNewTurn()
+    {
+        foreach(GameObject spot in spots)
+        {
+            spot.GetComponent<FloorSpot>().ResetCardForNewTurn();
+        }
+    }
 }

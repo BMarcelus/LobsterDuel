@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerHand : MonoBehaviour {
 	private List<GameObject> cardsInHand = new List<GameObject>();
 	public float cardInterval;
-  public AudioSource cardSelectSound;
-  public AudioSource cardPlaceSound;
+	public CardData testCarData;
+  	public AudioSource cardSelectSound;
+  	public AudioSource cardPlaceSound;
 	public bool canPlaceCard = true;
+	public GameObject manager;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
+		manager = GameObject.FindObjectOfType<TurnManager>().gameObject;
 	}
 	
 	// Update is called once per frame
@@ -42,6 +45,7 @@ public class PlayerHand : MonoBehaviour {
 	{
 		GameObject newCard = GameObject.Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
 		newCard.transform.parent = transform;
+		newCard.GetComponent<Lobster>().SetData(testCarData);
 		cardsInHand.Add(newCard);
 		ResetCardPositions();
 	}
@@ -186,12 +190,13 @@ public class PlayerHand : MonoBehaviour {
 
 	private void PlaceCard(GameObject spot)
 	{
-		if(canPlaceCard && spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
+		if(manager.GetComponent<TurnManager>().IsPlayerTurn() && canPlaceCard 
+			&& spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
 		{
 			spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
 			cardsInHand.RemoveAt(selectedCardIndex);	
 			canPlaceCard = false;
-      cardPlaceSound.Play();
+     		cardPlaceSound.Play();
 		}
 	}
 

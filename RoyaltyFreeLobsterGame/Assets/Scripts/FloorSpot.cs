@@ -57,8 +57,20 @@ public class FloorSpot : MonoBehaviour {
                 cardType = CardType.Lobster;
             }
             //if the card set here is an attachment
-
         }
 	}
 
+	public void SetCard(GameObject card, GameObject owner)
+	{
+        card.GetComponent<Lobster>().owner = owner;
+		SetCard(card);
+	}
+
+	public void ResetCardForNewTurn()
+	{
+		if(cardInPlay && cardInPlay.GetComponent<Lobster>())
+		{
+			cardInPlay.GetComponent<Lobster>().ResetForNewTurn();
+		}
+	}
 }
