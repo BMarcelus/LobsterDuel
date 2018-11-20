@@ -1,53 +1,69 @@
-﻿ 
-Shader "Custom/NewShader" {
+﻿Shader "Custom/NewShader" {
     Properties {
         _MainTex ("Base (RGB)", 2D) = "white" {}
+        _noiseTexture("noise texture", 2D) = "white"{}
         //_transparent("transparent slider", Range(0,1) = 0.5
-        _transparency ("transparency", Float) = 1
-        _transparencyOscillation ("transparency oscillation", Float) = 1
+        _transparency ("transparency", Range(0,1)) = .5
+        _distortStrength("strength of the distortion", range(0,1))=.025
+        _distortionSpeed("speed of the distortion movement",range(0,.1))=.05
     }
     SubShader {
         Tags { "Queue"= "Transparent" "RenderType"="Transparent" }
         LOD 200
         Zwrite off
         Blend SrcAlpha OneMinusSrcAlpha
-        CGPROGRAM
-        #pragma surface surf Lambert vertex:vert alpha
         
- 
+        Pass{
+        
+        CGPROGRAM
+        
+        #pragma vertex vert
+        #pragma fragment frag
+        
+        #include "UnityCG.cginc"
         sampler2D _MainTex;
         float4 _MainTex_ST;
 
         float _transparency;
         float _transparencyOscillation;
+
  
-        struct Input {
-            float2 st_MainTex;
+        struct appdata {
+            float4 vertex: POSITION;
+            float2 uv: TEXCOORD0;
+        };
+        struct v2f{
+            float4 vertex: SV_POSITION;
+            float2 uv:TEXCOORD0;
         };
  
-        void vert (inout appdata_full v, out Input o)
+        v2f vert (appdata v)
         {
-            UNITY_INITIALIZE_OUTPUT(Input,o);
- 
-            o.st_MainTex = TRANSFORM_TEX(v.texcoord, _MainTex);
- 
-            // add distortion
-            // this is the part you need to modify, i  recomment to expose such
-            // hard-coded values to the inspector for easier tweaking.
-            o.st_MainTex.x += sin((o.st_MainTex.x+o.st_MainTex.y)*1 + _Time.g*.3)*0.02;
-            o.st_MainTex.y += cos((o.st_MainTex.x-o.st_MainTex.y)*1 + _Time.g*.7)*0.02;
+            v2f o;   
+            o.vertex = UnityObjectToClipPos(v.vertex);
+            o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+            return o;
         }
  
-        void surf (Input IN, inout SurfaceOutput o) {
-            half4 c = tex2D (_MainTex, IN.st_MainTex);
-            o.Albedo = c.rgb; 
-            float t = _transparency;
-            t = (sin(_Time.g)+1)/2*(t*_transparencyOscillation) + t*(1-_transparencyOscillation);
-            o.Alpha = t;
+        sampler2D _noiseTexture;
+        float4 _noiseTexture_st;
+        float _distortStrength,_distortionSpeed;
+
+        fixed4 frag(v2f i) : SV_TARGET{
+            float2 uv = i.uv;
+        
+            float4 noise = tex2D(_noiseTexture,i.uv + _Time*_distortionSpeed);
+            uv.x += noise.r*_distortStrength;
+            uv.y += noise.r*_distortStrength;
+            half4 c = tex2D (_MainTex,uv);
+        
+            c.a =_transparency;
+            return c;
           
         }
         ENDCG
     }
+  }
     FallBack "Diffuse"
 }
  
