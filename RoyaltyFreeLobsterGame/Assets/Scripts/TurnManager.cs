@@ -15,6 +15,16 @@ public class TurnManager : MonoBehaviour {
 
     }
 
+    public void SwitchToEnemy()
+    {
+        currentTurn = Turn.Enemy;
+    }
+
+    public void SwitchToPlayer()
+    {
+
+    }
+
     public void PlayerTurnReset()
     {
         //allow players to place card again
@@ -23,4 +33,8 @@ public class TurnManager : MonoBehaviour {
         playerFloor.GetComponent<Floor>().ResetSpotsForNewTurn();
     }
 
+    public bool IsPlayerTurn()
+    {
+        return currentTurn == Turn.Player;
+    }
 }

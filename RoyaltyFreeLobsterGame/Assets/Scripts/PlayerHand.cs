@@ -9,10 +9,12 @@ public class PlayerHand : MonoBehaviour {
   	public AudioSource cardSelectSound;
   	public AudioSource cardPlaceSound;
 	public bool canPlaceCard = true;
+	public GameObject manager;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
+		manager = GameObject.FindObjectOfType<TurnManager>().gameObject;
 	}
 	
 	// Update is called once per frame
@@ -188,12 +190,13 @@ public class PlayerHand : MonoBehaviour {
 
 	private void PlaceCard(GameObject spot)
 	{
-		if(canPlaceCard && spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
+		if(manager.GetComponent<TurnManager>().IsPlayerTurn() && canPlaceCard 
+			&& spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
 		{
 			spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
 			cardsInHand.RemoveAt(selectedCardIndex);	
 			canPlaceCard = false;
-      cardPlaceSound.Play();
+     		cardPlaceSound.Play();
 		}
 	}
 

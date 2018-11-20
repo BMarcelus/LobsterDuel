@@ -45,7 +45,10 @@ public class Lobster : MonoBehaviour {
     public void ResetForNewTurn()
     {
         if(state == LobsterState.Defence)
-            SwitchState();
+        {
+            GetComponent<Animator>().Play("idle", -1, 0);
+            state = LobsterState.Attack;
+        }
         ResetMoveButton();
     }
     public void ResetMoveButton()
@@ -86,7 +89,6 @@ public class Lobster : MonoBehaviour {
         }
         else
         {
-            GetComponent<Animator>().Play("idle", -1, 0);
             state = LobsterState.Attack;
         }
     }
