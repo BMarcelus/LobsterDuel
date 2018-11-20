@@ -25,6 +25,7 @@ public class movement : MonoBehaviour {
       float angle = Mathf.Atan2(input.y, input.x);
       Quaternion targetAngle = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
       transform.rotation = Quaternion.Slerp(transform.rotation, targetAngle, 0.2f);
+      transform.Rotate(Mathf.Sin(Time.time*30)*Vector3.forward*input.magnitude*3);
     }
 	}
 }

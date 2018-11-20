@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourBox: {fileID: 408205820}
-  theirBox: {fileID: 98372498}
+  theirBox: {fileID: 660017571}
   sequence: {fileID: 911602218}
 --- !u!1 &954793007
 GameObject:
