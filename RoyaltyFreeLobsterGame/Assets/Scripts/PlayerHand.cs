@@ -14,7 +14,6 @@ public class PlayerHand : MonoBehaviour {
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
-		manager = GameObject.FindObjectOfType<TurnManager>().gameObject;
 	}
 	
 	// Update is called once per frame
