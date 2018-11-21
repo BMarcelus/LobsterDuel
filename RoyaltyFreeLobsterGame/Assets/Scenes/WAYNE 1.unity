@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 69041002}
   - component: {fileID: 69041003}
   - component: {fileID: 69041004}
+  - component: {fileID: 69041005}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -281,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHand: {fileID: 490490318}
   playerFloor: {fileID: 111111574}
+  enemyManager: {fileID: 69041004}
   turnText: {fileID: 523721294}
 --- !u!114 &69041003
 MonoBehaviour:
@@ -309,11 +311,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1146181754}
   enemyFloor: {fileID: 304970816}
+  playerFloor: {fileID: 111111574}
   initialCardDatas:
   - {fileID: 11400000, guid: a1aaf9ea9e930477ea86bfe46158313e, type: 2}
-  - {fileID: 11400000, guid: dab5def381d9c4bc6a78de76899136e1, type: 2}
-  - {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
+  - {fileID: 11400000, guid: 31afcdac1c0bc46018a04b2368f6bcd3, type: 2}
+  - {fileID: 0}
   card: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+  battleManager: {fileID: 69041003}
+  turnManager: {fileID: 69041002}
+  enemyAI: {fileID: 69041005}
+--- !u!114 &69041005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69041000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6e7b3e0cb96c0428bc98c6946f27f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &111111574
 GameObject:
   m_ObjectHideFlags: 0

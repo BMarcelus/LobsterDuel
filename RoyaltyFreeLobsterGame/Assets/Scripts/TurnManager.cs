@@ -11,6 +11,7 @@ public class TurnManager : MonoBehaviour {
     private Turn currentTurn;
     public PlayerHand playerHand;
     public GameObject playerFloor;
+    public EnemyManager enemyManager;
     public Text turnText;
     void Start()
     {
@@ -23,6 +24,7 @@ public class TurnManager : MonoBehaviour {
         {
             currentTurn = Turn.Enemy;
             UpdateTurnUI();
+            enemyManager.StartEnemyTurn();
         }
     }
 

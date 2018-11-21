@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Lobster[] GetOrder(GameObject[] spots)
+	{
+
+		return new Lobster[1]{null};
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	//get attacker enemy and player's floor, return which player lobster enemy should attack
+	public EnemyMove GetTarget(Lobster attacker, GameObject playerFloor)
+	{
+		return EnemyMove.Idle;
 	}
+
 }
