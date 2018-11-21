@@ -4,6 +4,7 @@
         _noiseTexture("noise texture", 2D) = "white"{}
         //_transparent("transparent slider", Range(0,1) = 0.5
         _transparency ("transparency", Range(0,1)) = .5
+        _transparencyOscillation ("transparency Oscillation", Range(0,1)) = .5
         _distortStrength("strength of the distortion", range(0,1))=.025
         _distortionSpeed("speed of the distortion movement",range(0,.1))=.05
     }
@@ -56,8 +57,10 @@
             uv.x += noise.r*_distortStrength;
             uv.y += noise.r*_distortStrength;
             half4 c = tex2D (_MainTex,uv);
+            float t = _transparency;
+            t = (sin(_Time.g/2)+1)/2*(t*_transparencyOscillation) + t*(1-_transparencyOscillation);
+            c.a = t;
         
-            c.a =_transparency;
             return c;
           
         }
