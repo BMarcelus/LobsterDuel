@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Turn{
     Player,
@@ -10,19 +11,26 @@ public class TurnManager : MonoBehaviour {
     private Turn currentTurn;
     public PlayerHand playerHand;
     public GameObject playerFloor;
+    public Text turnText;
     void Start()
     {
-
+        UpdateTurnUI();
     }
 
     public void SwitchToEnemy()
     {
-        currentTurn = Turn.Enemy;
+        if(currentTurn == Turn.Player)
+        {
+            currentTurn = Turn.Enemy;
+            UpdateTurnUI();
+        }
     }
 
     public void SwitchToPlayer()
     {
-
+        currentTurn = Turn.Player;
+        PlayerTurnReset();
+        UpdateTurnUI();
     }
 
     public void PlayerTurnReset()
@@ -36,5 +44,10 @@ public class TurnManager : MonoBehaviour {
     public bool IsPlayerTurn()
     {
         return currentTurn == Turn.Player;
+    }
+
+    public void UpdateTurnUI()
+    {
+        turnText.text = currentTurn.ToString() + "'s Turn";
     }
 }

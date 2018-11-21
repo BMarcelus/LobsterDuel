@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 69041001}
   - component: {fileID: 69041002}
   - component: {fileID: 69041003}
+  - component: {fileID: 69041004}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -280,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHand: {fileID: 490490318}
   playerFloor: {fileID: 111111574}
+  turnText: {fileID: 523721294}
 --- !u!114 &69041003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +296,24 @@ MonoBehaviour:
   lobsterCard: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
     type: 2}
   rockData: {fileID: 11400000, guid: fb1142e9b66b2485a91bbbae2075d8a2, type: 2}
+--- !u!114 &69041004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69041000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665839c20658c604fad6ef1130c730de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1146181754}
+  enemyFloor: {fileID: 304970816}
+  initialCardDatas:
+  - {fileID: 11400000, guid: a1aaf9ea9e930477ea86bfe46158313e, type: 2}
+  - {fileID: 11400000, guid: dab5def381d9c4bc6a78de76899136e1, type: 2}
+  - {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
+  card: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
 --- !u!1 &111111574
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +408,6 @@ MonoBehaviour:
   - {fileID: 2147448646}
   - {fileID: 1688693512}
   - {fileID: 778219353}
-  test: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
 --- !u!1 &250809701
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +700,6 @@ MonoBehaviour:
   - {fileID: 482114659}
   - {fileID: 432503725}
   - {fileID: 322823947}
-  test: {fileID: 1874084470}
 --- !u!212 &304970818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1133,6 +1151,7 @@ MonoBehaviour:
   cardSelectSound: {fileID: 490490320}
   cardPlaceSound: {fileID: 490490319}
   canPlaceCard: 1
+  manager: {fileID: 69041000}
 --- !u!82 &490490319
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1323,6 +1342,81 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &523721292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523721293}
+  - component: {fileID: 523721295}
+  - component: {fileID: 523721294}
+  m_Layer: 5
+  m_Name: TurnText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &523721293
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523721292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 835838482}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 320, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &523721294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523721292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &523721295
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523721292}
+  m_CullTransparentMesh: 0
 --- !u!1 &554700395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1428,7 @@ GameObject:
   - component: {fileID: 554700398}
   - component: {fileID: 554700397}
   m_Layer: 5
-  m_Name: Image
+  m_Name: playerHealthUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1840,6 +1934,7 @@ RectTransform:
   - {fileID: 660974782}
   - {fileID: 554700396}
   - {fileID: 13527807}
+  - {fileID: 523721293}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2062,7 +2157,7 @@ GameObject:
   - component: {fileID: 1146181758}
   m_Layer: 0
   m_Name: opponent
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2349,7 +2444,7 @@ GameObject:
   - component: {fileID: 1841428620}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2568,11 +2663,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1874084470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1874084469}
 --- !u!1 &1996514163
 GameObject:
   m_ObjectHideFlags: 0
