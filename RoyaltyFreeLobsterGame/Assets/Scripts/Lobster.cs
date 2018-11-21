@@ -163,4 +163,8 @@ public class Lobster : MonoBehaviour {
     {
         return data.attack;
     }
+    public int GetShell()
+    {
+        return data.defense;
+    }
 }

@@ -8,7 +8,8 @@ public enum EnemyMove
 	AttackCenter = 1,
 	AttackRight = 2,
 	Defend,
-	Idle
+	Idle,
+	AttackPlayer
 }
 
 public class EnemyManager : MonoBehaviour {
@@ -41,7 +42,6 @@ public class EnemyManager : MonoBehaviour {
         GameObject newCard = Instantiate(card, transform.position, Quaternion.identity);
 		//give them datas
 		newCard.GetComponent<Lobster>().SetData(data);
-		newCard.GetComponent<Lobster>().owner = enemy;
 		//set them to correct position
         spot.GetComponent<FloorSpot>().SetCard(newCard);
 	}
@@ -56,11 +56,20 @@ public class EnemyManager : MonoBehaviour {
 
 	private IEnumerator EnemyTurn()
 	{
+		
+		//decide move orders
+		List<Lobster> lobsters = enemyAI.GetOrder(spots);
+		//reset all enemies
+		foreach(Lobster lob in lobsters)
+		{
+			if(lob.GetState() == LobsterState.Defence)
+			{
+				lob.ResetForNewTurn();
+			}
+		}
 		//draw card?
 		yield return new WaitForSeconds(0.5f);
-		//decide move orders
-		Lobster[] lobsters = enemyAI.GetOrder(spots);
-		//get and make movement for each
+		//get and make movement for each lobster
 		foreach(Lobster lob in lobsters)
 		{
 			EnemyMove move = enemyAI.GetTarget(lob, playerFloor);
@@ -72,10 +81,16 @@ public class EnemyManager : MonoBehaviour {
 			else if(move == EnemyMove.Defend) //defend
 			{
 				lob.DefendButton();
-			}else //attack player
+			}else if(move == EnemyMove.AttackPlayer) //attack player
+			{
+				GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().GetHurt(lob.GetClaw());
+			}
+			else//attackj player's lobsters
 			{
 				int targetIndex = (int)move;
-				battleManager.Battle(lob, playerFloor.GetComponent<Floor>().spots[targetIndex].GetComponent<Lobster>());
+				//why it's so long, sorry Brian
+				Lobster target = playerFloor.GetComponent<Floor>().spots[targetIndex].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>();
+				battleManager.Battle(lob, target);
 			}
 			yield return new WaitForSeconds(1);
 		}

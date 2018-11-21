@@ -55,6 +55,13 @@ public class FloorSpot : MonoBehaviour {
                 card.GetComponent<Lobster>().enabled = true;
 				card.GetComponent<Lobster>().floorAssigned = gameObject;
                 cardType = CardType.Lobster;
+				//set owner
+				if(tag == "PlayerFloor")
+				{
+					card.GetComponent<Lobster>().owner = GameObject.FindGameObjectWithTag("Player");
+				}else{
+					card.GetComponent<Lobster>().owner = GameObject.FindGameObjectWithTag("Enemy");
+				}
             }
             //if the card set here is an attachment
         }
