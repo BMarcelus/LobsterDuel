@@ -6,30 +6,6 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour {
 	public GameObject[] spots;
-    // Use this for initialization
-    [Header("Temporary For Test")]
-    public GameObject test;
-
-    void Start () {
-        //for test
-        if(gameObject.tag == "EnemyFloor")
-        {
-            GameObject test1 = Instantiate(test, transform.position, Quaternion.identity);
-            GameObject test2 = Instantiate(test, transform.position, Quaternion.identity);
-            GameObject test3 = Instantiate(test, transform.position, Quaternion.identity);
-            spots[0].GetComponent<FloorSpot>().SetCard(test1);
-            spots[1].GetComponent<FloorSpot>().SetCard(test2);
-            spots[2].GetComponent<FloorSpot>().SetCard(test3);
-
-            spots[1].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().DefendButton();
-            
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
 
 	//return which spot pos is in
 	public GameObject SpotTouched(Vector2 pos)

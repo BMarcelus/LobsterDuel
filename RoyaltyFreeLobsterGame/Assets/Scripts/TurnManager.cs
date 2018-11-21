@@ -19,8 +19,11 @@ public class TurnManager : MonoBehaviour {
 
     public void SwitchToEnemy()
     {
-        currentTurn = Turn.Enemy;
-        UpdateTurnUI();
+        if(currentTurn == Turn.Player)
+        {
+            currentTurn = Turn.Enemy;
+            UpdateTurnUI();
+        }
     }
 
     public void SwitchToPlayer()

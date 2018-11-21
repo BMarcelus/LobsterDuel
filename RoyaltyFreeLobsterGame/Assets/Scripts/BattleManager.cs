@@ -117,8 +117,7 @@ public class BattleManager : MonoBehaviour {
                 }
                 if (attacked)
                 {
-                    attacked.GetHurt(attackerLobster.GetClaw());
-                    attackerLobster.HideMoveButtons();
+                    Battle(attackerLobster, attacked);
                 }
             }
             else//when attacking opponent directly
@@ -141,6 +140,10 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
-    
+    public void Battle(Lobster attacker, Lobster attacked)
+    {
+        attacked.GetHurt(attacker.GetClaw());
+        attacker.HideMoveButtons();
+    }    
 
 }
