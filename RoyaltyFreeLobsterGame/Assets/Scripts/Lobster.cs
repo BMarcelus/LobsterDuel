@@ -14,6 +14,7 @@ public class Lobster : MonoBehaviour {
     public CardData data;
     public GameObject owner;
     public GameObject floorAssigned;
+    public bool canAttack = true;
     [Header("UI on floor")]
     public GameObject moveMenu;
     public GameObject attackButton;
@@ -49,19 +50,16 @@ public class Lobster : MonoBehaviour {
             GetComponent<Animator>().Play("idle", -1, 0);
             state = LobsterState.Attack;
         }
-        ResetMoveButton();
-    }
-    public void ResetMoveButton()
-    {
-        attackButton.SetActive(true);
-        defendButton.SetActive(true);
-        moveMenu.SetActive(false);
+        canAttack = true;
     }
 
     public void OpenMoveMenu()
     {
-        moveMenu.SetActive(true);
-        moveMenu.transform.localScale = new Vector3(1, 1, 1);
+        if(canAttack)
+        {
+            moveMenu.SetActive(true);
+            moveMenu.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void CloseMoveMenu()
@@ -99,15 +97,9 @@ public class Lobster : MonoBehaviour {
     }
     public void DefendButton()
     {
-
-        HideMoveButtons();
         state = LobsterState.Defence;
         GetComponent<Animator>().Play("Defend", -1, 0);
-    }
-    public void HideMoveButtons()
-    {
-        attackButton.SetActive(false);
-        defendButton.SetActive(false);
+        canAttack = false;
     }
 
     private IEnumerator Rotate(Vector3 angle, int times)

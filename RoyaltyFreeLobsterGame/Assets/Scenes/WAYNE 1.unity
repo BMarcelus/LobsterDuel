@@ -316,7 +316,7 @@ MonoBehaviour:
   playerFloor: {fileID: 111111574}
   initialCardDatas:
   - {fileID: 11400000, guid: a1aaf9ea9e930477ea86bfe46158313e, type: 2}
-  - {fileID: 11400000, guid: 31afcdac1c0bc46018a04b2368f6bcd3, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   card: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
   battleManager: {fileID: 69041003}

@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour {
 				SetEnemy(initialCardDatas[x], spots[x]);
 		}
 		//set their states
-		spots[1].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().DefendButton();
+		//spots[1].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>().DefendButton();
 
 	}
 

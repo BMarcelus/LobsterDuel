@@ -48,7 +48,9 @@ public class FloorSpot : MonoBehaviour {
 	{
 		//destroy the card here first
 		if(cardInPlay != null)
+		{
 			Destroy(cardInPlay);
+		}
 		//if null is set, no need to do extra work.
 		if(card == null)
 		{

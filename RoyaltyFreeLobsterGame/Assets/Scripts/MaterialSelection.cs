@@ -85,7 +85,8 @@ public class MaterialSelection : MonoBehaviour {
 	}
 	private void SelectSpot(FloorSpot spot)
 	{
-		if(spot.GetCardInPlay())
+		//only lobsters who have not attacked can be used as material
+		if(spot.GetCardInPlay() && spot.GetCardInPlay().GetComponent<Lobster>() && spot.GetCardInPlay().GetComponent<Lobster>().canAttack)
 		{
 			selectedSpots.Add(spot);
 			SetGlobalScale(spot.GetCardInPlay(), SystemManager.cardSelectedScale);

@@ -131,7 +131,7 @@ public class BattleManager : MonoBehaviour {
                 RaycastHit2D result = Physics2D.Raycast(mousePos, Vector2.zero);
                 if (result && result.collider.gameObject == opponent)
                 {
-                    attackerLobster.HideMoveButtons();
+                    attackerLobster.canAttack = false;
                     result.collider.GetComponent<Player>().GetHurt(attackerLobster.GetClaw());
                 }
 
@@ -143,7 +143,7 @@ public class BattleManager : MonoBehaviour {
     public void Battle(Lobster attacker, Lobster attacked)
     {
         attacked.GetHurt(attacker.GetClaw());
-        attacker.HideMoveButtons();
+        attacker.canAttack = false;
     }    
 
 }
