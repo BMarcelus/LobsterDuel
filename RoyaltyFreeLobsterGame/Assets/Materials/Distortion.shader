@@ -1,4 +1,4 @@
-﻿Shader "Custom/NewShader" {
+﻿Shader "Custom/Distortion" {
     Properties {
         _MainTex ("Base (RGB)", 2D) = "white" {}
         _noiseTexture("noise texture", 2D) = "white"{}
@@ -12,6 +12,10 @@
         Tags { "Queue"= "Transparent" "RenderType"="Transparent" }
         LOD 200
         Zwrite off
+        Cull Off
+        Lighting Off
+        ZWrite Off
+
         Blend SrcAlpha OneMinusSrcAlpha
         
         Pass{
@@ -59,7 +63,7 @@
             half4 c = tex2D (_MainTex,uv);
             float t = _transparency;
             t = (sin(_Time.g/2)+1)/2*(t*_transparencyOscillation) + t*(1-_transparencyOscillation);
-            c.a = t;
+            c.a *= t;
         
             return c;
           
