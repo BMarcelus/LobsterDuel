@@ -7,8 +7,10 @@ public class BattleManager : MonoBehaviour {
     private Floor enemyFloor;
     private Floor playerFloor;
     public GameObject materialSelectionPanel;
+    public GameObject addingRockPanel;
     public GameObject lobsterCard;
     public CardData rockData;
+    private GameObject player;
     private GameObject opponent;
     private Camera mainCamera;
     // Use this for initialization
@@ -17,7 +19,9 @@ public class BattleManager : MonoBehaviour {
         playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
         enemyFloor = GameObject.FindGameObjectWithTag("EnemyFloor").GetComponent<Floor>();
         mainCamera = GameObject.FindObjectOfType<Camera>();
-        opponent = GameObject.Find("opponent");
+        opponent = GameObject.FindGameObjectWithTag("Enemy");
+        player = GameObject.FindGameObjectWithTag("Player");
+        addingRockPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -129,10 +133,13 @@ public class BattleManager : MonoBehaviour {
                                                                                          1f);
                 //check if touched opponent
                 RaycastHit2D result = Physics2D.Raycast(mousePos, Vector2.zero);
+                //attacking enemy
                 if (result && result.collider.gameObject == opponent)
                 {
                     attackerLobster.canAttack = false;
                     result.collider.GetComponent<Player>().GetHurt(attackerLobster.GetClaw());
+                    //enemy put a rock
+                    GetComponent<EnemyManager>().PlaceRock();
                 }
 
             }
@@ -145,5 +152,26 @@ public class BattleManager : MonoBehaviour {
         attacked.GetHurt(attacker.GetClaw());
         attacker.canAttack = false;
     }    
+
+    //player choose to add a rock in one spot, called after player is attacked directly
+    public IEnumerator PlayerAddRock()
+    {
+        //show UI to tell users they need to add a rock
+        addingRockPanel.SetActive(true);
+        Vector3 mousePos;
+        GameObject spot = null;
+        //keep getting input until hit some spot
+        while(spot == null)
+        {
+            yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
+            mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            spot = playerFloor.GetComponent<Floor>().SpotTouched(mousePos);
+        }
+        //adding rock at that spot
+        GameObject newRock = Instantiate(lobsterCard, Vector3.zero, Quaternion.identity);
+        newRock.GetComponent<Lobster>().SetData(rockData);
+        spot.GetComponent<FloorSpot>().SetCard(newRock, player);
+        addingRockPanel.SetActive(false);
+    }
 
 }

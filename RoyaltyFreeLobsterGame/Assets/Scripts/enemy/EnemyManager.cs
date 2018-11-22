@@ -84,6 +84,8 @@ public class EnemyManager : MonoBehaviour {
 			}else if(move == EnemyMove.AttackPlayer) //attack player
 			{
 				GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().GetHurt(lob.GetClaw());
+				//drop a stone
+				yield return battleManager.PlayerAddRock();
 			}
 			else//attackj player's lobsters
 			{
@@ -96,6 +98,18 @@ public class EnemyManager : MonoBehaviour {
 		}
 		//end the turn
 		turnManager.SwitchToPlayer();
+	}
+
+	//=============================================================================
+	//Enemy's movement in Player's Turn
+	//=============================================================================
+	public void PlaceRock()
+	{
+		//adding rock at a random spot
+		GameObject spot = enemyFloor.GetComponent<Floor>().spots[Random.Range(0, 3)];
+        GameObject newRock = Instantiate(battleManager.lobsterCard, Vector3.zero, Quaternion.identity);
+        newRock.GetComponent<Lobster>().SetData(battleManager.rockData);
+        spot.GetComponent<FloorSpot>().SetCard(newRock, enemy);
 	}
 
 }
