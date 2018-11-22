@@ -23,12 +23,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _noiseTexture:
-        m_Texture: {fileID: 2800000, guid: 96914a56bb48b004a8df1eb639191e00, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8d74b29d8b8ef5e47a61455b64766284, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _distortStrength: 0
-    - _distortionSpeed: 0.0148
-    - _transparency: 1
-    - _transparencyOscillation: 0
+    - _distortStrength: 0.094
+    - _distortionSpeed: 0.0149
+    - _transparency: 0.781
+    - _transparencyOscillation: 0.219
     m_Colors: []
