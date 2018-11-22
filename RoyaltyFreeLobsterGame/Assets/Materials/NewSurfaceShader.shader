@@ -52,7 +52,6 @@
 
         fixed4 frag(v2f i) : SV_TARGET{
             float2 uv = i.uv;
-        
             float4 noise = tex2D(_noiseTexture,i.uv + _Time*_distortionSpeed);
             uv.x += noise.r*_distortStrength;
             uv.y += noise.r*_distortStrength;
@@ -60,7 +59,6 @@
             float t = _transparency;
             t = (sin(_Time.g/2)+1)/2*(t*_transparencyOscillation) + t*(1-_transparencyOscillation);
             c.a = t;
-        
             return c;
           
         }
