@@ -11,6 +11,7 @@ public class PlayerHand : MonoBehaviour {
   	public AudioSource cardPlaceSound;
 	public bool canPlaceCard = true;
 	public GameObject manager;
+	public MaterialSelection materSelectionManager;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -20,7 +21,8 @@ public class PlayerHand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        TestCardDraging();
+		if(!materSelectionManager.gameObject.activeSelf)
+        	TestCardDraging();
 	}
 
 	public void ResetForNewTurn()
@@ -165,7 +167,7 @@ public class PlayerHand : MonoBehaviour {
 			//touch a spot, see if able to put card there
 			if(spot)
 			{
-				PlaceCard(spot);
+				TryToPlaceCard(spot);
 			}
             cardClicking = -1;
 			UnselectCard();
@@ -182,7 +184,7 @@ public class PlayerHand : MonoBehaviour {
         selectedCardIndex = cardIndex;
         selectingCard = true;
         //make the selected card larger
-		cardsInHand[selectedCardIndex].transform.localScale = new Vector3(2f, 2f, 1f);
+		cardsInHand[selectedCardIndex].transform.localScale = SystemManager.cardSelectedScale;
 		//make the card above all others
 		Vector3 temp = cardsInHand[selectedCardIndex].transform.position;
 		temp.z = -9;
@@ -195,21 +197,35 @@ public class PlayerHand : MonoBehaviour {
         //the card may have just been used and is not in list
         if (selectedCardIndex != -1 && selectedCardIndex < cardsInHand.Count)
 		{
-			cardsInHand[selectedCardIndex].transform.localScale = new Vector3(1.5f, 1.5f, 1);
+			cardsInHand[selectedCardIndex].transform.localScale = SystemManager.cardNormalScale;
 		}
 		selectingCard = false;
 		selectedCardIndex = -1;
 	}
 
-	private void PlaceCard(GameObject spot)
+	private void TryToPlaceCard(GameObject spot)
 	{
-		if(manager.GetComponent<TurnManager>().IsPlayerTurn() && canPlaceCard
-			&& selectingCard && CanPlaceDirectly(cardsInHand[selectedCardIndex], spot))
+		if(manager.GetComponent<TurnManager>().IsPlayerTurn() && canPlaceCard && selectingCard)
 		{
-			spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
-			cardsInHand.RemoveAt(selectedCardIndex);	
+			if(CanPlaceDirectly(cardsInHand[selectedCardIndex], spot))
+			{
+				PlaceCard(cardsInHand[selectedCardIndex], spot);
+			}else{
+				materSelectionManager.StartMaterialSelection(cardsInHand[selectedCardIndex], spot);
+			}
+			
+		}
+	}
+
+	public void PlaceCard(GameObject card, GameObject spot)
+	{
+		if(cardsInHand.Contains(card))
+		{
+			spot.GetComponent<FloorSpot>().SetCard(card);
+			cardsInHand.Remove(card);	
 			canPlaceCard = false;
-     		cardPlaceSound.Play();
+			cardPlaceSound.Play();
+			ResetCardPositions();
 		}
 	}
 

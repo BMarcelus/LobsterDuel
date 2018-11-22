@@ -29,11 +29,26 @@ public class FloorSpot : MonoBehaviour {
     //return what is the type of card in this spot, null there is no card here
     public CardType GetCardType()
     {
-            return cardType;
+        return cardType;
     }
+
+	public CardData GetCardData()
+	{
+		if (cardInPlay != null)
+		{
+			return cardInPlay.GetComponent<CardStats>().cardData;
+		}
+		else
+		{
+			return null;
+		}
+	}
 
     public void SetCard(GameObject card)
 	{
+		//destroy the card here first
+		if(cardInPlay != null)
+			Destroy(cardInPlay);
 		//if null is set, no need to do extra work.
 		if(card == null)
 		{
@@ -41,9 +56,6 @@ public class FloorSpot : MonoBehaviour {
 			return;
 		}else
 		{
-			//destroy the card here first
-			if(cardInPlay != null)
-				Destroy(cardInPlay);
 			this.cardInPlay = card;
 			//temporary
 			card.tag = "Untagged";
