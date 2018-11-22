@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerHand : MonoBehaviour {
 	private List<GameObject> cardsInHand = new List<GameObject>();
 	public float cardInterval;
-	public CardData testCarData;
+	public GameObject card;
+	public Deck deck;
   	public AudioSource cardSelectSound;
   	public AudioSource cardPlaceSound;
 	public bool canPlaceCard = true;
@@ -14,6 +15,7 @@ public class PlayerHand : MonoBehaviour {
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
+		StartCoroutine(DrawMultipleCards(4));
 	}
 	
 	// Update is called once per frame
@@ -24,11 +26,20 @@ public class PlayerHand : MonoBehaviour {
 	public void ResetForNewTurn()
 	{
 		canPlaceCard = true;
+		AddCardToHand();
 	}
 
 	//========================================================================
 	// Hand Cards Manipulate
 	//========================================================================
+	private IEnumerator DrawMultipleCards(int num)
+	{
+		for(int x = 0; x < num; ++x)
+		{
+			AddCardToHand();
+			yield return new WaitForSeconds(0.2f);
+		}
+	}
 	private void ResetCardPositions()
 	{
 		//calculate the area of hand
@@ -40,11 +51,13 @@ public class PlayerHand : MonoBehaviour {
 			cardsInHand[index].transform.localPosition = new Vector3(startX + index * cardInterval , 0, -0.1f * index);
 		}
 	}
-	public void AddCardToHand(GameObject card)
+	public void AddCardToHand()
 	{
 		GameObject newCard = GameObject.Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
 		newCard.transform.parent = transform;
-		newCard.GetComponent<Lobster>().SetData(testCarData);
+		CardData newCardData = deck.DrawACard();
+		//if(newCardData == null)  game over
+		newCard.GetComponent<Lobster>().SetData(newCardData);
 		cardsInHand.Add(newCard);
 		ResetCardPositions();
 	}
@@ -199,5 +212,8 @@ public class PlayerHand : MonoBehaviour {
 		}
 	}
 
-
+	//========================================================================
+	//Card Level Up
+	//========================================================================
+	
 }
