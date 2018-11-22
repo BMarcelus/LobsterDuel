@@ -34,6 +34,7 @@ public class PlayerHand : MonoBehaviour {
 	//========================================================================
 	private IEnumerator DrawMultipleCards(int num)
 	{
+		yield return new WaitForSeconds(0.01f);
 		for(int x = 0; x < num; ++x)
 		{
 			AddCardToHand();
@@ -174,9 +175,9 @@ public class PlayerHand : MonoBehaviour {
 
 	private void SelectCard(int cardIndex)
 	{
-    if(selectedCardIndex != cardIndex) {
-      cardSelectSound.Play();
-    }
+		if(selectedCardIndex != cardIndex) {
+			cardSelectSound.Play();
+		}
 		UnselectCard();
         selectedCardIndex = cardIndex;
         selectingCard = true;
@@ -202,8 +203,8 @@ public class PlayerHand : MonoBehaviour {
 
 	private void PlaceCard(GameObject spot)
 	{
-		if(manager.GetComponent<TurnManager>().IsPlayerTurn() && canPlaceCard 
-			&& spot.GetComponent<FloorSpot>().GetCardInPlay() == null && selectingCard)
+		if(manager.GetComponent<TurnManager>().IsPlayerTurn() && canPlaceCard
+			&& selectingCard && CanPlaceDirectly(cardsInHand[selectedCardIndex], spot))
 		{
 			spot.GetComponent<FloorSpot>().SetCard(cardsInHand[selectedCardIndex]);
 			cardsInHand.RemoveAt(selectedCardIndex);	
@@ -216,4 +217,16 @@ public class PlayerHand : MonoBehaviour {
 	//Card Level Up
 	//========================================================================
 	
+	//if the card at this spot is enough to be used as material to use the new card
+	private bool CanPlaceDirectly(GameObject card, GameObject spot)
+	{
+		GameObject cardInPlay = spot.GetComponent<FloorSpot>().GetCardInPlay();
+		int cardlevel = card.GetComponent<CardStats>().cardData.level;
+		//level 1 card can be placed at an empty space
+		if(cardInPlay == null)
+			return cardlevel == 1;
+		else //if there is a card in this spot, and it is enough to fit the material requirement
+			return cardInPlay.GetComponent<CardStats>().cardData.level >= cardlevel - 1;
+	}
+
 }

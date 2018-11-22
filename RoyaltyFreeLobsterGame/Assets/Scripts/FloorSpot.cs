@@ -39,8 +39,11 @@ public class FloorSpot : MonoBehaviour {
 		{
 			cardInPlay = null;
 			return;
-		}else if(this.cardInPlay == null)
+		}else
 		{
+			//destroy the card here first
+			if(cardInPlay != null)
+				Destroy(cardInPlay);
 			this.cardInPlay = card;
 			//temporary
 			card.tag = "Untagged";
