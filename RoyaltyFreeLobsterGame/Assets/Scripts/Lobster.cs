@@ -78,6 +78,10 @@ public class Lobster : MonoBehaviour {
         moveMenu.SetActive(false);
     }
 
+    public void CloseMoveMenuImmediately()
+    {
+        moveMenu.SetActive(false);
+    }
     private void SwitchState()
     {
         //change the state and rotate card

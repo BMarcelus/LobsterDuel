@@ -36,6 +36,14 @@ public class MaterialSelection : MonoBehaviour {
 		levelSum = 0;
 		neededLevel = card.GetComponent<CardStats>().cardData.level - 1;
 		selectedSpots = new List<FloorSpot>(3);
+		//hide the moveMenu of all lobsters
+		foreach(GameObject oneSpot in playerFloor.GetComponent<Floor>().spots)
+		{
+			FloorSpot floorSpot = oneSpot.GetComponent<FloorSpot>();
+			//when this spot has lobster
+			if(floorSpot.GetCardInPlay() && floorSpot.GetCardInPlay().GetComponent<Lobster>())
+				floorSpot.GetCardInPlay().GetComponent<Lobster>().CloseMoveMenuImmediately();
+		}
 		UpdateText();
 	}
 

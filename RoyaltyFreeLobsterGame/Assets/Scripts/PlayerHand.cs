@@ -21,7 +21,7 @@ public class PlayerHand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!materSelectionManager.gameObject.activeSelf)
+		if(!materSelectionManager.gameObject.activeSelf && !manager.GetComponent<TurnManager>().IsGameOver())
         	TestCardDraging();
 	}
 

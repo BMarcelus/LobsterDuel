@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public enum Turn{
     Player,
-    Enemy
+    Enemy,
+    GameOver
 }
 public class TurnManager : MonoBehaviour {
     private Turn currentTurn;
@@ -34,6 +35,10 @@ public class TurnManager : MonoBehaviour {
         PlayerTurnReset();
         UpdateTurnUI();
     }
+    public void GameOver()
+    {
+        currentTurn = Turn.GameOver;
+    }
 
     public void PlayerTurnReset()
     {
@@ -46,6 +51,11 @@ public class TurnManager : MonoBehaviour {
     public bool IsPlayerTurn()
     {
         return currentTurn == Turn.Player;
+    }
+
+    public bool IsGameOver()
+    {
+        return currentTurn == Turn.GameOver;
     }
 
     public void UpdateTurnUI()
