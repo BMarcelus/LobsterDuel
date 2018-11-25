@@ -61,7 +61,7 @@
             uv.y += noise.r*_distortStrength;
             half4 c = tex2D (_MainTex,uv);
             float t = _transparency;
-            t = (sin(_Time.g/2)+1)/2*(t*_transparencyOscillation) + t*(1-_transparencyOscillation);
+            t = (sin(_Time.g*.6)+1)/2*(t*_transparencyOscillation) + t*(1-_transparencyOscillation);
             c.a *= t;
         
             return c;

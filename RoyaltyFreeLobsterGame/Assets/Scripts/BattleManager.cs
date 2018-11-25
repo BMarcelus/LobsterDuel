@@ -151,6 +151,13 @@ public class BattleManager : MonoBehaviour {
     {
         attacked.GetHurt(attacker.GetClaw());
         attacker.canAttack = false;
+        if (attacker.transform.position.y<attacked.transform.position.y) {
+          attacker.GetComponent<Animator>().Play("Attack", -1, 0);
+          attacked.GetComponent<Animator>().Play("EnemyGetAttacked", -1, 0);
+        } else {
+          attacker.GetComponent<Animator>().Play("EnemyAttack", -1, 0);
+          attacked.GetComponent<Animator>().Play("GetAttacked", -1, 0);
+        }
     }    
 
     //player choose to add a rock in one spot, called after player is attacked directly

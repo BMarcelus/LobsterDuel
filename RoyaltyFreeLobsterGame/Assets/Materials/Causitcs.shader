@@ -60,8 +60,7 @@
             uv.x += noise.r*_distortStrength;
             uv.y += noise.r*_distortStrength;
             half4 c = tex2D (_MainTex,uv);
-            c.a *= _transparency;
-         //   clip(c.a - _cutoff);        
+            c.a *= _transparency * noise.r;
             return c;
           
         }
