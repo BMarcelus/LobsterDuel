@@ -28,7 +28,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _distortStrength: 0.0729
-    - _distortionSpeed: 0.0102
+    - _distortionSpeed: 0.0055
     - _transparency: 0.937
     - _transparencyOscillation: 0
     m_Colors: []
