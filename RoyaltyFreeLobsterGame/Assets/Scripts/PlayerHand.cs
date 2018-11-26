@@ -12,11 +12,13 @@ public class PlayerHand : MonoBehaviour {
 	public bool canPlaceCard = true;
 	public GameObject manager;
 	public MaterialSelection materSelectionManager;
+	[Header("differ between levels")]
+	public int initialCardNumbers;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
-		StartCoroutine(DrawMultipleCards(4));
+		StartCoroutine(DrawMultipleCards(initialCardNumbers));
 	}
 	
 	// Update is called once per frame
@@ -210,7 +212,11 @@ public class PlayerHand : MonoBehaviour {
 			if(CanPlaceDirectly(cardsInHand[selectedCardIndex], spot))
 			{
 				PlaceCard(cardsInHand[selectedCardIndex], spot);
-			}else{
+			
+			}
+			//for 1 level card don't open material selection panel since will cause problem
+			//(level 1 need 0 material and will succeed level up)
+			else if(cardsInHand[selectedCardIndex].GetComponent<CardStats>().cardData.level > 1){
 				materSelectionManager.StartMaterialSelection(cardsInHand[selectedCardIndex], spot);
 			}
 			
@@ -241,8 +247,10 @@ public class PlayerHand : MonoBehaviour {
 		//level 1 card can be placed at an empty space
 		if(cardInPlay == null)
 			return cardlevel == 1;
-		else //if there is a card in this spot, and it is enough to fit the material requirement
+		//if there is a card in this spot which has not move, and it is enough to fit the material requirement
+		else if(cardInPlay.GetComponent<Lobster>() && cardInPlay.GetComponent<Lobster>().canAttack)
 			return cardInPlay.GetComponent<CardStats>().cardData.level >= cardlevel - 1;
+		else return false;
 	}
 
 }
