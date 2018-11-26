@@ -8,6 +8,8 @@ TagManager:
   - PlayerFloor
   - EnemyFloor
   - Enemy
+  - PlayerSpot
+  - EnemySpot
   layers:
   - Default
   - TransparentFX
