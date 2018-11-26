@@ -62,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1092431250159570
 GameObject:
   m_ObjectHideFlags: 1
@@ -564,7 +564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1777875378823072
 GameObject:
   m_ObjectHideFlags: 1
@@ -580,7 +580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1792226558921352
 GameObject:
   m_ObjectHideFlags: 1
@@ -751,7 +751,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003051713815558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.54, y: -0.517, z: 0.03145221}
+  m_LocalPosition: {x: 6.805, y: -0.65, z: 0.03145221}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4420547528235860}
@@ -1442,7 +1442,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.86248875
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1792,10 +1792,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f826b10275d4e0999401bb1866790d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
+  cardData: {fileID: 11400000, guid: 127e61109fdf34c96b161788b90914a5, type: 2}
   levelDisplay: {fileID: 114553665993694062}
   attackDisplay: {fileID: 114016415442340066}
   defenseDisplay: {fileID: 114287597870441508}
+  nameDisplay: {fileID: 114984512306782306}
+  descriptionDisplay: {fileID: 114300522113597294}
+  characterDisplay: {fileID: 114092545424998004}
+  update: 0
 --- !u!114 &114091284499006214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1974,9 +1978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4beacd14763d3e244a56ac523edf2050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 26f8270aded6c49bea6ddfc83f4e982e, type: 2}
+  data: {fileID: 11400000, guid: 127e61109fdf34c96b161788b90914a5, type: 2}
   owner: {fileID: 0}
   floorAssigned: {fileID: 0}
+  canAttack: 1
   moveMenu: {fileID: 1621876946712812}
   attackButton: {fileID: 1459659094232698}
   defendButton: {fileID: 1309103331846668}
@@ -2348,7 +2353,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CRAIG
+  m_Text: Blue-Eyes White Lobster
 --- !u!212 &212013711901844944
 SpriteRenderer:
   m_ObjectHideFlags: 1
