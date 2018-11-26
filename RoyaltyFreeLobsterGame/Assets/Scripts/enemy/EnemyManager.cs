@@ -24,6 +24,7 @@ public class EnemyManager : MonoBehaviour {
 	private GameObject[] spots;
 	public EnemyHand enemyHand;
 
+
     void Start () {
 		spots = enemyFloor.GetComponent<Floor>().spots;
         //set up enemy's board

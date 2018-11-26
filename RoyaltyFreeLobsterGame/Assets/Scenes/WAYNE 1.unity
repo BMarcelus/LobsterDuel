@@ -249,6 +249,8 @@ GameObject:
   - component: {fileID: 69041004}
   - component: {fileID: 69041005}
   - component: {fileID: 69041006}
+  - component: {fileID: 69041008}
+  - component: {fileID: 69041007}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -288,6 +290,8 @@ MonoBehaviour:
   enemyManager: {fileID: 69041004}
   turnText: {fileID: 523721294}
   turnNumber: 1
+  enemyTurnEvent: {fileID: 69041008}
+  playerTurnEvent: {fileID: 69041007}
 --- !u!114 &69041003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +355,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHand: {fileID: 490490318}
   materialSelectionPanel: {fileID: 1457675136}
+--- !u!114 &69041007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69041000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa1581aeac24c84c96fe259b4bf008f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &69041008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69041000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f285eda3edaa1464caa7dbbc5c266838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyManager: {fileID: 69041004}
 --- !u!1 &111111574
 GameObject:
   m_ObjectHideFlags: 0
