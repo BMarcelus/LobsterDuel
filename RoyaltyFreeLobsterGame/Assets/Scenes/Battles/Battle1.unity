@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 283255434}
   m_Layer: 0
   m_Name: eLeftSpot
-  m_TagString: Untagged
+  m_TagString: EnemySpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 845799186}
   m_Layer: 0
   m_Name: eCenterSpot
-  m_TagString: Untagged
+  m_TagString: EnemySpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 923248128}
   m_Layer: 0
   m_Name: leftSpot
-  m_TagString: Untagged
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1558,7 +1558,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251676097
 GameObject:
@@ -1695,7 +1695,7 @@ GameObject:
   - component: {fileID: 1291760153}
   m_Layer: 0
   m_Name: centerSpot
-  m_TagString: Untagged
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2179,7 +2179,7 @@ GameObject:
   - component: {fileID: 1618714553}
   m_Layer: 0
   m_Name: rightSpot
-  m_TagString: Untagged
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2664,7 +2664,7 @@ Transform:
   - {fileID: 845799188}
   - {fileID: 2055734376}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1892930618
 GameObject:
@@ -3242,6 +3242,7 @@ MonoBehaviour:
   playerFloor: {fileID: 1075860571}
   enemyManager: {fileID: 1967631819}
   turnText: {fileID: 287517535}
+  turnNumber: 1
 --- !u!114 &1967631819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3626,7 +3627,7 @@ GameObject:
   - component: {fileID: 2055734374}
   m_Layer: 0
   m_Name: eRightSpot
-  m_TagString: Untagged
+  m_TagString: EnemySpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
