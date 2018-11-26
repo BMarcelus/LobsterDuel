@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 69041003}
   - component: {fileID: 69041004}
   - component: {fileID: 69041005}
+  - component: {fileID: 69041006}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -337,6 +338,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6e7b3e0cb96c0428bc98c6946f27f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &69041006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69041000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b9a59e199d2b440baac7c2e0eca2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHand: {fileID: 490490318}
+  materialSelectionPanel: {fileID: 1457675136}
 --- !u!1 &111111574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,7 +1937,7 @@ GameObject:
   - component: {fileID: 778219355}
   m_Layer: 0
   m_Name: rightSpot
-  m_TagString: PlayerFloor
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3069,7 +3083,7 @@ GameObject:
   - component: {fileID: 1688693514}
   m_Layer: 0
   m_Name: centerSpot
-  m_TagString: PlayerFloor
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3627,7 +3641,7 @@ GameObject:
   - component: {fileID: 2147448647}
   m_Layer: 0
   m_Name: leftSpot
-  m_TagString: PlayerFloor
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -21,11 +21,6 @@ public class PlayerHand : MonoBehaviour {
 		StartCoroutine(DrawMultipleCards(initialCardNumbers));
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if(!materSelectionManager.gameObject.activeSelf && !manager.GetComponent<TurnManager>().IsGameOver())
-        	TestCardDraging();
-	}
 
 	public void ResetForNewTurn()
 	{
@@ -212,7 +207,6 @@ public class PlayerHand : MonoBehaviour {
 			if(CanPlaceDirectly(cardsInHand[selectedCardIndex], spot))
 			{
 				PlaceCard(cardsInHand[selectedCardIndex], spot);
-			
 			}
 			//for 1 level card don't open material selection panel since will cause problem
 			//(level 1 need 0 material and will succeed level up)

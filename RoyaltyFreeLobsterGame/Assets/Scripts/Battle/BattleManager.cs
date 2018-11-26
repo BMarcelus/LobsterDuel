@@ -24,19 +24,6 @@ public class BattleManager : MonoBehaviour {
         addingRockPanel.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //in user's turn, they can make movements of their lobsters when the selection panel is off
-        if(GetComponent<TurnManager>().IsPlayerTurn() && !materialSelectionPanel.activeSelf)
-        {
-            CheckLobsterClick();
-            if (choosingTarget)
-                CheckChoosingTarget();
-        }
-
-    }
-
     //=======================================================================================
     //User interaction with the spot
     //=======================================================================================
@@ -101,9 +88,10 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
-    private void CheckChoosingTarget()
+    //if player choose a target to attack, proceed the battle
+    public void CheckChoosingTarget()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(choosingTarget && Input.GetMouseButtonDown(0))
         {
             Lobster attacked = null;
             choosingTarget = false;

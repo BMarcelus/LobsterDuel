@@ -14,17 +14,20 @@ public class MaterialSelection : MonoBehaviour {
 	private GameObject card;
 	private GameObject targetSpot;
 	private int neededLevel;
+	private bool checking;
 
 	// Use this for initialization
 	void Start () {
-		gameObject.SetActive(false);
 		//spots = playerFloor.GetComponent<Floor>().spots;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		CheckMaterialSelection();
-		CheckSelectionFinish();
+		if(checking)
+		{
+			CheckMaterialSelection();
+			CheckSelectionFinish();
+		}
 	}
 
 	//get the level needed and start selection
@@ -45,6 +48,7 @@ public class MaterialSelection : MonoBehaviour {
 				floorSpot.GetCardInPlay().GetComponent<Lobster>().CloseMoveMenuImmediately();
 		}
 		UpdateText();
+		checking = true;
 	}
 
 	private void CheckMaterialSelection()
@@ -80,6 +84,7 @@ public class MaterialSelection : MonoBehaviour {
 			}
 			//put new card
 			playerHand.PlaceCard(card, targetSpot);
+			checking = false;
 			gameObject.SetActive(false);
 		}
 	}
