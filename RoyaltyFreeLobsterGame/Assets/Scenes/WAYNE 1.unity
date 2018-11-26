@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 778219355}
   m_Layer: 0
   m_Name: rightSpot
-  m_TagString: PlayerFloor
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3069,7 +3069,7 @@ GameObject:
   - component: {fileID: 1688693514}
   m_Layer: 0
   m_Name: centerSpot
-  m_TagString: PlayerFloor
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3627,7 +3627,7 @@ GameObject:
   - component: {fileID: 2147448647}
   m_Layer: 0
   m_Name: leftSpot
-  m_TagString: PlayerFloor
+  m_TagString: PlayerSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
