@@ -91,6 +91,22 @@ public class CardDataImporterWindow : EditorWindow {
         Uri uri = new Uri(string.Format("https://docs.google.com/spreadsheets/d/{0}/export?format=csv", docID));
         WebRequest request = FileWebRequest.Create(uri);
 
+        // Create folder(s) up to the destination folder
+        string[] folderPath = cardDataDestination.Split('/');
+        string startFolder = "", nextFolder = "";
+        for (int i = 0; i < folderPath.Length; ++i) {
+            if (i == 0) {
+                startFolder = folderPath[i]; // This should be "Assets"
+            } else {
+                nextFolder = folderPath[i];
+                string stringTogether = string.Format("{0}/{1}", startFolder, nextFolder);
+                if (!AssetDatabase.IsValidFolder(stringTogether)) {
+                    AssetDatabase.CreateFolder(startFolder, nextFolder);
+                }
+                startFolder = stringTogether;
+            }
+        }
+
         using (WebResponse response = request.GetResponse()) {
             // Confirmation that this response is valid -- is it a CSV?
             string contentType = response.Headers["Content-Type"];
@@ -117,6 +133,8 @@ public class CardDataImporterWindow : EditorWindow {
                     CardData card = ScriptableObject.CreateInstance<CardData>();
                     string[] parsedLine = SplitCsvLine(line);
                     bool valid = true;
+                    string assetPath = "";
+                    bool isNew = true;
                     for (int i = 0; i < parsedLine.Length; ++i) {
                         string lineItem = parsedLine[i];
                         int n;
@@ -124,6 +142,14 @@ public class CardDataImporterWindow : EditorWindow {
                             case 0:
                                 valid = lineItem != "";
                                 card.cardName = lineItem;
+                                assetPath = string.Format("{0}/{1}.asset", startFolder, card.cardName);
+                                CardData existingData = AssetDatabase.LoadAssetAtPath(assetPath, typeof(CardData)) as CardData;
+                                // if the asset already exits, modify instead of create
+                                if(existingData!=null) {
+                                  isNew = false;
+                                  Debug.Log("updating " + card.cardName);
+                                  card = existingData;
+                                }
                                 break;
                             case 1:
                                 valid = int.TryParse(lineItem, out n);
@@ -152,27 +178,14 @@ public class CardDataImporterWindow : EditorWindow {
                     }
                     // Create CardItem as an asset
 
-                    // Create folder(s) up to the destination folder
-                    string[] folderPath = cardDataDestination.Split('/');
-                    string startFolder = "", nextFolder = "";
-                    for (int i = 0; i < folderPath.Length; ++i) {
-                        if (i == 0) {
-                            startFolder = folderPath[i]; // This should be "Assets"
-                        } else {
-                            nextFolder = folderPath[i];
-                            string stringTogether = string.Format("{0}/{1}", startFolder, nextFolder);
-                            if (!AssetDatabase.IsValidFolder(stringTogether)) {
-                                AssetDatabase.CreateFolder(startFolder, nextFolder);
-                            }
-                            startFolder = stringTogether;
-                        }
-                    }
                     // if (!AssetDatabase.IsValidFolder(cardDataDestination)) {
                     //     AssetDatabase.CreateFolder("Assets", cardDataDestination);
                     // }
-                    // string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath(string.Format("{0}/{1}.asset", cardDataDestination, card.cardName));
-                    AssetDatabase.CreateAsset(card, string.Format("{0}/{1}.asset", startFolder, card.cardName));
-
+                    
+                    if(isNew && assetPath != "") {
+                      Debug.Log("Creating " + card.name);
+                      AssetDatabase.CreateAsset(card, assetPath);
+                    }
                     ++lineNumber;
                 }
             }
