@@ -286,6 +286,7 @@ MonoBehaviour:
   playerFloor: {fileID: 111111574}
   enemyManager: {fileID: 69041004}
   turnText: {fileID: 523721294}
+  turnNumber: 1
 --- !u!114 &69041003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,7 +867,7 @@ GameObject:
   - component: {fileID: 322823948}
   m_Layer: 0
   m_Name: eRightSpot
-  m_TagString: Untagged
+  m_TagString: EnemySpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -955,7 +956,7 @@ GameObject:
   - component: {fileID: 432503726}
   m_Layer: 0
   m_Name: eCenterSpot
-  m_TagString: Untagged
+  m_TagString: EnemySpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1119,7 +1120,7 @@ GameObject:
   - component: {fileID: 482114660}
   m_Layer: 0
   m_Name: eLeftSpot
-  m_TagString: Untagged
+  m_TagString: EnemySpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1922,7 +1923,7 @@ GameObject:
   - component: {fileID: 778219355}
   m_Layer: 0
   m_Name: rightSpot
-  m_TagString: Untagged
+  m_TagString: PlayerFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3068,7 +3069,7 @@ GameObject:
   - component: {fileID: 1688693514}
   m_Layer: 0
   m_Name: centerSpot
-  m_TagString: Untagged
+  m_TagString: PlayerFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3626,7 +3627,7 @@ GameObject:
   - component: {fileID: 2147448647}
   m_Layer: 0
   m_Name: leftSpot
-  m_TagString: Untagged
+  m_TagString: PlayerFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

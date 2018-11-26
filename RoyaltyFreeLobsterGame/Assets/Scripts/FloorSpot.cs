@@ -11,10 +11,14 @@ public enum CardType
 public class FloorSpot : MonoBehaviour {
 	private GameObject cardInPlay;
     private CardType cardType;
+	private TurnManager turnManager;
 	public float width;
 	public float height;
 
-
+    void Start()
+	{
+		turnManager = GameObject.FindObjectOfType<TurnManager>();
+	}
 	public bool InBound(Vector2 pos)
 	{
 		return (pos.x < transform.position.x + width/2) && (pos.x > transform.position.x - width/2) 
@@ -75,9 +79,11 @@ public class FloorSpot : MonoBehaviour {
 				card.GetComponent<Lobster>().floorAssigned = gameObject;
                 cardType = CardType.Lobster;
 				//set owner
-				if(tag == "PlayerFloor")
+				if(tag == "PlayerSpot")
 				{
 					card.GetComponent<Lobster>().owner = GameObject.FindGameObjectWithTag("Player");
+					if(turnManager.turnNumber == 1 && card.GetComponent<Lobster>())
+						card.GetComponent<Lobster>().canAttack = false;
 				}else{
 					card.GetComponent<Lobster>().owner = GameObject.FindGameObjectWithTag("Enemy");
 				}

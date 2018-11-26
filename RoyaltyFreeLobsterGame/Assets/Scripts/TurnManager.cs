@@ -14,6 +14,7 @@ public class TurnManager : MonoBehaviour {
     public GameObject playerFloor;
     public EnemyManager enemyManager;
     public Text turnText;
+    public int turnNumber = 1;
     void Start()
     {
         UpdateTurnUI();
@@ -31,6 +32,7 @@ public class TurnManager : MonoBehaviour {
 
     public void SwitchToPlayer()
     {
+        ++turnNumber;
         currentTurn = Turn.Player;
         PlayerTurnReset();
         UpdateTurnUI();
