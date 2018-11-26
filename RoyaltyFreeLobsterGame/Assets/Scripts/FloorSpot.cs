@@ -59,10 +59,12 @@ public class FloorSpot : MonoBehaviour {
 		}else
 		{
 			this.cardInPlay = card;
-			//temporary
 			card.tag = "Untagged";
+			//change cards transform
+			card.transform.parent = null;
 			card.transform.localScale = new Vector3(1.5f, 1.5f, 1);
 			card.transform.parent = transform;
+			card.transform.eulerAngles = Vector3.zero;
 			card.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
             //turn the card to a lobster
             card.GetComponent<CardInHand>().enabled = false;

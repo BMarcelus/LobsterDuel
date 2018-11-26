@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
-
+	//========================================================================
+	//Make movements for cards
+	//========================================================================
 	public List<Lobster> GetOrder(GameObject[] spots)
 	{
 		List<Lobster> result = new List<Lobster>(3);
@@ -75,6 +77,115 @@ public class EnemyAI : MonoBehaviour {
 			}
 		}
 	}
-
+	//========================================================================
+	//Place cards from hand
+	//========================================================================
 	
+	//get instruction for how to put card
+	public PlaceCardInfo GetCardPlaceInfo(List<GameObject> hand, GameObject[] spots)
+	{
+		PlaceCardInfo levelThreeCard = CheckPlaceLevelThreeCard(hand, spots);
+		if(levelThreeCard != null) return levelThreeCard;
+		PlaceCardInfo levelTwoCard = CheckPlaceLevelTwoCard(hand, spots);
+		if(levelTwoCard != null) return levelTwoCard;
+		return CheckPlaceLevelOneCard(hand, spots);
+	}
+	
+	//check if able to place a level-3 card at the board, return null if unable to
+	public PlaceCardInfo CheckPlaceLevelThreeCard(List<GameObject> hand, GameObject[] spots)
+	{
+		//get all level 3 cards
+		List<GameObject> cards = new List<GameObject>();
+		foreach(GameObject card in hand)
+		{
+			if(card.GetComponent<CardStats>().cardData.level == 3)
+				cards.Add(card);
+		}
+		//if don't have level3 card
+		if(cards.Count == 0) return null;
+		//if have level 2 card as material
+		List<int> possibleSpots = new List<int>();
+		for(int x = 0; x< spots.Length; ++x)
+		{
+			//have one level card as material
+			if(spots[x].GetComponent<FloorSpot>().GetCardInPlay() && 
+			   spots[x].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<CardStats>().cardData.level == 2)
+				possibleSpots.Add(x);
+		}
+		//return if have level2 card material
+		if(possibleSpots.Count > 0)
+			return new PlaceCardInfo(cards[Random.Range(0, cards.Count)], possibleSpots[Random.Range(0, possibleSpots.Count)]);
+		//if have 2 level 1 cards
+		//get all level 1 card
+		for(int x = 0; x< spots.Length; ++x)
+		{
+			//have one level card as material
+			if(spots[x].GetComponent<FloorSpot>().GetCardInPlay() && 
+			   spots[x].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<CardStats>().cardData.level == 1)
+				possibleSpots.Add(x);
+		}
+		//if have enough seat
+		if(possibleSpots.Count >= 2)
+		{
+			int targetSpotIndex = Random.Range(0, possibleSpots.Count);
+			spots[targetSpotIndex].GetComponent<FloorSpot>().SetCard(null);
+			possibleSpots.RemoveAt(targetSpotIndex);
+			spots[Random.Range(0, possibleSpots.Count)].GetComponent<FloorSpot>().SetCard(null);
+			return new PlaceCardInfo(cards[Random.Range(0, cards.Count)], targetSpotIndex);
+		}else
+			return null;
+	
+	}
+	//check if able to place a level-2 card at the board, return null if unable to
+	public PlaceCardInfo CheckPlaceLevelTwoCard(List<GameObject> hand, GameObject[] spots)
+	{
+		//list of all possible spots
+		List<int> possibleSpots = new List<int>();
+		for(int x = 0; x< spots.Length; ++x)
+		{
+			//have one level card as material
+			if(spots[x].GetComponent<FloorSpot>().GetCardInPlay() && 
+			   spots[x].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<CardStats>().cardData.level == 1)
+				possibleSpots.Add(x);
+		}
+		if(possibleSpots.Count == 0) return null;
+		//get all level 2 cards
+		List<GameObject> cards = new List<GameObject>();
+		foreach(GameObject card in hand)
+		{
+			if(card.GetComponent<CardStats>().cardData.level == 2)
+				cards.Add(card);
+		}
+		//return if possible to place 1 level card at a random spot
+		if(cards.Count > 0)
+			return new PlaceCardInfo(cards[Random.Range(0, cards.Count)], possibleSpots[Random.Range(0, possibleSpots.Count)]);
+		else
+			return null;
+	}	
+
+	//check if able to place a level-1 card at the board, return null if unable to
+	public PlaceCardInfo CheckPlaceLevelOneCard(List<GameObject> hand, GameObject[] spots)
+	{
+		//list of all possible spots
+		List<int> emptySpots = new List<int>();
+		for(int x = 0; x< spots.Length; ++x)
+		{
+			if(!spots[x].GetComponent<FloorSpot>().GetCardInPlay())
+				emptySpots.Add(x);
+		}
+		if(emptySpots.Count == 0) return null;
+		//get all one level cards
+		List<GameObject> cards = new List<GameObject>();
+		foreach(GameObject card in hand)
+		{
+			if(card.GetComponent<CardStats>().cardData.level == 1)
+				cards.Add(card);
+		}
+		//return if possible to place 1 level card at a random spot
+		if(cards.Count > 0)
+			return new PlaceCardInfo(cards[Random.Range(0, cards.Count)], emptySpots[Random.Range(0, emptySpots.Count)]);
+		else
+			return null;
+	}
+
 }

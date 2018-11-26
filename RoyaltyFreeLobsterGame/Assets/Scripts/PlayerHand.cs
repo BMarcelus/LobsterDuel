@@ -12,11 +12,13 @@ public class PlayerHand : MonoBehaviour {
 	public bool canPlaceCard = true;
 	public GameObject manager;
 	public MaterialSelection materSelectionManager;
+	[Header("differ between levels")]
+	public int initialCardNumbers;
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerFloor = GameObject.FindGameObjectWithTag("PlayerFloor").GetComponent<Floor>();
-		StartCoroutine(DrawMultipleCards(4));
+		StartCoroutine(DrawMultipleCards(initialCardNumbers));
 	}
 	
 	// Update is called once per frame

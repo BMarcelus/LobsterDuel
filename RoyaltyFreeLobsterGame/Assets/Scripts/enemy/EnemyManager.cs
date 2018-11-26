@@ -22,6 +22,7 @@ public class EnemyManager : MonoBehaviour {
 	public TurnManager turnManager;
 	public EnemyAI enemyAI;
 	private GameObject[] spots;
+	public EnemyHand enemyHand;
 
     void Start () {
 		spots = enemyFloor.GetComponent<Floor>().spots;
@@ -56,7 +57,16 @@ public class EnemyManager : MonoBehaviour {
 
 	private IEnumerator EnemyTurn()
 	{
-		
+		//draw card
+		enemyHand.AddCardToHand();
+		yield return new WaitForSeconds(0.5f);
+		//place card
+		PlaceCardInfo placeCardInfo = enemyAI.GetCardPlaceInfo(enemyHand.GetCardList(), spots);
+		if(placeCardInfo != null)
+		{
+			spots[placeCardInfo.spotIndex].GetComponent<FloorSpot>().SetCard(placeCardInfo.card);
+		}
+		enemyHand.RemoveCardFromhand(placeCardInfo.card);
 		//decide move orders
 		List<Lobster> lobsters = enemyAI.GetOrder(spots);
 		//reset all enemies
@@ -117,6 +127,21 @@ public class EnemyManager : MonoBehaviour {
         GameObject newRock = Instantiate(battleManager.lobsterCard, Vector3.zero, Quaternion.identity);
         newRock.GetComponent<Lobster>().SetData(battleManager.rockData);
         spot.GetComponent<FloorSpot>().SetCard(newRock, enemy);
+	}
+
+
+
+}
+
+public class PlaceCardInfo
+{
+	public int spotIndex;
+	public GameObject card;
+
+	public PlaceCardInfo(GameObject card, int spotIndex)
+	{
+		this.card = card;
+		this.spotIndex = spotIndex;
 	}
 
 }
