@@ -15,3 +15,7 @@ MonoBehaviour:
   level: 2
   attack: 1
   defense: 2
+  trigger: Start of your turn
+  description: Draw a card if this has 3 or more Shell
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

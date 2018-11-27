@@ -15,4 +15,7 @@ MonoBehaviour:
   level: 3
   attack: 1
   defense: 2
-  test: 0
+  trigger: Start of your turn
+  description: Put a rock there> and over there>>
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

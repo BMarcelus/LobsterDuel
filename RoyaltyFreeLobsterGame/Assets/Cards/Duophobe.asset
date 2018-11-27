@@ -15,3 +15,7 @@ MonoBehaviour:
   level: 1
   attack: 1
   defense: 1
+  trigger: Play
+  description: Discard a card and kill ^that lobster if it is level 2
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

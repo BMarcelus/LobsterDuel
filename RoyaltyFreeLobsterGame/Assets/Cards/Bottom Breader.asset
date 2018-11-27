@@ -15,3 +15,8 @@ MonoBehaviour:
   level: 2
   attack: 2
   defense: 2
+  trigger: Play
+  description: You may play an extra card this turn if you have 4 or more cards in
+    hand
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

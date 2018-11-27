@@ -15,3 +15,7 @@ MonoBehaviour:
   level: 1
   attack: 1
   defense: 1
+  trigger: Defend
+  description: Lose a life, and may play an extra card this turn
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

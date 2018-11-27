@@ -15,6 +15,7 @@ MonoBehaviour:
   level: 2
   attack: 3
   defense: 1
-  description: 
+  trigger: Death
+  description: Discard a card and return this to your hand
   sprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
   spriteColor: {r: 0.33333337, g: 0.43535998, b: 1, a: 1}

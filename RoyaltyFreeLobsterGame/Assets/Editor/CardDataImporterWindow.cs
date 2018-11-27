@@ -191,6 +191,8 @@ public class CardDataImporterWindow : EditorWindow {
                     if(isNew && assetPath != "") {
                       Debug.Log("Creating " + card.name);
                       AssetDatabase.CreateAsset(card, assetPath);
+                    } else {
+                      EditorUtility.SetDirty(card);
                     }
                     ++lineNumber;
                 }

@@ -15,3 +15,8 @@ MonoBehaviour:
   level: 3
   attack: 2
   defense: 2
+  trigger: 
+  description: '+X Claw and +X Shell to each allied Lob-Star; Center spot: X = 0;
+    Left Spot: X = 2; Right spot: X = 1'
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

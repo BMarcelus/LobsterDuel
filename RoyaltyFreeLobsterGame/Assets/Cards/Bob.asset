@@ -15,3 +15,7 @@ MonoBehaviour:
   level: 2
   attack: 1
   defense: 2
+  trigger: Death
+  description: Draw a card
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

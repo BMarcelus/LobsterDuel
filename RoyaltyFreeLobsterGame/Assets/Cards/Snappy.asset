@@ -15,4 +15,8 @@ MonoBehaviour:
   level: 2
   attack: 2
   defense: 2
-  test: 0
+  trigger: Play
+  description: This counts as 2 lobsters. Draw a card and then discard a card if you
+    have three or more lobsters on the floor.
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

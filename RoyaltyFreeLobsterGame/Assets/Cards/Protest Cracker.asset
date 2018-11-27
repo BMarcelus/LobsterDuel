@@ -15,4 +15,7 @@ MonoBehaviour:
   level: 2
   attack: 2
   defense: 2
-  test: 0
+  trigger: Play
+  description: Kill that^ defending lobster
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

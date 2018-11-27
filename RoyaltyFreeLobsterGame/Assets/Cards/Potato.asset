@@ -15,3 +15,7 @@ MonoBehaviour:
   level: 1
   attack: 1
   defense: 1
+  trigger: Become attached from <there; Become attached from there>
+  description: May play an extra card this turn; Draw a card
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}

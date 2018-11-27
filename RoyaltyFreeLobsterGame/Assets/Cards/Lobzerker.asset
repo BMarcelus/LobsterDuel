@@ -15,3 +15,7 @@ MonoBehaviour:
   level: 3
   attack: 3
   defense: 3
+  trigger: Play
+  description: You opponent loses 1 life if you have no cards in hand
+  sprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}
