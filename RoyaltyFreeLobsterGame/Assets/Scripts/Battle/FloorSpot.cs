@@ -9,6 +9,7 @@ public enum CardType
 }
 
 public class FloorSpot : MonoBehaviour {
+	public GameObject card;
 	private GameObject cardInPlay;
     private CardType cardType;
 	private TurnManager turnManager;
@@ -92,6 +93,13 @@ public class FloorSpot : MonoBehaviour {
         }
 	}
 
+	//create a card with the data and set
+	public void SetCardWithData(CardData data)
+	{
+		GameObject newCard = GameObject.Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
+		newCard.GetComponent<Lobster>().SetData(data);
+		SetCard(newCard);
+	}
 	public void SetCard(GameObject card, GameObject owner)
 	{
         card.GetComponent<Lobster>().owner = owner;

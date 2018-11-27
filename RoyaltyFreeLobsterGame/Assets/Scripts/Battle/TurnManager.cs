@@ -15,6 +15,9 @@ public class TurnManager : MonoBehaviour {
     public EnemyManager enemyManager;
     public Text turnText;
     public int turnNumber = 1;
+    public EnemyTurnEvents enemyTurnEvent;
+    public PlayerTurnEvents playerTurnEvent;
+
     void Start()
     {
         UpdateTurnUI();
@@ -22,17 +25,28 @@ public class TurnManager : MonoBehaviour {
 
     public void SwitchToEnemy()
     {
+        StartCoroutine(SwitchToEnemyTurn());
+    }
+    private IEnumerator SwitchToEnemyTurn()
+    {
         if(currentTurn == Turn.Player)
         {
             currentTurn = Turn.Enemy;
             UpdateTurnUI();
-            enemyManager.StartEnemyTurn();
+            //events in enemy's turn
+            if(enemyTurnEvent)
+                yield return enemyTurnEvent.CheckTurnEvent(GetComponent<TurnManager>().turnNumber);
         }
     }
-
     public void SwitchToPlayer()
     {
+        StartCoroutine(SwitchToPlayerTurn());
+    }
+    public IEnumerator SwitchToPlayerTurn()
+    {
         ++turnNumber;
+        if(playerTurnEvent)
+            yield return playerTurnEvent.CheckTurnEvent(turnNumber);
         currentTurn = Turn.Player;
         PlayerTurnReset();
         UpdateTurnUI();
