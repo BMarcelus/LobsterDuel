@@ -3227,6 +3227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialPage: {fileID: 1394439168}
   tutorialText: {fileID: 2061561093}
+  playerDeck: {fileID: 1991652597}
 --- !u!114 &1967631824
 MonoBehaviour:
   m_ObjectHideFlags: 0

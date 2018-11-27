@@ -66,8 +66,9 @@ public class EnemyManager : MonoBehaviour {
 		if(placeCardInfo != null)
 		{
 			spots[placeCardInfo.spotIndex].GetComponent<FloorSpot>().SetCard(placeCardInfo.card);
+			enemyHand.RemoveCardFromhand(placeCardInfo.card);
+			yield return new WaitForSeconds(0.5f);
 		}
-		enemyHand.RemoveCardFromhand(placeCardInfo.card);
 		//decide move orders
 		List<Lobster> lobsters = enemyAI.GetOrder(spots);
 		//reset all enemies
@@ -78,8 +79,6 @@ public class EnemyManager : MonoBehaviour {
 				lob.ResetForNewTurn();
 			}
 		}
-		//draw card?
-		yield return new WaitForSeconds(0.5f);
 		//get and make movement for each lobster
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		foreach(Lobster lob in lobsters)
@@ -87,18 +86,19 @@ public class EnemyManager : MonoBehaviour {
 			EnemyMove move = enemyAI.GetTarget(lob, playerFloor);
 			if(move == EnemyMove.Idle)//do nothing
 			{
-				yield return new WaitForSeconds(1);
 				continue;
 			}
 			else if(move == EnemyMove.Defend) //defend
 			{
 				lob.DefendButton();
+				yield return new WaitForSeconds(1);
 			}else if(move == EnemyMove.AttackPlayer) //attack player
 			{
 				player.GetHurt(lob.GetClaw());
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
 					StopAllCoroutines();
+				yield return new WaitForSeconds(1);
 				//drop a stone
 				yield return battleManager.PlayerAddRock();
 			}
@@ -108,12 +108,13 @@ public class EnemyManager : MonoBehaviour {
 				//why it's so long, sorry Brian
 				Lobster target = playerFloor.GetComponent<Floor>().spots[targetIndex].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>();
 				battleManager.Battle(lob, target);
+				yield return new WaitForSeconds(1);
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
 					StopAllCoroutines();
-			}
-			yield return new WaitForSeconds(1);
+			}	
 		}
+		yield return new WaitForSeconds(0.5f);
 		//end the turn
 		turnManager.SwitchToPlayer();
 	}

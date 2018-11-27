@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	public GameObject tutorialPage;
 	public Text tutorialText;
+	public Deck playerDeck;
 
 	void Start()
 	{
@@ -21,6 +22,10 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 				break;
 			case 6:
 				yield return Turn6Event();
+				break;
+			case 7:
+				//shuffle the deck
+				playerDeck.shuffle = true;
 				break;
 			default:
 				break;
