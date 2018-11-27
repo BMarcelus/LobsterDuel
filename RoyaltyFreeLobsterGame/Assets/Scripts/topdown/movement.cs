@@ -5,6 +5,9 @@ using UnityEngine;
 public class movement : MonoBehaviour {
 
   public float speed;
+  public bool canMove = true;
+  private Transform targetPosition;
+  private bool targetting = false;
   private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
@@ -18,6 +21,16 @@ public class movement : MonoBehaviour {
       Input.GetAxisRaw("Vertical"),
       0
     );
+    if(!canMove) {
+      input = Vector3.zero;
+      if(targetting) {
+        input = targetPosition.position - transform.position;
+        if(input.magnitude < speed*Time.deltaTime) {
+          input = Vector2.zero;
+          transform.rotation = Quaternion.Slerp(transform.rotation, targetPosition.rotation, 0.2f);
+        }
+      }
+    }
     bool moving = input.x != 0 || input.y != 0;
     input.Normalize();
     rb.velocity = input*speed;
@@ -28,4 +41,15 @@ public class movement : MonoBehaviour {
       transform.Rotate(Mathf.Sin(Time.time*30)*Vector3.forward*input.magnitude*3);
     }
 	}
+
+  public void SetTarget(Transform target, bool movable) {
+    canMove = movable;
+    targetPosition = target;
+    targetting = true;
+  }
+
+  public void SetCanMove(bool movable) {
+    targetting = false;
+    canMove = movable;
+  }
 }

@@ -10,7 +10,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	void Start()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Drag this card to one of the spot";
+		tutorialText.text = "Drag A Lobster to place them on the Floor";
 	}
 	public override IEnumerator CheckTurnEvent(int turn)
 	{

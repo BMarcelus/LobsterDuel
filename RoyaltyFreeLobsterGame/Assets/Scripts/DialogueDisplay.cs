@@ -13,9 +13,10 @@ public class DialogueDisplay : MonoBehaviour {
     gameObject.SetActive(false);
   }
 
-  public void Show(string name, string text) {
+  public void Show(string name, string text, Sprite sprite) {
     gameObject.SetActive(true);
     textDisplay.text = text;
     characterName.text = name;
+    characterImage.sprite = sprite;
   }
 }

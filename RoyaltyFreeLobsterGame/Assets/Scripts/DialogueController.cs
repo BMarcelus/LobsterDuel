@@ -8,12 +8,15 @@ public class DialogueController : MonoBehaviour {
   public DialogueDisplay theirBox;
   public DialogueSequence sequence;
 
+  private TopDownManager manager;
+
   private int sequenceIndex;
 
 	// Use this for initialization
 	void Start () {
 		yourBox.Deactivate();
 		theirBox.Deactivate();
+    manager = GetComponentInParent<TopDownManager>();
     UpdateDisplay();
 	}
 
@@ -23,12 +26,14 @@ public class DialogueController : MonoBehaviour {
     if(sequenceIndex >= sequence.dialogue.Length) {
       yourBox.Deactivate();
       theirBox.Deactivate();
+      manager.EndDialogue(sequence.storySequence);
       gameObject.SetActive(false);
       return;
     }
     DialogueSequence.Dialogue current = sequence.dialogue[sequenceIndex];
-    DialogueDisplay box = current.flipSide ? theirBox : yourBox;
-    box.Show(current.character, current.text);
+    DialogueSequence.Character character = sequence.GetCharacter(current.characterIndex);
+    DialogueDisplay box = character.flipSide ? theirBox : yourBox;
+    box.Show(current.character, current.text, character.characterSprite);
   }
 
   void Next() {
@@ -38,8 +43,13 @@ public class DialogueController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Jump")) {
       Next();
     }
 	}
+
+  public void SetSequence(DialogueSequence seq) {
+    sequence = seq;
+    sequenceIndex = 0;
+  }
 }

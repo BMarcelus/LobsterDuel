@@ -7,19 +7,45 @@ public class DialogueSequence : MonoBehaviour {
   [System.Serializable]
   public struct Dialogue {
     public string character;
+    public int characterIndex;
+    
     public string text;
+  }
+  [System.Serializable]
+  public struct Character {
+    public string name;
+    public Sprite characterSprite;
     public bool flipSide;
   }
 
+  public Character[] characters;
   public Dialogue[] dialogue;
+  public int storySequence;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+  public Character GetCharacter(string name) {
+    foreach (Character character in characters) {
+      if(character.name == name) {
+        return character;
+      }
+    }
+    return new Character();
+  }
+
+  public int GetCharacterIndex(string name) {
+    for(int i=0;i<characters.Length;++i) {
+      if(characters[i].name == name) return i;
+    }
+    return -1;
+  }
+
+  public Character GetCharacter(int index) {
+    return characters[index];
+  }
+
+  void OnValidate() {
+    for(int i=0;i<dialogue.Length;++i) {
+      dialogue[i].characterIndex = GetCharacterIndex(dialogue[i].character);
+    }
+  }
+
 }

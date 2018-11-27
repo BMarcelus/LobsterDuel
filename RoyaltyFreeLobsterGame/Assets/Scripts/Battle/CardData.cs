@@ -12,6 +12,8 @@ public class CardData : ScriptableObject {
     public int attack;
     [Range(0, 3)]
     public int defense;
+
+    public string trigger;
     public string description;
     public Sprite sprite;
     public Color spriteColor;

@@ -20,7 +20,11 @@ public class CardStats : MonoBehaviour {
 		attackDisplay.setLevel(cardData.attack);
 		defenseDisplay.setLevel(cardData.defense);
     nameDisplay.text = cardData.name;
-    descriptionDisplay.text = cardData.description;
+    descriptionDisplay.text = "";
+    if(cardData.trigger != "") {
+      descriptionDisplay.text = "on " + cardData.trigger + ": ";      
+    }
+    descriptionDisplay.text += cardData.description;
     if(cardData.sprite) {
       characterDisplay.sprite = cardData.sprite;
       characterDisplay.color = cardData.spriteColor;

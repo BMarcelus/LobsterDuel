@@ -169,6 +169,12 @@ public class CardDataImporterWindow : EditorWindow {
                                   card.defense = n;
                                 }
                                 break;
+                            case 4:
+                                card.trigger = lineItem;
+                                break;
+                            case 5:
+                                card.description = lineItem;
+                                break;
                         }
                         if (!valid) break;
                     }
