@@ -34,6 +34,14 @@ public class Player : MonoBehaviour {
 			else
 				gameOverText.text = "You Win";
 		}
+		//when getting hurt, drop rocks
+		if(damage > 0)
+		{
+			if(tag == "Enemy")
+			{
+				manager.GetComponent<EnemyManager>().PlaceRock();
+			}
+		}
 	}
 
 }

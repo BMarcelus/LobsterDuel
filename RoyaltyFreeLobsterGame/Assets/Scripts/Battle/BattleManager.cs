@@ -127,7 +127,7 @@ public class BattleManager : MonoBehaviour {
                     attackerLobster.canAttack = false;
                     result.collider.GetComponent<Player>().GetHurt(attackerLobster.GetClaw());
                     //enemy put a rock
-                    GetComponent<EnemyManager>().PlaceRock();
+                    //GetComponent<EnemyManager>().PlaceRock();
                 }
 
             }
@@ -152,25 +152,31 @@ public class BattleManager : MonoBehaviour {
         }
     }    
 
-    //player choose to add a rock in one spot, called after player is attacked directly
+    //player choose to add a rock in one spot, called after player got damage
+    private bool cancelPlaceingRock = false;
     public IEnumerator PlayerAddRock()
     {
+        cancelPlaceingRock = false;
         //show UI to tell users they need to add a rock
         addingRockPanel.SetActive(true);
         Vector3 mousePos;
         GameObject spot = null;
         //keep getting input until hit some spot
-        while(spot == null)
+        while(spot == null && !cancelPlaceingRock)
         {
-            yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
+            yield return new WaitUntil(()=>Input.GetMouseButtonUp(0));
             mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             spot = playerFloor.GetComponent<Floor>().SpotTouched(mousePos);
         }
         //adding rock at that spot
-        GameObject newRock = Instantiate(lobsterCard, Vector3.zero, Quaternion.identity);
-        newRock.GetComponent<Lobster>().SetData(rockData);
-        spot.GetComponent<FloorSpot>().SetCard(newRock, player);
+        if(!cancelPlaceingRock)
+            spot.GetComponent<FloorSpot>().SetCardWithData(rockData);
         addingRockPanel.SetActive(false);
+    }
+
+    public void CancelPlacingRock()
+    {
+        cancelPlaceingRock = true;
     }
 
 }
