@@ -141,7 +141,11 @@ public class BattleManager : MonoBehaviour {
         attacker.canAttack = false;
         if (attacker.transform.position.y<attacked.transform.position.y) {
           attacker.GetComponent<Animator>().Play("Attack", -1, 0);
-          attacked.GetComponent<Animator>().Play("EnemyGetAttacked", -1, 0);
+          if(attacked.GetState() == LobsterState.Defence) {
+            attacked.GetComponent<Animator>().Play("EnemyGetAttackedDefending", -1, 0);
+          } else {
+            attacked.GetComponent<Animator>().Play("EnemyGetAttacked", -1, 0);
+          }
         } else {
           attacker.GetComponent<Animator>().Play("EnemyAttack", -1, 0);
           attacked.GetComponent<Animator>().Play("GetAttacked", -1, 0);

@@ -10,16 +10,29 @@ public class SizeOnMouseOver : MonoBehaviour {
   private SpriteRenderer[] spriteRenderers;
   private Canvas[] canvases;
   public bool active = true;
+  private float scalar = 2f;
+  private float offset = 0.8f;
 	// Use this for initialization
 	void Start () {
 		size = graphic.transform.localScale;
     spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     canvases = GetComponentsInChildren<Canvas>();
-    if(!GetComponentInParent<PlayerHand>()) active = false;
+    if(!IsPlayer()) Destroy(this);
 	}
+
+  private bool IsPlayer() {
+    if(GetComponentInParent<PlayerHand>() != null) return true;
+    Lobster lobster = GetComponent<Lobster>();
+    if(lobster && lobster.floorAssigned && lobster.floorAssigned.tag == "PlayerSpot") {
+      return true;
+    }
+    return false;
+  }
 
   void Update() {
     if(GetComponent<Lobster>().enabled) {
+      // scalar = 1.2f;
+      // offset = 0.2f;
       OnMouseExit();
       active = false;
     }
@@ -27,8 +40,8 @@ public class SizeOnMouseOver : MonoBehaviour {
   
   void OnMouseOver() {
     if(!active)return;
-    graphic.transform.localScale = size*1.5f;
-    graphic.transform.localPosition = Vector3.up*size.y*.8f;
+    graphic.transform.localScale = size*scalar;
+    graphic.transform.localPosition = Vector3.up*size.y*offset;
     if(!highlighted) {
       highlighted = true;
       foreach(SpriteRenderer spriteRenderer in spriteRenderers) {

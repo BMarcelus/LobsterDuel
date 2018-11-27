@@ -924,6 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a231f51c9c5d25043b319cdf6c49e3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   width: 2
   height: 2
 --- !u!212 &322823949
@@ -1013,6 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a231f51c9c5d25043b319cdf6c49e3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   width: 2
   height: 2
 --- !u!212 &432503727
@@ -1177,6 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a231f51c9c5d25043b319cdf6c49e3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   width: 2
   height: 2
 --- !u!212 &482114661
@@ -1993,6 +1996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a231f51c9c5d25043b319cdf6c49e3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   width: 2
   height: 2
 --- !u!212 &778219356
@@ -2485,7 +2489,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Give Up
+  m_Text: Cancel
 --- !u!222 &1106864379
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3139,6 +3143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a231f51c9c5d25043b319cdf6c49e3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   width: 2
   height: 2
 --- !u!212 &1688693515
@@ -3821,6 +3826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a231f51c9c5d25043b319cdf6c49e3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   width: 2
   height: 2
 --- !u!212 &2147448648

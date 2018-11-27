@@ -22,7 +22,7 @@ public class CardStats : MonoBehaviour {
     nameDisplay.text = cardData.name;
     descriptionDisplay.text = "";
     if(cardData.trigger != "") {
-      descriptionDisplay.text = "on " + cardData.trigger + ": ";      
+      descriptionDisplay.text = "On " + cardData.trigger + ": ";      
     }
     descriptionDisplay.text += cardData.description;
     if(cardData.sprite) {
