@@ -9,6 +9,7 @@ public class DialogueSequence : MonoBehaviour {
     public string character;
     public int characterIndex;
     
+    [TextArea]
     public string text;
   }
   [System.Serializable]

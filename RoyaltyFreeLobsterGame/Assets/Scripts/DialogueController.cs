@@ -51,5 +51,6 @@ public class DialogueController : MonoBehaviour {
   public void SetSequence(DialogueSequence seq) {
     sequence = seq;
     sequenceIndex = 0;
+    UpdateDisplay();
   }
 }
