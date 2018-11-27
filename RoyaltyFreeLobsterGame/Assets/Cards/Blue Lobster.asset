@@ -15,3 +15,6 @@ MonoBehaviour:
   level: 2
   attack: 3
   defense: 1
+  description: 
+  sprite: {fileID: 21300000, guid: 456c15530e94c4376bd8f20fbe1b61ea, type: 3}
+  spriteColor: {r: 0.25792095, g: 0.4654451, b: 0.7924528, a: 1}
