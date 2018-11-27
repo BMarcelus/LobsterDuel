@@ -62,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1092431250159570
 GameObject:
   m_ObjectHideFlags: 1
@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1300377231576828
 GameObject:
   m_ObjectHideFlags: 1
@@ -225,7 +225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1301824798686196
 GameObject:
   m_ObjectHideFlags: 1
@@ -580,7 +580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1792226558921352
 GameObject:
   m_ObjectHideFlags: 1
@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1872884212363130
 GameObject:
   m_ObjectHideFlags: 1
@@ -656,6 +656,8 @@ GameObject:
   - component: {fileID: 224363320316697872}
   - component: {fileID: 222974803336470400}
   - component: {fileID: 114269872624958386}
+  - component: {fileID: 114505700578893584}
+  - component: {fileID: 114314366242384622}
   m_Layer: 0
   m_Name: CardBack
   m_TagString: Untagged
@@ -1792,7 +1794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f826b10275d4e0999401bb1866790d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: 127e61109fdf34c96b161788b90914a5, type: 2}
+  cardData: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
   levelDisplay: {fileID: 114553665993694062}
   attackDisplay: {fileID: 114016415442340066}
   defenseDisplay: {fileID: 114287597870441508}
@@ -1833,7 +1835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.018810749, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1966,7 +1968,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Craig wants to be free from royaltyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAa.
+  m_Text: 
+--- !u!114 &114314366242384622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872884212363130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 0.51, y: -0.53}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114314779763341412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2002,6 +2018,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114505700578893584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872884212363130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.23921569}
+  m_EffectDistance: {x: 0.2, y: 0.2}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114538835269314360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2353,7 +2383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Blue-Eyes White Lobster
+  m_Text: Red Lobster
 --- !u!212 &212013711901844944
 SpriteRenderer:
   m_ObjectHideFlags: 1
