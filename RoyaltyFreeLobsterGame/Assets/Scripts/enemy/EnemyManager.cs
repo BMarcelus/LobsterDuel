@@ -133,7 +133,7 @@ public class EnemyManager : MonoBehaviour {
 		List<FloorSpot> emptySpots = new List<FloorSpot>();
 		foreach(GameObject spot in enemyFloor.GetComponent<Floor>().spots)
 		{
-			if(spot.GetComponent<FloorSpot>().GetCardInPlay())
+			if(!spot.GetComponent<FloorSpot>().GetCardInPlay())
 				emptySpots.Add(spot.GetComponent<FloorSpot>());
 		}
 		if(emptySpots.Count > 0)
