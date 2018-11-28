@@ -95,10 +95,10 @@ public class EnemyManager : MonoBehaviour {
 			}else if(move == EnemyMove.AttackPlayer) //attack player
 			{
 				player.GetHurt(lob.GetClaw());
+				yield return new WaitForSeconds(1);
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
 					StopAllCoroutines();
-				yield return new WaitForSeconds(1);
 				//drop a stone
 				yield return battleManager.PlayerAddRock();
 			}
@@ -107,11 +107,15 @@ public class EnemyManager : MonoBehaviour {
 				int targetIndex = (int)move;
 				//why it's so long, sorry Brian
 				Lobster target = playerFloor.GetComponent<Floor>().spots[targetIndex].GetComponent<FloorSpot>().GetCardInPlay().GetComponent<Lobster>();
+				int healthBeforeBattle = player.GetHealth();
 				battleManager.Battle(lob, target);
 				yield return new WaitForSeconds(1);
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
 					StopAllCoroutines();
+				//if there are damage overflow, wait for players to 
+				if(player.GetHealth() < healthBeforeBattle)
+					yield return battleManager.PlayerAddRock();
 			}	
 		}
 		yield return new WaitForSeconds(0.5f);
@@ -124,11 +128,16 @@ public class EnemyManager : MonoBehaviour {
 	//=============================================================================
 	public void PlaceRock()
 	{
-		//adding rock at a random spot
-		GameObject spot = enemyFloor.GetComponent<Floor>().spots[Random.Range(0, 3)];
-        GameObject newRock = Instantiate(battleManager.lobsterCard, Vector3.zero, Quaternion.identity);
-        newRock.GetComponent<Lobster>().SetData(battleManager.rockData);
-        spot.GetComponent<FloorSpot>().SetCard(newRock, enemy);
+		//adding rock at a random empty spot
+		//get all random spot
+		List<FloorSpot> emptySpots = new List<FloorSpot>();
+		foreach(GameObject spot in enemyFloor.GetComponent<Floor>().spots)
+		{
+			if(spot.GetComponent<FloorSpot>().GetCardInPlay())
+				emptySpots.Add(spot.GetComponent<FloorSpot>());
+		}
+		if(emptySpots.Count > 0)
+        	emptySpots[Random.Range(0, emptySpots.Count)].SetCardWithData(battleManager.rockData);
 	}
 
 
