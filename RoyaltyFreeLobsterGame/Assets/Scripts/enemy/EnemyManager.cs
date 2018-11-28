@@ -126,6 +126,13 @@ public class EnemyManager : MonoBehaviour {
 	//=============================================================================
 	//Enemy's movement in Player's Turn
 	//=============================================================================
+	public IEnumerator PlaceRockWithDelay()
+	{
+		turnManager.ChangeTurn(Turn.Enemy);
+		yield return new WaitForSeconds(1f);
+		PlaceRock();
+		turnManager.ChangeTurn(Turn.Player);
+	}
 	public void PlaceRock()
 	{
 		//adding rock at a random empty spot

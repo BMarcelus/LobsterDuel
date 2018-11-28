@@ -39,7 +39,8 @@ public class Player : MonoBehaviour {
 		{
 			if(tag == "Enemy")
 			{
-				manager.GetComponent<EnemyManager>().PlaceRock();
+				//enemy Place Rock
+				StartCoroutine(manager.GetComponent<EnemyManager>().PlaceRockWithDelay());
 			}
 		}
 	}
