@@ -17,4 +17,5 @@ public class CardData : ScriptableObject {
     public string description;
     public Sprite sprite;
     public Color spriteColor;
+    public AudioClip moveMenuSelect;
 }

@@ -19,3 +19,4 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 21300000, guid: ff94e4ab68531403f8c291b1f60046fb, type: 3}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  moveMenuSelect: {fileID: 8300000, guid: 11d25cf45a64141409c6d8c6d7c921e7, type: 3}

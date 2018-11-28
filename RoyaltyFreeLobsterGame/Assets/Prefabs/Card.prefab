@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114314779763341412}
   - component: {fileID: 114002617717069988}
   - component: {fileID: 114536736897969080}
+  - component: {fileID: 114573616786213374}
   m_Layer: 0
   m_Name: Card
   m_TagString: CardInHand
@@ -227,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1300377231576828
 GameObject:
   m_ObjectHideFlags: 1
@@ -243,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1301824798686196
 GameObject:
   m_ObjectHideFlags: 1
@@ -615,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1792226558921352
 GameObject:
   m_ObjectHideFlags: 1
@@ -680,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1872884212363130
 GameObject:
   m_ObjectHideFlags: 1
@@ -746,7 +747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1924240169809004
 GameObject:
   m_ObjectHideFlags: 1
@@ -1652,10 +1653,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 11d25cf45a64141409c6d8c6d7c921e7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f918f392a60cb4e47a0aaaec88133d8a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1.2
+  m_Pitch: 0.90000004
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1951,7 +1952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f826b10275d4e0999401bb1866790d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
+  cardData: {fileID: 11400000, guid: ff2a4cb07c6d74a7d999ebd5397a070d, type: 2}
   levelDisplay: {fileID: 114553665993694062}
   attackDisplay: {fileID: 114016415442340066}
   defenseDisplay: {fileID: 114287597870441508}
@@ -1959,6 +1960,7 @@ MonoBehaviour:
   descriptionDisplay: {fileID: 114300522113597294}
   characterDisplay: {fileID: 114092545424998004}
   update: 0
+  moveMenuSound: {fileID: 82760062161932438}
 --- !u!114 &114091284499006214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1992,7 +1994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.13082945, b: 0.13082945, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2251,6 +2253,17 @@ MonoBehaviour:
   - {fileID: 1483727376228968}
   - {fileID: 1239702791407862}
   - {fileID: 1777875378823072}
+--- !u!114 &114573616786213374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003051713815558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ddab1db746e46b0b37647378903b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114614568922818768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2554,7 +2567,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Red Lobster
+  m_Text: White Lobster
 --- !u!212 &212013711901844944
 SpriteRenderer:
   m_ObjectHideFlags: 1

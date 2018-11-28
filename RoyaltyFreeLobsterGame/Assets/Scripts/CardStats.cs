@@ -13,6 +13,7 @@ public class CardStats : MonoBehaviour {
   public Text descriptionDisplay;
   public Image characterDisplay;
   public bool update;
+  public AudioSource moveMenuSound;
 
 
   public void UpdateDisplay() {
@@ -29,6 +30,10 @@ public class CardStats : MonoBehaviour {
       characterDisplay.sprite = cardData.sprite;
       characterDisplay.color = cardData.spriteColor;
     }
+    if(cardData.moveMenuSelect) {
+      moveMenuSound.clip = cardData.moveMenuSelect;
+    }
+    moveMenuSound.pitch = 1.2f - 0.3f * (cardData.level-1)/2;
   }
 
 	// Use this for initialization
