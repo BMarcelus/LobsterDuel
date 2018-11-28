@@ -78,4 +78,10 @@ public class TurnManager : MonoBehaviour {
     {
         turnText.text = currentTurn.ToString() + "'s Turn";
     }
+
+    public void ChangeTurn(Turn value)
+    {
+        currentTurn = value;
+    }
+
 }
