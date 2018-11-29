@@ -70,6 +70,7 @@ public class FloorSpot : MonoBehaviour {
 			card.transform.localScale = new Vector3(1.5f, 1.5f, 1);
 			card.transform.parent = transform;
 			card.transform.eulerAngles = Vector3.zero;
+      Lobster lobster = card.GetComponent<Lobster>();
 			card.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
             //turn the card to a lobster
             card.GetComponent<CardInHand>().enabled = false;
@@ -85,6 +86,9 @@ public class FloorSpot : MonoBehaviour {
 					card.GetComponent<Lobster>().owner = GameObject.FindGameObjectWithTag("Player");
 					if(turnManager.turnNumber == 1 && card.GetComponent<Lobster>())
 						card.GetComponent<Lobster>().canAttack = false;
+          else if(lobster.data.name != "Rock" && lobster.data.name != "Health Rock") {
+            lobster.OpenMoveMenu();
+          }
 				}else{
 					card.GetComponent<Lobster>().owner = GameObject.FindGameObjectWithTag("Enemy");
 				}

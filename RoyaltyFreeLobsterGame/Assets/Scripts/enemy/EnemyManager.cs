@@ -128,8 +128,8 @@ public class EnemyManager : MonoBehaviour {
 	//=============================================================================
 	public IEnumerator PlaceRockWithDelay()
 	{
+		yield return new WaitForSeconds(0.2f);
 		turnManager.ChangeTurn(Turn.Enemy);
-		yield return new WaitForSeconds(1f);
 		PlaceRock();
 		turnManager.ChangeTurn(Turn.Player);
 	}
@@ -144,7 +144,7 @@ public class EnemyManager : MonoBehaviour {
 				emptySpots.Add(spot.GetComponent<FloorSpot>());
 		}
 		if(emptySpots.Count > 0)
-        	emptySpots[Random.Range(0, emptySpots.Count)].SetCardWithData(battleManager.rockData);
+        	emptySpots[Random.Range(0, emptySpots.Count)].SetCardWithData(battleManager.healthRockData);
 	}
 
 

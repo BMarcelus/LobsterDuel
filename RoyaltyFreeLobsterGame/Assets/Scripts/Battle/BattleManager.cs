@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour {
     public GameObject addingRockPanel;
     public GameObject lobsterCard;
     public CardData rockData;
+    public CardData healthRockData;
     private GameObject player;
     private GameObject opponent;
     private Camera mainCamera;
@@ -170,7 +171,7 @@ public class BattleManager : MonoBehaviour {
         }
         //adding rock at that spot
         if(!cancelPlaceingRock)
-            spot.GetComponent<FloorSpot>().SetCardWithData(rockData);
+            spot.GetComponent<FloorSpot>().SetCardWithData(healthRockData);
         addingRockPanel.SetActive(false);
     }
 

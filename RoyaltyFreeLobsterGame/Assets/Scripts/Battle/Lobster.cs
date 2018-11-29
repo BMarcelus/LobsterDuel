@@ -131,7 +131,7 @@ public class Lobster : MonoBehaviour {
             //spare place for new card
             floorAssigned.GetComponent<FloorSpot>().SetCard(null);
             //spawn a rock here if it is a lobster
-            if(data.cardName != "Rock")
+            if(data.cardName != "Rock" && data.cardName != "Health Rock")
             {
                 //create a card and assign rock data to it
                 BattleManager battleManager = FindObjectOfType<BattleManager>();
@@ -143,7 +143,11 @@ public class Lobster : MonoBehaviour {
             }
             //destroy itself, hurt owner
             owner.GetComponent<Player>().GetHurt(overflow);
-            deathSound.Play();
+            if(deathSound) {
+              deathSound.Play();
+            } else {
+              Debug.Log(data.name);
+            }
             Destroy(gameObject);
         }
     }
