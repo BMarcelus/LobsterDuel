@@ -56,7 +56,7 @@
         fixed4 frag(v2f i) : SV_TARGET{
             float2 uv = i.uv;
         
-            float4 noise = tex2D(_noiseTexture,i.uv + cos(_Time)*_distortionSpeed);
+            float4 noise = tex2D(_noiseTexture,i.uv + _Time*_distortionSpeed);
             uv.x += noise.r*_distortStrength;
             uv.y += noise.r*_distortStrength;
             half4 c = tex2D (_MainTex,uv);

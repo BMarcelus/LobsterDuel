@@ -119,7 +119,7 @@ public class MaterialSelection : MonoBehaviour {
 
 	private void UpdateText()
 	{
-		levelNeededText.text = "Still need materials of " + (neededLevel - levelSum) +" levels";
+		levelNeededText.text = "Choose cards to replace of " + (neededLevel - levelSum) +" levels";
 	}
 
 	private void SetGlobalScale(GameObject ob, Vector3 scale)

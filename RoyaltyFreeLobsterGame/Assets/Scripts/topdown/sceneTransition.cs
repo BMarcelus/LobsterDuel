@@ -7,6 +7,8 @@ public class sceneTransition : MonoBehaviour {
 
   public string scene;
   void OnTriggerEnter2D(Collider2D collider) {
-    SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    if(collider.name == "Craig") {
+      SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
   }
 }

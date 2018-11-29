@@ -20,9 +20,10 @@ public class ArrowHighlighter : MonoBehaviour {
 	}
 
   void OnMouseOver() {
-    transform.localScale*=2;
+    // transform.localScale*=2;
     foreach(SpriteRenderer r in renderers) {
       r.color = highlightColor;
+      // r.transform.localScale*=2;
     }
   }
   void OnMouseExit() {
