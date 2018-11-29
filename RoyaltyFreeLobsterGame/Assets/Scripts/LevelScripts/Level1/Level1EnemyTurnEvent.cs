@@ -108,6 +108,8 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	{
 		//draw card
 		enemyHand.AddCardToHand();
+		if(turnManager.IsGameOver())
+			StopAllCoroutines();
 		yield return new WaitForSeconds(0.5f);
 		//place Protest Cracker and kill Pincher
 		enemyHand.RemoveCardFromhand(0);

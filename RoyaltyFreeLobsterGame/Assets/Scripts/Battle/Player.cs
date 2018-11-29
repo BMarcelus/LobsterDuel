@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Player : MonoBehaviour {
 	private int health = 5;
 	public Text hpText;
@@ -41,12 +42,7 @@ public class Player : MonoBehaviour {
 		UpdateHealthUI();
 		if(health == 0)
 		{
-			manager.GetComponent<TurnManager>().GameOver();
-			gameOverPanel.SetActive(true);
-			if(tag == "Player")
-				gameOverText.text = "How can you lose to a stupid AI? You are so terrible.";
-			else
-				gameOverText.text = "You Win";
+			LoseGame();
 		}
 		//when getting hurt, drop rocks
 		if(damage > 0)
@@ -57,6 +53,16 @@ public class Player : MonoBehaviour {
 				StartCoroutine(manager.GetComponent<EnemyManager>().PlaceRockWithDelay());
 			}
 		}
+	}
+
+	public void LoseGame()
+	{
+			manager.GetComponent<TurnManager>().GameOver();
+			gameOverPanel.SetActive(true);
+			if(tag == "Player")
+				gameOverText.text = "How can you lose to a stupid AI? You are so terrible.";
+			else
+				gameOverText.text = "You Win";
 	}
 
 }
