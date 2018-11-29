@@ -56,7 +56,10 @@ public class PlayerHand : MonoBehaviour {
 		GameObject newCard = GameObject.Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
 		newCard.transform.parent = transform;
 		CardData newCardData = deck.DrawACard();
-		//if(newCardData == null)  game over
+		if(newCardData == null)
+		{
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().LoseGame();
+		}
 		newCard.GetComponent<Lobster>().SetData(newCardData);
 		cardsInHand.Add(newCard);
 		ResetCardPositions();

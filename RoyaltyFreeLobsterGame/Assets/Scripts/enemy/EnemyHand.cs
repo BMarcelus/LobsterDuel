@@ -57,7 +57,10 @@ public class EnemyHand : MonoBehaviour {
 		newCard.transform.parent = transform;
 		newCard.transform.localScale = SystemManager.cardNormalScale;
 		CardData newCardData = deck.DrawACard();
-		//if(newCardData == null)  game over
+		if(newCardData == null)
+		{
+			GameObject.FindGameObjectWithTag("Enemy").GetComponent<Player>().LoseGame();
+		}
 		newCard.GetComponent<Lobster>().SetData(newCardData);
 		cardsInHand.Add(newCard);
 		ResetCardPositions();

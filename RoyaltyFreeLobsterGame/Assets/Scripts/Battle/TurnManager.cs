@@ -57,6 +57,14 @@ public class TurnManager : MonoBehaviour {
         currentTurn = Turn.GameOver;
     }
 
+    public bool IsGameOver()
+    {
+        return currentTurn == Turn.GameOver;
+    }
+    public bool IsPlayerTurn()
+    {
+        return currentTurn == Turn.Player;
+    }
     public void PlayerTurnReset()
     {
         //allow players to place card again
@@ -65,15 +73,7 @@ public class TurnManager : MonoBehaviour {
         playerFloor.GetComponent<Floor>().ResetSpotsForNewTurn();
     }
 
-    public bool IsPlayerTurn()
-    {
-        return currentTurn == Turn.Player;
-    }
 
-    public bool IsGameOver()
-    {
-        return currentTurn == Turn.GameOver;
-    }
 
     public void UpdateTurnUI()
     {

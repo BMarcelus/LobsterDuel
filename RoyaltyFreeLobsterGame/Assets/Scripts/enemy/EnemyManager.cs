@@ -61,6 +61,8 @@ public class EnemyManager : MonoBehaviour {
 		//draw card
 		enemyHand.AddCardToHand();
 		yield return new WaitForSeconds(0.5f);
+		if(turnManager.IsGameOver())
+			StopAllCoroutines();
 		//place card
 		PlaceCardInfo placeCardInfo = enemyAI.GetCardPlaceInfo(enemyHand.GetCardList(), spots);
 		if(placeCardInfo != null)
