@@ -39,8 +39,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		dialogue.SetActive(true);
 		yield return new WaitForSeconds(1.5f);
 		dialogue.SetActive(false);
-		enemyManager.StartEnemyTurn();
-		//turnManager.SwitchToPlayer();
+		turnManager.SwitchToPlayer();
 	}
 
 	public IEnumerator Turn6Event()

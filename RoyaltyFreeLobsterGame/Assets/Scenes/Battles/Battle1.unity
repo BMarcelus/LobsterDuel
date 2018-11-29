@@ -1635,7 +1635,7 @@ MonoBehaviour:
   cardPlaceSound: {fileID: 1051118095}
   canPlaceCard: 1
   manager: {fileID: 1967631816}
-  initialCardNumbers: 0
+  initialCardNumbers: 4
 --- !u!82 &1051118095
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2381,13 +2381,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
-    number: 2
+    number: 6
   - type: {fileID: 11400000, guid: 91cd4fa3354f440b297cbbbf28d35ce8, type: 2}
     number: 1
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
-    number: 2
+    number: 3
   - type: {fileID: 11400000, guid: b90e4dd23a79844048720c334b1fcb0a, type: 2}
-    number: 2
+    number: 1
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
     number: 13
   cardsInDeck: []
@@ -2523,7 +2523,7 @@ MonoBehaviour:
   canPlaceCard: 1
   manager: {fileID: 1967631816}
   materSelectionManager: {fileID: 2024642184}
-  initialCardNumbers: 1
+  initialCardNumbers: 4
 --- !u!82 &1457101404
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4050,7 +4050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
-    number: 1
+    number: 4
   - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
     number: 1
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
