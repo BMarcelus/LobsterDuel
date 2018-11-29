@@ -25,7 +25,43 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 
 	public override IEnumerator CheckTurnEvent(int turn)
 	{
-		//tutorialPage.SetActive(false);
+		if(turn >= 7)
+		{
+			//if have any material and player has pincher, play protest craker and DESTROY pincher
+			GameObject materialSpot = null;
+			//get a spot with a rock or other material
+			foreach(GameObject spot in spots)
+			{
+				GameObject cardHere = spot.GetComponent<FloorSpot>().GetCardInPlay();
+				if(cardHere && cardHere.GetComponent<Lobster>().GetLevel() == 1)
+				{
+					materialSpot = spot;
+					//if target is set to a rock, no need to continue looking, it's the best solution
+					if(cardHere.GetComponent<CardStats>().cardData.cardName == "Rock")
+					{
+						break;
+					}
+				}
+			}
+			//get Pincher
+			GameObject pincherSpot = null;
+			foreach(GameObject playerSpot in playerFloor.GetComponent<Floor>().spots)
+			{
+				GameObject cardHere = playerSpot.GetComponent<FloorSpot>().GetCardInPlay();
+				if(cardHere && cardHere.GetComponent<CardStats>().cardData.cardName == "Pincher")
+				{
+					pincherSpot = playerSpot;
+					break;
+				}
+			}
+			if(materialSpot && pincherSpot)
+			{
+				yield return Turn7Event(materialSpot, pincherSpot);
+				yield break;
+			}
+		}
+		
+		//other cases
 		switch(turn)
 		{
 			case 1:
@@ -33,9 +69,6 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 				break;
 			case 6:
 				yield return Turn6Event();
-				break;
-			case 7:
-				yield return Turn7Event();
 				break;
 			default:
 				enemyManager.StartEnemyTurn();
@@ -71,31 +104,15 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		enemyManager.StartEnemyTurn();
 	}
 
-	public IEnumerator Turn7Event()
+	public IEnumerator Turn7Event(GameObject materialSpot, GameObject pincherSpot)
 	{
 		//draw card
 		enemyHand.AddCardToHand();
 		yield return new WaitForSeconds(0.5f);
 		//place Protest Cracker and kill Pincher
 		enemyHand.RemoveCardFromhand(0);
-		GameObject targetSpot = null;
-		//get a spot with a rock
-		foreach(GameObject spot in spots)
-		{
-			GameObject cardHere = spot.GetComponent<FloorSpot>().GetCardInPlay();
-			if(cardHere && cardHere.GetComponent<Lobster>().GetLevel() == 1)
-			{
-				targetSpot = spot;
-				//if target is set to a rock, no need to continue looking, it's the best solution
-				if(cardHere.GetComponent<CardStats>().cardData.cardName == "Rock")
-				{
-					break;
-				}
-			}
-
-		}
 		//put Protest Craker here
-		targetSpot.GetComponent<FloorSpot>().SetCardWithData(protestCrack);
+		materialSpot.GetComponent<FloorSpot>().SetCardWithData(protestCrack);
 		yield return new WaitForSeconds(1);
 		//say sth I'm giving up on you
 		dialogue.SetActive(true);
@@ -103,16 +120,8 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		yield return new WaitForSeconds(1.5f);
 		dialogue.SetActive(false);
 		yield return new WaitForSeconds(0.5f);
-		//destroy Pincher
-		foreach(GameObject playerSpot in playerFloor.GetComponent<Floor>().spots)
-		{
-			GameObject cardHere = playerSpot.GetComponent<FloorSpot>().GetCardInPlay();
-			if(cardHere && cardHere.GetComponent<CardStats>().cardData.cardName == "Pincher")
-			{
-				playerSpot.GetComponent<FloorSpot>().SetCard(null);
-				break;
-			}
-		}
+		//destroy pincher
+		pincherSpot.GetComponent<FloorSpot>().SetCardWithData(battleManager.rockData);
 		yield return new WaitForSeconds(1f);
 		//decide move orders
 		List<Lobster> lobsters = enemyAI.GetOrder(spots);
@@ -146,6 +155,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 					StopAllCoroutines();
 				//drop a stone
 				yield return battleManager.PlayerAddRock();
+				yield return new WaitForSeconds(0.5f);
 			}
 			else//attack player's lobsters
 			{
@@ -160,7 +170,10 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 					StopAllCoroutines();
 				//if there are damage overflow, wait for players to 
 				if(player.GetHealth() < healthBeforeBattle)
+				{
 					yield return battleManager.PlayerAddRock();
+					yield return new WaitForSeconds(0.5f);
+				}
 			}	
 		}
 		yield return new WaitForSeconds(0.5f);
