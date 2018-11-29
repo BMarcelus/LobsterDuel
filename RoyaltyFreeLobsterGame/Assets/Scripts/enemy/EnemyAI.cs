@@ -50,19 +50,33 @@ public class EnemyAI : MonoBehaviour {
 		else//attack is not 0, check if there are anything it can attack
 		{
 			int targetIndex = -1;
-			int targetDefense = 0;
+			int targetAttack = 0;
+			int targetLevel = 0;
 			List<Lobster> attackable = playerFloor.GetComponent<Floor>().GetAttackableLobsters();
 			//player has no lobsters, let's attack the poor player
 			if(attackable.Count == 0) return EnemyMove.AttackPlayer;
 			for(int index = 0; index < attackable.Count; ++index)
 			{
 				Lobster playerLob = attackable[index];
-				int playerShell = playerLob.GetShell();
-				//check if it is suitable to be the target(able to attack && has higher defense)
-				if(attacker.GetClaw() >= playerShell && playerShell > targetDefense)
+				int playerClaw = playerLob.GetClaw();
+				int playerLevel = playerLob.GetLevel();
+				//check if able to attack
+				if(attacker.GetClaw() >= playerLob.GetShell())
 				{
-					targetIndex = index;
-					targetDefense = playerShell;
+					//beat lobster with highest level
+					if(playerLevel > targetLevel)
+					{
+						targetIndex = index;
+						targetLevel = playerLevel;
+					//with the same level, beat the one with highest attack
+					}else if(playerLevel == targetLevel && playerClaw > targetAttack){
+						targetIndex = index;
+						targetAttack = playerClaw;
+					//if can only attack 1 level card, attack rock first
+					}else if(playerLevel == 1 && playerLob.data.cardName == "Rock")
+					{
+						targetAttack = index;
+					}
 				}
 			}
 			//if has a target to attack

@@ -164,4 +164,10 @@ public class Lobster : MonoBehaviour {
     {
         return data.defense;
     }
+
+    public int GetLevel()
+    {
+        return data.level;
+    }
+
 }
