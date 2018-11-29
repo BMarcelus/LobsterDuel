@@ -139,6 +139,7 @@ public class Lobster : MonoBehaviour {
                 newRock.GetComponent<Lobster>().SetData(battleManager.rockData);
                 //use the rock in the floor
                 floorAssigned.GetComponent<FloorSpot>().SetCard(newRock, owner);
+                newRock.GetComponent<MoveFromPlayer>().Deactivate();
             }
             //destroy itself, hurt owner
             owner.GetComponent<Player>().GetHurt(overflow);

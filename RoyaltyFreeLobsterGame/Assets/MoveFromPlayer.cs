@@ -21,4 +21,9 @@ public class MoveFromPlayer : MonoBehaviour {
 	void Update () {
 		transform.position = Vector3.Lerp(transform.position, target, 0.1f);
 	}
+
+  public void Deactivate() {
+    // transform.position = target;
+    Destroy(this);
+  }
 }
