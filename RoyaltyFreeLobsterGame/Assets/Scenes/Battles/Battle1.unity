@@ -145,6 +145,8 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1913214596}
   gameOverText: {fileID: 771833175}
   manager: {fileID: 1967631816}
+  rockHealthDisplay: {fileID: 0}
+  perilIndicator: {fileID: 0}
 --- !u!212 &185964538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3728,6 +3730,8 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1913214596}
   gameOverText: {fileID: 771833175}
   manager: {fileID: 1967631816}
+  rockHealthDisplay: {fileID: 0}
+  perilIndicator: {fileID: 0}
 --- !u!58 &1949237146
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3914,6 +3918,7 @@ MonoBehaviour:
   lobsterCard: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
     type: 2}
   rockData: {fileID: 11400000, guid: fb1142e9b66b2485a91bbbae2075d8a2, type: 2}
+  healthRockData: {fileID: 11400000, guid: 171f22b8223834e5488013f534df29a4, type: 2}
 --- !u!114 &1967631822
 MonoBehaviour:
   m_ObjectHideFlags: 0
