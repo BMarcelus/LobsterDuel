@@ -69,6 +69,12 @@ public class EnemyHand : MonoBehaviour {
 		ResetCardPositions();
 	}
 
+	public void RemoveCardFromhand(int index)	
+	{
+		cardsInHand.RemoveAt(index);
+		ResetCardPositions();
+	}
+
 	public void PlaceCard(GameObject card, GameObject spot)
 	{
 		if(cardsInHand.Contains(card))

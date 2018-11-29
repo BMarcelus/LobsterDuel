@@ -32,6 +32,7 @@ public class TurnManager : MonoBehaviour {
         if(currentTurn == Turn.Player)
         {
             currentTurn = Turn.Enemy;
+            GetComponent<BattleManager>().ResetLobsters();
             UpdateTurnUI();
             //events in enemy's turn
             if(enemyTurnEvent)

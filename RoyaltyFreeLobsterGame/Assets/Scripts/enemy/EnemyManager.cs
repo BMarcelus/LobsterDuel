@@ -101,6 +101,7 @@ public class EnemyManager : MonoBehaviour {
 					StopAllCoroutines();
 				//drop a stone
 				yield return battleManager.PlayerAddRock();
+				yield return new WaitForSeconds(0.5f);
 			}
 			else//attack player's lobsters
 			{
@@ -115,7 +116,10 @@ public class EnemyManager : MonoBehaviour {
 					StopAllCoroutines();
 				//if there are damage overflow, wait for players to 
 				if(player.GetHealth() < healthBeforeBattle)
+				{
 					yield return battleManager.PlayerAddRock();
+					yield return new WaitForSeconds(0.5f);
+				}
 			}	
 		}
 		yield return new WaitForSeconds(0.5f);

@@ -51,7 +51,7 @@ public class BattleManager : MonoBehaviour {
     }
 
     //close move menu of all lobsters
-    private void ResetLobsters()
+    public void ResetLobsters()
     {
         foreach (GameObject spot in playerFloor.spots)
         {

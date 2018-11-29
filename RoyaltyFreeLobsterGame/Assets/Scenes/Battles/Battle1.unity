@@ -2388,10 +2388,8 @@ MonoBehaviour:
     number: 1
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
     number: 3
-  - type: {fileID: 11400000, guid: b90e4dd23a79844048720c334b1fcb0a, type: 2}
-    number: 1
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
-    number: 13
+    number: 14
   cardsInDeck: []
   shuffle: 0
 --- !u!1 &1450967410
@@ -3962,8 +3960,12 @@ MonoBehaviour:
   tutorialPage: {fileID: 1394439168}
   enemyHand: {fileID: 1051118094}
   enemyFloor: {fileID: 1890217939}
+  playerFloor: {fileID: 1075860571}
   battleManager: {fileID: 1967631821}
   dialogue: {fileID: 207236026}
+  dialogueText: {fileID: 758008930}
+  enemyAI: {fileID: 1967631820}
+  protestCrack: {fileID: 11400000, guid: b90e4dd23a79844048720c334b1fcb0a, type: 2}
 --- !u!1 &1986112628
 GameObject:
   m_ObjectHideFlags: 0
