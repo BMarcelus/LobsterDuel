@@ -276,12 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 1563619449}
-  m_BoneTransforms:
-  - {fileID: 1563619449}
-  - {fileID: 1273461216}
-  - {fileID: 1025183380}
-  - {fileID: 176693504}
-  - {fileID: 1314587417}
+  m_BoneTransforms: []
 --- !u!212 &69091977
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -399,12 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 668564402}
-  m_BoneTransforms:
-  - {fileID: 668564402}
-  - {fileID: 1628412056}
-  - {fileID: 196142920}
-  - {fileID: 853277405}
-  - {fileID: 460046201}
+  m_BoneTransforms: []
 --- !u!212 &80593681
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -694,12 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 2067272626}
-  m_BoneTransforms:
-  - {fileID: 2067272626}
-  - {fileID: 1785466010}
-  - {fileID: 1230925888}
-  - {fileID: 61202692}
-  - {fileID: 1945917219}
+  m_BoneTransforms: []
 --- !u!212 &385268989
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -894,12 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 1767510298}
-  m_BoneTransforms:
-  - {fileID: 1767510298}
-  - {fileID: 107343767}
-  - {fileID: 466652458}
-  - {fileID: 2052257051}
-  - {fileID: 1902368382}
+  m_BoneTransforms: []
 --- !u!212 &476068128
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2338,12 +2318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 165674953}
-  m_BoneTransforms:
-  - {fileID: 165674953}
-  - {fileID: 922605689}
-  - {fileID: 931212045}
-  - {fileID: 1533658916}
-  - {fileID: 1186935876}
+  m_BoneTransforms: []
 --- !u!212 &1253664912
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2611,22 +2586,40 @@ MonoBehaviour:
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 1
+  - name: Crowd
+    characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
+    flipSide: 1
   dialogue:
-  - character: Craig
-    characterIndex: 0
-    text: Hallo
   - character: Pincher
     characterIndex: 1
-    text: Hallo, am Not Craig
+    text: Listen, Craig. There's something I never told you about your father.
   - character: Craig
     characterIndex: 0
-    text: woa
-  - character: Craig
-    characterIndex: 0
-    text: down with lobarchy?
+    text: What is it, Pincher?
   - character: Pincher
     characterIndex: 1
-    text: down
+    text: Years ago, your father and I fought against the Lobarchy together.
+  - character: Craig
+    characterIndex: 0
+    text: My father... was a revolutionary?
+  - character: Pincher
+    characterIndex: 1
+    text: Yes. But the people were not ready to rise up. Our forces were weak. We
+      stood no chance against their military.
+  - character: Craig
+    characterIndex: 0
+    text: Why are you telling me this now?
+  - character: Pincher
+    characterIndex: 1
+    text: "Because I\u2019m angry, Craig! The Lobarchy is oppressive. The people are
+      stuck in poverty and the Lobarchy is doing nothing to fix it."
+  - character: Crowd
+    characterIndex: 2
+    text: HEY! MOVE THESE ROCKS!
+  - character: Pincher
+    characterIndex: 1
+    text: Hear that? All they need is the right lobster to guide them, and they will
+      rise up.
   storySequence: 0
 --- !u!1 &1314587416
 GameObject:
@@ -2788,12 +2781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 1289693051}
-  m_BoneTransforms:
-  - {fileID: 1289693051}
-  - {fileID: 1101348312}
-  - {fileID: 1556145756}
-  - {fileID: 1734263963}
-  - {fileID: 1843135869}
+  m_BoneTransforms: []
 --- !u!212 &1463375920
 SpriteRenderer:
   m_ObjectHideFlags: 0
