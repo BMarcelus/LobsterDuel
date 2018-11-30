@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class SongManager : MonoBehaviour {
 
-  public bool newSong = false;
+  public bool newSong;
   private static SongManager instance = null;
   public static SongManager Instance {
     get { return instance; }
   }
- void Awake() {
+ void Start() {
      if (instance != null && instance != this) {
-        if(newSong) {
-          Destroy(instance);
-          instance = this;
-        } else {
+        AudioSource instanceAudio = instance.GetComponent<AudioSource>();
+        AudioSource myAudio = GetComponent<AudioSource>();
+        if(instanceAudio.clip != myAudio.clip) {
+          instanceAudio.clip = GetComponent<AudioSource>().clip;
+          instanceAudio.Play();
+        }
+        {
           Destroy(this.gameObject);
         }
         return;
      } else {
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
      }
-     DontDestroyOnLoad(this.gameObject);
  }
 }

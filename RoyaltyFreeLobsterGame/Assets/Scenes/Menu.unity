@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 263538917}
   - component: {fileID: 263538916}
   - component: {fileID: 263538915}
+  - component: {fileID: 263538918}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -220,7 +221,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 263538916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 263538918}
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &263538916
@@ -257,6 +269,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263538913}
   m_CullTransparentMesh: 0
+--- !u!114 &263538918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263538913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77fe9af7396748b9aa16bfe6e5e2ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Level1
 --- !u!1 &520179604
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +442,6 @@ GameObject:
   m_Component:
   - component: {fileID: 724078730}
   - component: {fileID: 724078729}
-  - component: {fileID: 724078731}
   m_Layer: 0
   m_Name: sadvillage
   m_TagString: Untagged
@@ -435,9 +458,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e3b1cec7f1e5f4e1aa9b529605bb3c5d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d18f8489a4b6446bba975717742449a6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.371
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -534,18 +557,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &724078731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 724078728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c184607159442de88ab83538eef401, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newSong: 0
 --- !u!1 &791916621
 GameObject:
   m_ObjectHideFlags: 0
