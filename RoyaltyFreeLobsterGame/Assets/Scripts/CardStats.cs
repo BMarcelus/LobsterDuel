@@ -14,6 +14,7 @@ public class CardStats : MonoBehaviour {
   public Image characterDisplay;
   public bool update;
   public AudioSource moveMenuSound;
+  public Image cardBack;
 
 
   public void UpdateDisplay() {
@@ -34,6 +35,9 @@ public class CardStats : MonoBehaviour {
       moveMenuSound.clip = cardData.moveMenuSelect;
     }
     moveMenuSound.pitch = 1.2f - 0.3f * (cardData.level-1)/2;
+    if(cardData.cardBackColor.a!=0) {
+      cardBack.color = cardData.cardBackColor;
+    }
   }
 
 	// Use this for initialization

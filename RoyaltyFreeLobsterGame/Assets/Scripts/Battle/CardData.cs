@@ -19,4 +19,5 @@ public class CardData : ScriptableObject {
     public Color spriteColor;
     public AudioClip moveMenuSelect;
     public bool isRock;
+    public Color cardBackColor;
 }

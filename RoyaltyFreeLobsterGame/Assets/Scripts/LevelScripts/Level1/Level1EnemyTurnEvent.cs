@@ -36,7 +36,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	public override IEnumerator CheckTurnEvent(int turn)
 	{
 		
-		if(turn >= 7)
+		if(turn >= 10)
 		{
 			//if have any material and player has pincher, play protest craker and DESTROY pincher
 			GameObject materialSpot = null;
@@ -78,9 +78,9 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 			case 1:
 				yield return Turn1Event();
 				break;
-			case 2:
-				yield return Turn2Event();
-				break;
+			// case 2:
+			// 	yield return Turn2Event();
+			// 	break;
 			case 6:
 				yield return Turn6Event();
 				break;

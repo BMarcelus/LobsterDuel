@@ -10,6 +10,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	[Header("Dialogue")]
 	public BattleDialogueManager dialogueManager;
 	public DialogueSequence pincherDialogue;
+	public DialogueSequence guardsAttackingDialogue;
 
 	void Start()
 	{
@@ -22,6 +23,9 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 		{
 			case 2:
 				yield return Turn2Event();
+				break;
+      case 3:
+				yield return Turn3Event();
 				break;
 			case 6:
 				yield return Turn6Event();
@@ -38,13 +42,16 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	public IEnumerator Turn2Event()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Summon this card and attack with them";
+		tutorialText.text = "Command Each Lobster To Attack";
 		yield return new WaitForEndOfFrame();
 	}
 	public IEnumerator Turn3Event()
 	{
+		dialogueManager.StartDialogue(guardsAttackingDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
+
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Summon this card";
+		tutorialText.text = "Defending Cards must be attacked First";
 		yield return new WaitForEndOfFrame();
 	}
 

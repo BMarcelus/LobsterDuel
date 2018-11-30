@@ -19,3 +19,6 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  moveMenuSelect: {fileID: 0}
+  isRock: 0
+  cardBackColor: {r: 1, g: 0.93442965, b: 0, a: 1}
