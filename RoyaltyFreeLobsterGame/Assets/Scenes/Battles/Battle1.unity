@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 70740499}
+  - component: {fileID: 70740500}
   m_Layer: 0
   m_Name: DialogueSequences
   m_TagString: Untagged
@@ -145,9 +146,24 @@ Transform:
   - {fileID: 820333915}
   - {fileID: 1655528178}
   - {fileID: 851748525}
+  - {fileID: 1077268827}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &70740500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70740498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69e9b6185246ad43bc88658866b2214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storySequence: 0
+  player: {fileID: 0}
+  dialogueController: {fileID: 1077268825}
 --- !u!1 &122690362
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +741,14 @@ MonoBehaviour:
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 0
+  - name: Royal Guard
+    characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
+    flipSide: 0
   dialogue:
+  - character: Royal Guard
+    characterIndex: 2
+    text: We warned you, old man. Now you'll be the example of what happens to peasants
+      who step out of line
   - character: Pincher
     characterIndex: 1
     text: "Craig\u2026 it\u2019s up to you now."
@@ -2640,7 +2663,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9e8ec424cdf6f461481ad1162a8372d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2933,19 +2956,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 70740499}
     m_Modifications:
     - target: {fileID: 4173459231637528, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 172.43242
+      value: 173.61487
       objectReference: {fileID: 0}
     - target: {fileID: 4173459231637528, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -28.148794
+      value: -28.13549
       objectReference: {fileID: 0}
     - target: {fileID: 4173459231637528, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -12.019918
+      value: -12.133418
       objectReference: {fileID: 0}
     - target: {fileID: 4173459231637528, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2965,7 +2988,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4173459231637528, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224122699530463198, guid: 9c04644df3ae64a1695bc49c8ac1c567,
         type: 2}
@@ -2983,6 +3006,16 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1077268825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1053999401686296, guid: 9c04644df3ae64a1695bc49c8ac1c567,
+    type: 2}
+  m_PrefabInternal: {fileID: 1077268824}
+--- !u!4 &1077268827 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4173459231637528, guid: 9c04644df3ae64a1695bc49c8ac1c567,
+    type: 2}
+  m_PrefabInternal: {fileID: 1077268824}
 --- !u!1 &1123968075
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,6 +5934,8 @@ MonoBehaviour:
   tutorialPage: {fileID: 1394439168}
   tutorialText: {fileID: 2061561093}
   playerDeck: {fileID: 1991652597}
+  dialogueManager: {fileID: 70740500}
+  pincherDialogue: {fileID: 408678437}
 --- !u!114 &1967631824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5923,6 +5958,12 @@ MonoBehaviour:
   dialogueText: {fileID: 758008930}
   enemyAI: {fileID: 1967631820}
   protestCrack: {fileID: 11400000, guid: b90e4dd23a79844048720c334b1fcb0a, type: 2}
+  dialogueManager: {fileID: 70740500}
+  guardsThreateningDialogue: {fileID: 171727835}
+  guardsAttackingDialogue: {fileID: 279534349}
+  pincherDefendingDialogue: {fileID: 408678437}
+  pincherDyingDialogue: {fileID: 255710896}
+  pincherDiedDialogue: {fileID: 820333916}
 --- !u!1 &1986112628
 GameObject:
   m_ObjectHideFlags: 0
@@ -6492,7 +6533,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

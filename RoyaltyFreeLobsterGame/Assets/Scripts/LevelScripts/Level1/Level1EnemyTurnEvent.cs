@@ -15,7 +15,14 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	private GameObject[] spots;
 	public EnemyAI enemyAI;
 	public CardData protestCrack;
-
+	[Header("Dialogue")]
+	public BattleDialogueManager dialogueManager;
+	public DialogueSequence guardsThreateningDialogue;
+	public DialogueSequence guardsAttackingDialogue;
+	public DialogueSequence pincherDefendingDialogue;
+	public DialogueSequence pincherDyingDialogue;
+	public DialogueSequence pincherDiedDialogue;
+	private bool pincherHasDefended = false;
 
 	void Start()
 	{
@@ -25,6 +32,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 
 	public override IEnumerator CheckTurnEvent(int turn)
 	{
+		
 		if(turn >= 7)
 		{
 			//if have any material and player has pincher, play protest craker and DESTROY pincher
@@ -67,6 +75,9 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 			case 1:
 				yield return Turn1Event();
 				break;
+			case 2:
+				yield return Turn2Event();
+				break;
 			case 6:
 				yield return Turn6Event();
 				break;
@@ -80,18 +91,20 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	{
 		//draw card
 		enemyHand.AddCardToHand();
-		dialogue.SetActive(true);
-		yield return new WaitForSeconds(1.5f);
-		dialogue.SetActive(false);
+		dialogueManager.StartDialogue(guardsThreateningDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		turnManager.SwitchToPlayer();
+	}
+
+	public IEnumerator Turn2Event()
+	{
+		dialogueManager.StartDialogue(guardsAttackingDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
+		enemyManager.StartEnemyTurn();
 	}
 
 	public IEnumerator Turn6Event()
 	{
-		dialogue.SetActive(true);
-		dialogueText.text = "Think you are going to win? YOU IDIOT";
-		yield return new WaitForSeconds(1f);
-		dialogue.SetActive(false);
 		//fill the spot with rocks
 		foreach(GameObject spot in enemyFloor.spots)
 		{
@@ -102,6 +115,12 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		}
 		yield return new WaitForSeconds(1.5f);
 		enemyManager.StartEnemyTurn();
+	}
+
+	public IEnumerator PincherDefend()
+	{
+		dialogueManager.StartDialogue(pincherDefendingDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
 	}
 
 	public IEnumerator Turn7Event(GameObject materialSpot, GameObject pincherSpot)
@@ -116,11 +135,8 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		//put Protest Craker here
 		materialSpot.GetComponent<FloorSpot>().SetCardWithData(protestCrack);
 		yield return new WaitForSeconds(1);
-		//say sth I'm giving up on you
-		dialogue.SetActive(true);
-		dialogueText.text = "Oh this card has special effect. Let me see what I can do.";
-		yield return new WaitForSeconds(1.5f);
-		dialogue.SetActive(false);
+		dialogueManager.StartDialogue(pincherDyingDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		yield return new WaitForSeconds(0.5f);
 		//destroy pincher
 		pincherSpot.GetComponent<FloorSpot>().SetCardWithData(battleManager.rockData);
@@ -179,6 +195,9 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 			}	
 		}
 		yield return new WaitForSeconds(0.5f);
+		//pincher died
+		dialogueManager.StartDialogue(pincherDiedDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		//end the turn
 		turnManager.SwitchToPlayer();
 	}

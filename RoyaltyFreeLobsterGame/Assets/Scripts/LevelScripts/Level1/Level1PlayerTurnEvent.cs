@@ -7,6 +7,9 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	public GameObject tutorialPage;
 	public Text tutorialText;
 	public Deck playerDeck;
+	[Header("Dialogue")]
+	public BattleDialogueManager dialogueManager;
+	public DialogueSequence pincherDialogue;
 
 	void Start()
 	{
@@ -47,8 +50,11 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 
 	public IEnumerator Turn6Event()
 	{
+		GetComponent<TurnManager>().ChangeTurn(Turn.Enemy);
+		dialogueManager.StartDialogue(pincherDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		tutorialPage.SetActive(true);
 		tutorialText.text = "You can use level1 card as material to summon level 2 card";
-		yield return new WaitForEndOfFrame();
+		GetComponent<TurnManager>().ChangeTurn(Turn.Player);
 	}
 }
