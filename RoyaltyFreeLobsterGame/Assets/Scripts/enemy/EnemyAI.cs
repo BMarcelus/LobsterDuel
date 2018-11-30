@@ -59,6 +59,7 @@ public class EnemyAI : MonoBehaviour {
 			{
 				Lobster playerLob = attackable[index];
 				int playerClaw = playerLob.GetClaw();
+				int playerShell = playerLob.GetShell();
 				int playerLevel = playerLob.GetLevel();
 				//check if able to attack
 				if(attacker.GetClaw() >= playerLob.GetShell())

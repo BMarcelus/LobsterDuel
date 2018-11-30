@@ -3935,11 +3935,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
-    number: 6
+    number: 7
   - type: {fileID: 11400000, guid: 91cd4fa3354f440b297cbbbf28d35ce8, type: 2}
     number: 1
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
-    number: 3
+    number: 5
+  - type: {fileID: 11400000, guid: 91cd4fa3354f440b297cbbbf28d35ce8, type: 2}
+    number: 2
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
     number: 30
   cardsInDeck: []
@@ -6033,19 +6035,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
-    number: 4
+    number: 5
   - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
     number: 1
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
-    number: 2
+    number: 1
   - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
     number: 1
   - type: {fileID: 11400000, guid: a7e836b9af1f14ee1b4032b63a808921, type: 2}
     number: 1
   - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
-    number: 1
+    number: 4
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
-    number: 15
+    number: 5
+  - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
+    number: 5
+  - type: {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
+    number: 10
   cardsInDeck: []
   shuffle: 0
 --- !u!4 &1991652598

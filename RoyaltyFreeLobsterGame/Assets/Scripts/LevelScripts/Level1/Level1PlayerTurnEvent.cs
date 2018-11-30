@@ -15,7 +15,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	void Start()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Each turn you can place a Lobster on the Floor";
+		tutorialText.text = "Each turn you can place one Lobster on the Floor";
 	}
 	public override IEnumerator CheckTurnEvent(int turn)
 	{
@@ -33,7 +33,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 			case 6:
 				yield return Turn6Event();
 				break;
-			case 7:
+			case 10:
 				//shuffle the deck
 				playerDeck.shuffle = true;
 				break;
@@ -45,7 +45,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	public IEnumerator Turn2Event()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Click on Lobsters to give Attack command";
+		tutorialText.text = "Play a lobster\nclick each lobster to attack";
 		yield return new WaitForEndOfFrame();
 	}
 	public IEnumerator Turn3Event()
@@ -54,14 +54,14 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
 
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Lobsters drop a rock when they die\nPlayers drop a rock when they get hurted";
+		tutorialText.text = "Lobsters drop a rock when they die\nDefending cards Must be attacked first";
 		yield return new WaitForEndOfFrame();
 	}
 
 	public IEnumerator Turn4Event()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Lobsters protect their Owner\nDefending Lobsters protect other Lobsters";
+		tutorialText.text = "Players drop a rock when they take damage";
 		yield return new WaitForEndOfFrame();
 	}
 
@@ -71,7 +71,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 		dialogueManager.StartDialogue(pincherDialogue);
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		tutorialPage.SetActive(true);
-		tutorialText.text = "You can use level1 card as material to summon level 2 card";
+		tutorialText.text = "You can replace level1 cards to summon level 2 cards";
 		GetComponent<TurnManager>().ChangeTurn(Turn.Player);
 	}
 }

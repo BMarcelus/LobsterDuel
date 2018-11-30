@@ -60,12 +60,12 @@ public class Player : MonoBehaviour {
 			if(tag == "Player")
 			{
 				manager.GetComponent<TurnManager>().GameOver(false);
-				gameOverText.text = "How can you lose to a stupid AI? You are so terrible.";
+				gameOverText.text = "DEFEAT";
 			}
 			else
 			{
 				manager.GetComponent<TurnManager>().GameOver(true);
-				gameOverText.text = "You Win";
+				gameOverText.text = "VICTORY";
 			}
 			gameOverPanel.SetActive(true);
 	}

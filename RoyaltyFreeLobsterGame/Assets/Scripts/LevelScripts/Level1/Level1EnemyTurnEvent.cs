@@ -81,7 +81,9 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 			// case 2:
 			// 	yield return Turn2Event();
 			// 	break;
-			case 6:
+			case 4:
+			case 8:
+			case 9:
 				yield return Turn6Event();
 				break;
 			default:

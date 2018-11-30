@@ -13,9 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Protest Cracker
   level: 2
-  attack: 2
+  attack: 1
   defense: 2
   trigger: Play
   description: Kill that^ defending lobster
   sprite: {fileID: 0}
   spriteColor: {r: 0, g: 0, b: 0, a: 0}
+  moveMenuSelect: {fileID: 0}
+  isRock: 0
+  cardBackColor: {r: 0, g: 0, b: 0, a: 0}
