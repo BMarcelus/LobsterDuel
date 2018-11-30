@@ -181,14 +181,17 @@ public class PlayerHand : MonoBehaviour {
 			cardSelectSound.Play();
 		}
 		UnselectCard();
-        selectedCardIndex = cardIndex;
-        selectingCard = true;
-        //make the selected card larger
-		cardsInHand[selectedCardIndex].transform.localScale = SystemManager.cardSelectedScale;
-		//make the card above all others
-		Vector3 temp = cardsInHand[selectedCardIndex].transform.position;
-		temp.z = -9;
-		cardsInHand[selectedCardIndex].transform.position = temp;
+		if(cardIndex < cardsInHand.Count && cardIndex >= 0)
+		{
+			selectedCardIndex = cardIndex;
+			selectingCard = true;
+			//make the selected card larger
+			cardsInHand[selectedCardIndex].transform.localScale = SystemManager.cardSelectedScale;
+			//make the card above all others
+			Vector3 temp = cardsInHand[selectedCardIndex].transform.position;
+			temp.z = -9;
+			cardsInHand[selectedCardIndex].transform.position = temp;
+		}
 	}
 
 	private void UnselectCard()

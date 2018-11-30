@@ -4026,7 +4026,7 @@ MonoBehaviour:
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
     number: 3
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
-    number: 14
+    number: 30
   cardsInDeck: []
   shuffle: 0
 --- !u!1 &1450967410
@@ -5958,6 +5958,8 @@ MonoBehaviour:
   dialogueText: {fileID: 758008930}
   enemyAI: {fileID: 1967631820}
   protestCrack: {fileID: 11400000, guid: b90e4dd23a79844048720c334b1fcb0a, type: 2}
+  playerHand: {fileID: 1457101403}
+  newDeck: {fileID: 1991652599}
   dialogueManager: {fileID: 70740500}
   guardsThreateningDialogue: {fileID: 171727835}
   guardsAttackingDialogue: {fileID: 279534349}
@@ -6035,6 +6037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1991652598}
   - component: {fileID: 1991652597}
+  - component: {fileID: 1991652599}
   m_Layer: 0
   m_Name: playerDeck
   m_TagString: Untagged
@@ -6066,12 +6069,8 @@ MonoBehaviour:
     number: 1
   - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
     number: 1
-  - type: {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
-    number: 8
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
-    number: 3
-  - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
-    number: 4
+    number: 15
   cardsInDeck: []
   shuffle: 0
 --- !u!4 &1991652598
@@ -6087,6 +6086,26 @@ Transform:
   m_Father: {fileID: 1457101406}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1991652599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991652596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5fcf1b32da1314786ea1996e00277d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards:
+  - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
+    number: 5
+  - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
+    number: 5
+  - type: {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
+    number: 10
+  cardsInDeck: []
+  shuffle: 1
 --- !u!1 &1991710648
 GameObject:
   m_ObjectHideFlags: 0
