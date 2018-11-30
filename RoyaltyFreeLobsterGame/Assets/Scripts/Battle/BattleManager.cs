@@ -14,6 +14,7 @@ public class BattleManager : MonoBehaviour {
     private GameObject player;
     private GameObject opponent;
     private Camera mainCamera;
+    public AudioSource hurtSound;
     // Use this for initialization
     void Start()
     {
@@ -116,6 +117,7 @@ public class BattleManager : MonoBehaviour {
             }
             else//when attacking opponent directly
             {
+                hurtSound.Play();
                 //reset color
                 opponent.transform.Find("Arrow").gameObject.SetActive(false);
                 // opponent.GetComponent<SpriteRenderer>().color = new Color(GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.r,

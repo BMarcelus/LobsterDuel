@@ -292,6 +292,7 @@ MonoBehaviour:
   turnNumber: 1
   enemyTurnEvent: {fileID: 69041008}
   playerTurnEvent: {fileID: 69041007}
+  gameOverEvent: {fileID: 0}
 --- !u!114 &69041003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +310,7 @@ MonoBehaviour:
     type: 2}
   rockData: {fileID: 11400000, guid: fb1142e9b66b2485a91bbbae2075d8a2, type: 2}
   healthRockData: {fileID: 11400000, guid: 171f22b8223834e5488013f534df29a4, type: 2}
+  hurtSound: {fileID: 999799204}
 --- !u!114 &69041004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +334,7 @@ MonoBehaviour:
   turnManager: {fileID: 69041002}
   enemyAI: {fileID: 69041005}
   enemyHand: {fileID: 1682913004}
+  hurtSound: {fileID: 999799204}
 --- !u!114 &69041005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6452,6 +6455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  arrow: {fileID: 0}
 --- !u!61 &1946299976
 BoxCollider2D:
   m_ObjectHideFlags: 0

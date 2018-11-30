@@ -5881,6 +5881,7 @@ MonoBehaviour:
   turnManager: {fileID: 1967631818}
   enemyAI: {fileID: 1967631820}
   enemyHand: {fileID: 1051118094}
+  hurtSound: {fileID: 286199069}
 --- !u!114 &1967631820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5909,6 +5910,7 @@ MonoBehaviour:
     type: 2}
   rockData: {fileID: 11400000, guid: fb1142e9b66b2485a91bbbae2075d8a2, type: 2}
   healthRockData: {fileID: 11400000, guid: 171f22b8223834e5488013f534df29a4, type: 2}
+  hurtSound: {fileID: 286199069}
 --- !u!114 &1967631822
 MonoBehaviour:
   m_ObjectHideFlags: 0
