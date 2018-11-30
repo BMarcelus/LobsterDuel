@@ -5294,7 +5294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultColor: {r: 0, g: 0.8018868, b: 0.15104376, a: 1}
   arrow: {fileID: 794785904}
 --- !u!1 &1967631816
 GameObject:

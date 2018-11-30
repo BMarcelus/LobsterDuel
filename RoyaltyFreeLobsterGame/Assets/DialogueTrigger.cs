@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour {
   public Transform target;
   
   void OnTriggerEnter2D(Collider2D col) {
+    if(col.name!="Craig")return;
     manager.StartDialogue(dialogue, target);
     if(oneTime) {
       gameObject.SetActive(false);
