@@ -619,7 +619,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3077dbfb6b57847ad890d0daa009e5b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -638,7 +638,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 164219613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.49, y: -1.92, z: 0}
+  m_LocalPosition: {x: 2.64, y: 2.16, z: 0}
   m_LocalScale: {x: 0.1530889, y: 0.1530889, z: 0.1530889}
   m_Children: []
   m_Father: {fileID: 0}
@@ -958,6 +958,90 @@ Transform:
   m_Father: {fileID: 36177395}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.904}
+--- !u!1 &344050553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344050554}
+  - component: {fileID: 344050555}
+  m_Layer: 0
+  m_Name: SnappyDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &344050554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344050553}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.085535705, y: 2.1218653, z: 8.966725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1986436698}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &344050555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344050553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Craig
+    characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
+    flipSide: 0
+  - name: Snappy
+    characterSprite: {fileID: 21300000, guid: 3077dbfb6b57847ad890d0daa009e5b5, type: 3}
+    flipSide: 1
+  - name: Crowd
+    characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Craig
+    characterIndex: 0
+    text: "*sniffle* *sniffle sniffle* Pincher\u2026 I hope I can avenge you."
+  - character: Snappy
+    characterIndex: 1
+    text: Hey. You did good out there.
+  - character: Craig
+    characterIndex: 0
+    text: Oh, hi Snappy. Thanks.
+  - character: Snappy
+    characterIndex: 1
+    text: So what's our next move?
+  - character: Craig
+    characterIndex: 0
+    text: Uh... what?
+  - character: Snappy
+    characterIndex: 1
+    text: We're following you, Craig. They need a leader.
+  - character: Crowd
+    characterIndex: 2
+    text: DOWN WITH THE LOBARCHY! DOWN WITH THE LOBARCHY!
+  - character: Craig
+    characterIndex: 0
+    text: The guards are right. We don't stand a chance. We need more lobsters to
+      join our cause.
+  - character: Snappy
+    characterIndex: 1
+    text: The path is clear. Lead the way.
+  - character: Craig
+    characterIndex: 0
+    text: We'll go to the rock faction. They'll want to avenge Pincher as badly as
+      we do.
+  storySequence: 0
 --- !u!4 &385898570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4018750502135500, guid: 0a9b140b0acb04c8ab38e7a6758ec6d8,
@@ -1141,113 +1225,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4018750502135500, guid: 0a9b140b0acb04c8ab38e7a6758ec6d8,
     type: 2}
   m_PrefabInternal: {fileID: 1557464627}
---- !u!1 &564758063
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 564758064}
-  - component: {fileID: 564758065}
-  m_Layer: 0
-  m_Name: PincherDialogueSequence
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &564758064
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564758063}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.085535705, y: 2.1218653, z: 8.966725}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1986436698}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &564758065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564758063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characters:
-  - name: Craig
-    characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
-    flipSide: 0
-  - name: Pincher
-    characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
-    flipSide: 0
-  - name: Royal Guard
-    characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
-    flipSide: 1
-  - name: Peasant 1
-    characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
-    flipSide: 1
-  - name: Peasant 2
-    characterSprite: {fileID: 21300000, guid: 30bf4ac7b2cc74d329f288ea70cfd5b2, type: 3}
-    flipSide: 1
-  - name: Crowd
-    characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
-    flipSide: 1
-  dialogue:
-  - character: Crowd
-    characterIndex: 5
-    text: MOVE THIS BARRICADE!
-  - character: Craig
-    characterIndex: 0
-    text: What's going on?
-  - character: Peasant 1
-    characterIndex: 3
-    text: The guards won't do anything about this barricade!
-  - character: Peasant 2
-    characterIndex: 4
-    text: Probably because they made the barricade!
-  - character: Pincher
-    characterIndex: 1
-    text: "We don\u2019t need to turn this into more than it is. Just help us clear
-      the rocks and we\u2019ll all move along."
-  - character: Royal Guard
-    characterIndex: 2
-    text: Go home, old man. This doesn't concern you.
-  - character: Pincher
-    characterIndex: 1
-    text: This is absurd! You know we need this path to travel between the factions.
-  - character: Royal Guard
-    characterIndex: 2
-    text: HALT! Don't get too close.
-  - character: Pincher
-    characterIndex: 1
-    text: Craig, this is tyranny! We need to do something.
-  - character: Craig
-    characterIndex: 0
-    text: "Pincher, your fighting days are over. Please, let\u2019s go back home."
-  - character: Pincher
-    characterIndex: 1
-    text: These lobsters need us, Craig. Look at them!
-  - character: Crowd
-    characterIndex: 5
-    text: MOVE THESE ROCKS! MOVE THESE ROCKS!
-  - character: Royal Guard
-    characterIndex: 2
-    text: Get back, peasants. Or else.
-  - character: Peasant 2
-    characterIndex: 4
-    text: If you won't clear the path, we'll clear it ourselves!
-  - character: Royal Guard
-    characterIndex: 2
-    text: Heh. You can certainly try.
-  storySequence: 0
 --- !u!4 &602765946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4029162507692558, guid: 981614589233e4cac9a05f659b417552,
@@ -3446,6 +3423,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1637570979
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237025391488950, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839228298266334, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+      propertyPath: m_Name
+      value: crab (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1673992368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4031,11 +4054,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4029162507692558, guid: 981614589233e4cac9a05f659b417552, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.78
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4029162507692558, guid: 981614589233e4cac9a05f659b417552, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.95
+      value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 4029162507692558, guid: 981614589233e4cac9a05f659b417552, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4239,7 +4262,7 @@ GameObject:
   - component: {fileID: 1986436696}
   - component: {fileID: 1986436695}
   m_Layer: 0
-  m_Name: DialogueTriggerPincher
+  m_Name: DialogueTriggerSnappy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4257,7 +4280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oneTime: 1
-  dialogue: {fileID: 564758065}
+  dialogue: {fileID: 344050555}
   manager: {fileID: 1047959578}
   target: {fileID: 819485075}
 --- !u!61 &1986436696
@@ -4338,11 +4361,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986436694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: -3.39, z: 0}
+  m_LocalPosition: {x: 0.26, y: 3.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 819485075}
-  - {fileID: 564758064}
+  - {fileID: 344050554}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
