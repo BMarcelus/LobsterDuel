@@ -230,43 +230,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224122699530463198, guid: 9c04644df3ae64a1695bc49c8ac1c567,
+    - target: {fileID: 114173113737987706, guid: 9c04644df3ae64a1695bc49c8ac1c567,
         type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053999401686296, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: sequence
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1053999401686296, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
       propertyPath: m_Name
       value: MainDialogueController
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114559126385868128, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &471490831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1839228298266334, guid: 58e5aeb8a71c2497aa4e15e6b98d5fc7,
-    type: 2}
-  m_PrefabInternal: {fileID: 14372199}
---- !u!58 &471490838
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 471490831}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.4999998
 --- !u!1 &520179604
 GameObject:
   m_ObjectHideFlags: 0

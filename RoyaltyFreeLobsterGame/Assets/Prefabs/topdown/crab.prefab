@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50919954913916740}
   - component: {fileID: 114560117000582256}
   - component: {fileID: 114314514658232466}
+  - component: {fileID: 58149457267536186}
   m_Layer: 0
   m_Name: crab
   m_TagString: Untagged
@@ -64,6 +65,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58149457267536186
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839228298266334}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.4999998
 --- !u!58 &58526525829417582
 CircleCollider2D:
   m_ObjectHideFlags: 1

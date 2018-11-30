@@ -82,10 +82,11 @@ public class BattleManager : MonoBehaviour {
         }
         else //no lobster exist...
         {
-            opponent.GetComponent<SpriteRenderer>().color = new Color(GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.r, 
-                                                                                         GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.g,
-                                                                                         GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.b, 
-                                                                                         0.5f);
+            opponent.transform.Find("Arrow").gameObject.SetActive(true);
+            // opponent.GetComponent<SpriteRenderer>().color = new Color(GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.r, 
+                                                                                        //  GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.g,
+                                                                                        //  GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.b, 
+                                                                                        //  0.5f);
         }
     }
 
@@ -116,10 +117,11 @@ public class BattleManager : MonoBehaviour {
             else//when attacking opponent directly
             {
                 //reset color
-                opponent.GetComponent<SpriteRenderer>().color = new Color(GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.r,
-                                                                                         GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.g,
-                                                                                         GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.b,
-                                                                                         1f);
+                opponent.transform.Find("Arrow").gameObject.SetActive(false);
+                // opponent.GetComponent<SpriteRenderer>().color = new Color(GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.r,
+                                                                                        //  GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.g,
+                                                                                        //  GameObject.Find("opponent").GetComponent<SpriteRenderer>().color.b,
+                                                                                        //  1f);
                 //check if touched opponent
                 RaycastHit2D result = Physics2D.Raycast(mousePos, Vector2.zero);
                 //attacking enemy

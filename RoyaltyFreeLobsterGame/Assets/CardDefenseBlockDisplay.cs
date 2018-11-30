@@ -12,7 +12,7 @@ public class CardDefenseBlockDisplay : MonoBehaviour {
 	void Start () {
     spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     canvases = GetComponentsInChildren<Canvas>();
-    if(transform.parent.name == "playerHand") {
+    if(transform.parent && transform.parent.name == "playerHand") {
       defenseBlockDisplay = GameObject.Find("DefenseBlockDisplayPlayer");
     } else {
       defenseBlockDisplay = GameObject.Find("DefenseBlockDisplayEnemy");

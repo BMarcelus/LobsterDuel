@@ -15,6 +15,7 @@ public class CardOutlineController : MonoBehaviour {
   private Lobster lobster;
   private PlayerHand hand;
   private bool active = true;
+  private float greyOutTimer = 0;
 	// Use this for initialization
 	void Start () {
 		outline = GetComponentInChildren(typeof(Outline), false) as Outline;
@@ -30,14 +31,25 @@ public class CardOutlineController : MonoBehaviour {
 		if(lobster.enabled && lobster.canAttack) {
       outline.effectColor = Color.Lerp(outline.effectColor, canAttackColor, 0.1f);
       greyOut.color = Color.Lerp(greyOut.color, disabledColor, 0.1f);
+      greyOutTimer = 0;
     } else if(!lobster.enabled && GetCanPlaceCard()) {
       outline.effectColor = Color.Lerp(outline.effectColor, canPlaceColor, 0.1f);
       greyOut.color = Color.Lerp(greyOut.color, disabledColor, 0.1f);
+      greyOutTimer = 0;
     } else {
       outline.effectColor = Color.Lerp(outline.effectColor, disabledColor, 0.5f);
-      greyOut.color = Color.Lerp(greyOut.color, greyOutColor, 0.1f);
+      // greyOut.color = Color.Lerp(greyOut.color, greyOutColor, 0.1f);
+      DoGreyOut();
     }
 	}
+
+  private void DoGreyOut() {
+    if(greyOutTimer<1)
+      greyOutTimer += Time.deltaTime;
+    else {
+      greyOut.color = Color.Lerp(greyOut.color, greyOutColor, 0.1f);
+    }
+  }
 
   private bool GetCanPlaceCard() {
     if(hand) return hand.canPlaceCard;
