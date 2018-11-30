@@ -24,7 +24,10 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	public DialogueSequence pincherDefendingDialogue;
 	public DialogueSequence pincherDyingDialogue;
 	public DialogueSequence pincherDiedDialogue;
+	public DialogueSequence royalDefenderDialogue;
 	private bool pincherHasDefended = false;
+
+  public CardData royalDefender;
 
 
 	void Start()
@@ -82,9 +85,10 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 			// 	yield return Turn2Event();
 			// 	break;
 			case 4:
-			case 8:
-			case 9:
 				yield return Turn6Event();
+				break;
+			case 5:
+				yield return DuringPincherEvent();
 				break;
 			default:
 				enemyManager.StartEnemyTurn();
@@ -122,6 +126,23 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		enemyManager.StartEnemyTurn();
 	}
 
+	public IEnumerator DuringPincherEvent()
+	{
+		dialogueManager.StartDialogue(royalDefenderDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
+		//fill the spot with royal defenders
+		foreach(GameObject spot in enemyFloor.spots)
+		{
+      // GameObject active = spot.GetComponent<FloorSpot>().GetCardInPlay();
+			// if(!active || active.GetComponent<Lobster>().data.isRock)
+			{
+				spot.GetComponent<FloorSpot>().SetCardWithData(royalDefender);
+			}
+		}
+		yield return new WaitForSeconds(1.5f);
+		enemyManager.StartEnemyTurn();
+	}
+
 	public IEnumerator PincherDefend()
 	{
 		dialogueManager.StartDialogue(pincherDefendingDialogue);
@@ -131,6 +152,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	public IEnumerator Turn7Event(GameObject materialSpot, GameObject pincherSpot)
 	{
 		//draw card
+		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		enemyHand.AddCardToHand();
 		if(turnManager.IsGameOver())
 			StopAllCoroutines();
@@ -145,6 +167,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		yield return new WaitForSeconds(0.5f);
 		//destroy pincher
 		pincherSpot.GetComponent<FloorSpot>().SetCardWithData(battleManager.rockData);
+    player.GetHurt(-2);
 		yield return new WaitForSeconds(1f);
 		//decide move orders
 		List<Lobster> lobsters = enemyAI.GetOrder(spots);
@@ -157,7 +180,6 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 			}
 		}
 		//get and make movement for each lobster
-		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		foreach(Lobster lob in lobsters)
 		{
 			EnemyMove move = enemyAI.GetTarget(lob, playerFloor);
