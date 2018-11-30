@@ -130,7 +130,8 @@ public class PlayerHand : MonoBehaviour {
             if (mousePosition != lastMousePosition)
             {
                 cardsInHand[selectedCardIndex].transform.position = new Vector3(mousePosition.x, mousePosition.y, cardsInHand[selectedCardIndex].transform.position.z);
-                dragDistance += Vector2.Distance(lastMousePosition, mousePosition);
+				cardsInHand[selectedCardIndex].transform.localScale = SystemManager.cardNormalScale/2;
+				dragDistance += Vector2.Distance(lastMousePosition, mousePosition);
                 lastMousePosition = mousePosition;
                 //if the card ever moves, does not consider it a click. We set timer to a large number so it cannot be considered a click
                 //clickTimer = 10;
