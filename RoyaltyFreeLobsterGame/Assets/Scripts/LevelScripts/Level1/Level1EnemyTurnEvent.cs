@@ -15,6 +15,8 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	private GameObject[] spots;
 	public EnemyAI enemyAI;
 	public CardData protestCrack;
+	public PlayerHand playerHand;
+	public Deck newDeck;
 	[Header("Dialogue")]
 	public BattleDialogueManager dialogueManager;
 	public DialogueSequence guardsThreateningDialogue;
@@ -23,6 +25,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	public DialogueSequence pincherDyingDialogue;
 	public DialogueSequence pincherDiedDialogue;
 	private bool pincherHasDefended = false;
+
 
 	void Start()
 	{
@@ -198,6 +201,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		//pincher died
 		dialogueManager.StartDialogue(pincherDiedDialogue);
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
+		playerHand.deck = newDeck;
 		//end the turn
 		turnManager.SwitchToPlayer();
 	}

@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4026,7 +4026,7 @@ MonoBehaviour:
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
     number: 3
   - type: {fileID: 11400000, guid: fca1015d9c83d4448a138e13edb8dbdd, type: 2}
-    number: 14
+    number: 30
   cardsInDeck: []
   shuffle: 0
 --- !u!1 &1450967410
@@ -5647,7 +5647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5948,6 +5948,7 @@ GameObject:
   - component: {fileID: 1967631822}
   - component: {fileID: 1967631824}
   - component: {fileID: 1967631823}
+  - component: {fileID: 1967631825}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5993,6 +5994,7 @@ MonoBehaviour:
   turnNumber: 1
   enemyTurnEvent: {fileID: 1967631824}
   playerTurnEvent: {fileID: 1967631823}
+  gameOverEvent: {fileID: 1967631825}
 --- !u!114 &1967631819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6016,6 +6018,7 @@ MonoBehaviour:
   turnManager: {fileID: 1967631818}
   enemyAI: {fileID: 1967631820}
   enemyHand: {fileID: 1051118094}
+  hurtSound: {fileID: 286199069}
 --- !u!114 &1967631820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6044,6 +6047,7 @@ MonoBehaviour:
     type: 2}
   rockData: {fileID: 11400000, guid: fb1142e9b66b2485a91bbbae2075d8a2, type: 2}
   healthRockData: {fileID: 11400000, guid: 171f22b8223834e5488013f534df29a4, type: 2}
+  hurtSound: {fileID: 286199069}
 --- !u!114 &1967631822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6095,12 +6099,27 @@ MonoBehaviour:
   dialogueText: {fileID: 758008930}
   enemyAI: {fileID: 1967631820}
   protestCrack: {fileID: 11400000, guid: b90e4dd23a79844048720c334b1fcb0a, type: 2}
+  playerHand: {fileID: 1457101403}
+  newDeck: {fileID: 1991652599}
   dialogueManager: {fileID: 70740500}
   guardsThreateningDialogue: {fileID: 171727835}
   guardsAttackingDialogue: {fileID: 279534349}
   pincherDefendingDialogue: {fileID: 408678437}
   pincherDyingDialogue: {fileID: 255710896}
   pincherDiedDialogue: {fileID: 820333916}
+--- !u!114 &1967631825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1967631816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5eefff8aa63ef4a9be206dd9e2bdde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueManager: {fileID: 70740500}
+  guardsRetreatDialogue: {fileID: 1655528179}
 --- !u!1 &1986112628
 GameObject:
   m_ObjectHideFlags: 0
@@ -6172,6 +6191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1991652598}
   - component: {fileID: 1991652597}
+  - component: {fileID: 1991652599}
   m_Layer: 0
   m_Name: playerDeck
   m_TagString: Untagged
@@ -6203,12 +6223,8 @@ MonoBehaviour:
     number: 1
   - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
     number: 1
-  - type: {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
-    number: 8
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
-    number: 3
-  - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
-    number: 4
+    number: 15
   cardsInDeck: []
   shuffle: 0
 --- !u!4 &1991652598
@@ -6224,6 +6240,26 @@ Transform:
   m_Father: {fileID: 1457101406}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1991652599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991652596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5fcf1b32da1314786ea1996e00277d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards:
+  - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
+    number: 5
+  - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
+    number: 5
+  - type: {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
+    number: 10
+  cardsInDeck: []
+  shuffle: 1
 --- !u!1 &1991710648
 GameObject:
   m_ObjectHideFlags: 0

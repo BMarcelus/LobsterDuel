@@ -23,6 +23,7 @@ public class EnemyManager : MonoBehaviour {
 	public EnemyAI enemyAI;
 	private GameObject[] spots;
 	public EnemyHand enemyHand;
+	public AudioSource hurtSound;
 
 
     void Start () {
@@ -96,11 +97,15 @@ public class EnemyManager : MonoBehaviour {
 				yield return new WaitForSeconds(1);
 			}else if(move == EnemyMove.AttackPlayer) //attack player
 			{
+				hurtSound.Play();
 				player.GetHurt(lob.GetClaw());
 				yield return new WaitForSeconds(1);
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
+				{
+					turnManager.GameOver(false);
 					StopAllCoroutines();
+				}
 				//drop a stone
 				yield return battleManager.PlayerAddRock();
 				yield return new WaitForSeconds(0.5f);
@@ -115,8 +120,11 @@ public class EnemyManager : MonoBehaviour {
 				yield return new WaitForSeconds(1);
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
+				{
+					turnManager.GameOver(false);
 					StopAllCoroutines();
-				//if there are damage overflow, wait for players to 
+				}
+				//if there are damage overflow, wait for players to put rock
 				if(player.GetHealth() < healthBeforeBattle)
 				{
 					yield return battleManager.PlayerAddRock();

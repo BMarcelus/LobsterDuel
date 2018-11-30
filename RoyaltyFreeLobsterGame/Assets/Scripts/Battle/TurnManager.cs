@@ -17,6 +17,7 @@ public class TurnManager : MonoBehaviour {
     public int turnNumber = 1;
     public EnemyTurnEvents enemyTurnEvent;
     public PlayerTurnEvents playerTurnEvent;
+    public GameOverEvent gameOverEvent;
 
     void Start()
     {
@@ -52,9 +53,14 @@ public class TurnManager : MonoBehaviour {
         PlayerTurnReset();
         UpdateTurnUI();
     }
-    public void GameOver()
+    public void GameOver(bool win)
     {
         currentTurn = Turn.GameOver;
+        //check if have special events to do
+        if(gameOverEvent)
+        {
+            StartCoroutine(gameOverEvent.PlayGameOverEvent(win));
+        }
     }
 
     public bool IsGameOver()
