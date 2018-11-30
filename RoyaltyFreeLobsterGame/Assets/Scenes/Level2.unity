@@ -1588,13 +1588,62 @@ MonoBehaviour:
   - name: Royal Guard
     characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
     flipSide: 1
+  - name: Peasant 1
+    characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
+    flipSide: 1
+  - name: Peasant 2
+    characterSprite: {fileID: 21300000, guid: 30bf4ac7b2cc74d329f288ea70cfd5b2, type: 3}
+    flipSide: 1
+  - name: Crowd
+    characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
+    flipSide: 1
   dialogue:
+  - character: Crowd
+    characterIndex: 5
+    text: MOVE THIS BARRICADE!
+  - character: Craig
+    characterIndex: 0
+    text: What's going on?
+  - character: Peasant 1
+    characterIndex: 3
+    text: The guards won't do anything about this barricade!
+  - character: Peasant 2
+    characterIndex: 4
+    text: Probably because they made the barricade!
   - character: Pincher
     characterIndex: 1
-    text: Oh No, Rocks!
+    text: "We don\u2019t need to turn this into more than it is. Just help us clear
+      the rocks and we\u2019ll all move along."
   - character: Royal Guard
     characterIndex: 2
-    text: Hey, Get away from the rocks! You Scum
+    text: Go home, old man. This doesn't concern you.
+  - character: Pincher
+    characterIndex: 1
+    text: This is absurd! You know we need this path to travel between the factions.
+  - character: Royal Guard
+    characterIndex: 2
+    text: HALT! Don't get too close.
+  - character: Pincher
+    characterIndex: 1
+    text: Craig, this is tyranny! We need to do something.
+  - character: Craig
+    characterIndex: 0
+    text: "Pincher, your fighting days are over. Please, let\u2019s go back home."
+  - character: Pincher
+    characterIndex: 1
+    text: These lobsters need us, Craig. Look at them!
+  - character: Crowd
+    characterIndex: 5
+    text: MOVE THESE ROCKS! MOVE THESE ROCKS!
+  - character: Royal Guard
+    characterIndex: 2
+    text: Get back, peasants. Or else.
+  - character: Peasant 2
+    characterIndex: 4
+    text: If you won't clear the path, we'll clear it ourselves!
+  - character: Royal Guard
+    characterIndex: 2
+    text: Heh. You can certainly try.
   storySequence: 0
 --- !u!4 &602765946 stripped
 Transform:
