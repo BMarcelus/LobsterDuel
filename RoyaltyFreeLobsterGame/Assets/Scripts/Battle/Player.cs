@@ -57,12 +57,17 @@ public class Player : MonoBehaviour {
 
 	public void LoseGame()
 	{
-			manager.GetComponent<TurnManager>().GameOver();
-			gameOverPanel.SetActive(true);
 			if(tag == "Player")
+			{
+				manager.GetComponent<TurnManager>().GameOver(false);
 				gameOverText.text = "How can you lose to a stupid AI? You are so terrible.";
+			}
 			else
+			{
+				manager.GetComponent<TurnManager>().GameOver(true);
 				gameOverText.text = "You Win";
+			}
+			gameOverPanel.SetActive(true);
 	}
 
 }

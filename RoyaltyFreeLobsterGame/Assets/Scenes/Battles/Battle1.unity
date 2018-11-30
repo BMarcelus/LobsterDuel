@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5647,7 +5647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5811,6 +5811,7 @@ GameObject:
   - component: {fileID: 1967631822}
   - component: {fileID: 1967631824}
   - component: {fileID: 1967631823}
+  - component: {fileID: 1967631825}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5856,6 +5857,7 @@ MonoBehaviour:
   turnNumber: 1
   enemyTurnEvent: {fileID: 1967631824}
   playerTurnEvent: {fileID: 1967631823}
+  gameOverEvent: {fileID: 1967631825}
 --- !u!114 &1967631819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5966,6 +5968,19 @@ MonoBehaviour:
   pincherDefendingDialogue: {fileID: 408678437}
   pincherDyingDialogue: {fileID: 255710896}
   pincherDiedDialogue: {fileID: 820333916}
+--- !u!114 &1967631825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1967631816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5eefff8aa63ef4a9be206dd9e2bdde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueManager: {fileID: 70740500}
+  guardsRetreatDialogue: {fileID: 1655528179}
 --- !u!1 &1986112628
 GameObject:
   m_ObjectHideFlags: 0

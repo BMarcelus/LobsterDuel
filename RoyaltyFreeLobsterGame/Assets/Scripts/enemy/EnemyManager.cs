@@ -100,7 +100,10 @@ public class EnemyManager : MonoBehaviour {
 				yield return new WaitForSeconds(1);
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
+				{
+					turnManager.GameOver(false);
 					StopAllCoroutines();
+				}
 				//drop a stone
 				yield return battleManager.PlayerAddRock();
 				yield return new WaitForSeconds(0.5f);
@@ -115,7 +118,10 @@ public class EnemyManager : MonoBehaviour {
 				yield return new WaitForSeconds(1);
 				//if player died, stop coroutine here
 				if(player.GetHealth() == 0)
+				{
+					turnManager.GameOver(false);
 					StopAllCoroutines();
+				}
 				//if there are damage overflow, wait for players to 
 				if(player.GetHealth() < healthBeforeBattle)
 				{
