@@ -113,6 +113,116 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &443311245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 443311247}
+  - component: {fileID: 443311246}
+  m_Layer: 0
+  m_Name: GuardsThreatenDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &443311246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443311245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Royal Guard
+    characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
+    flipSide: 0
+  - name: Pincher
+    characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Royal Guard
+    characterIndex: 0
+    text: If you touch this barricade, you'll leave us no choice...
+  - character: Pincher
+    characterIndex: 1
+    text: Destroy the barricade!
+  storySequence: 0
+--- !u!4 &443311247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443311245}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.34553528, y: -1.2681351, z: 8.966726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &467737770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467737772}
+  - component: {fileID: 467737771}
+  m_Layer: 0
+  m_Name: PincherDiedDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &467737771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467737770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Craig
+    characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
+    flipSide: 0
+  - name: Crowd
+    characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Craig
+    characterIndex: 0
+    text: We need to avenge Pincher!
+  - character: Crowd
+    characterIndex: 1
+    text: DOWN WITH THE LOBARCHY! DOWN WITH THE LOBARCHY!
+  storySequence: 0
+--- !u!4 &467737772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467737770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3455357, y: -1.2681348, z: 8.966725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1004279387
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +300,212 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1130509930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130509932}
+  - component: {fileID: 1130509931}
+  m_Layer: 0
+  m_Name: GuardsAttackingDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1130509931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130509930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Peasant 1
+    characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
+    flipSide: 0
+  - name: Peasant 2
+    characterSprite: {fileID: 21300000, guid: 30bf4ac7b2cc74d329f288ea70cfd5b2, type: 3}
+    flipSide: 0
+  - name: Craig
+    characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
+    flipSide: 0
+  - name: Pincher
+    characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Peasant 1
+    characterIndex: 0
+    text: "Guards! We\u2019re being attacked!"
+  - character: Peasant 2
+    characterIndex: 1
+    text: "You idiot! They\u2019re the ones attacking us!"
+  - character: Pincher
+    characterIndex: 3
+    text: Fight back, everyone!
+  - character: Craig
+    characterIndex: 2
+    text: Pincher, we need to get out of here! This is chaos!
+  storySequence: 0
+--- !u!4 &1130509932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130509930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3455357, y: -1.2681348, z: 8.966725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1750360046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750360048}
+  - component: {fileID: 1750360047}
+  m_Layer: 0
+  m_Name: GuardsRetreatDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1750360047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750360046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Royal Guard 1
+    characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
+    flipSide: 0
+  - name: Royal Guard 2
+    characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Royal Guard 1
+    characterIndex: 0
+    text: Troops! Fall back! We'll get reinforcements and crush this treasonous scum.
+  - character: Royal Guard 2
+    characterIndex: 1
+    text: "You peasants don't stand a chance. The Lobarchy is too powerful.\r"
+  storySequence: 0
+--- !u!4 &1750360048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750360046}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.34553528, y: -1.2681351, z: 8.966726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1968429356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968429358}
+  - component: {fileID: 1968429357}
+  m_Layer: 0
+  m_Name: SnappyDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1968429357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968429356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Craig
+    characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
+    flipSide: 0
+  - name: Snappy
+    characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
+    flipSide: 0
+  - name: Crowd
+    characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Craig
+    characterIndex: 0
+    text: "*sniffle* *sniffle sniffle* Pincher\u2026 I hope I can avenge you."
+  - character: Snappy
+    characterIndex: 1
+    text: Hey. You did good out there.
+  - character: Craig
+    characterIndex: 0
+    text: Oh, hi Snappy. Thanks.
+  - character: Snappy
+    characterIndex: 1
+    text: So what's our next move?
+  - character: Craig
+    characterIndex: 0
+    text: Uh... what?
+  - character: Snappy
+    characterIndex: 1
+    text: We're following you, Craig. They need a leader.
+  - character: Crowd
+    characterIndex: 2
+    text: DOWN WITH THE LOBARCHY! DOWN WITH THE LOBARCHY!
+  - character: Craig
+    characterIndex: 0
+    text: The guards are right. We don't stand a chance. We need more lobsters to
+      join our cause.
+  - character: Snappy
+    characterIndex: 1
+    text: The path is clear. Lead the way.
+  - character: Craig
+    characterIndex: 0
+    text: We'll go to the rock faction. They'll want to avenge Pincher as badly as
+      we do.
+  storySequence: 0
+--- !u!4 &1968429358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968429356}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3455357, y: -1.2681348, z: 8.966725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2010834717
 Prefab:
   m_ObjectHideFlags: 0
@@ -232,3 +548,119 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2106711668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2106711670}
+  - component: {fileID: 2106711669}
+  m_Layer: 0
+  m_Name: PincherDefendingDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2106711669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106711668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Peasant 1
+    characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
+    flipSide: 0
+  - name: Pincher
+    characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
+    flipSide: 0
+  - name: Craig
+    characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Peasant 1
+    characterIndex: 0
+    text: We're all gonna die!
+  - character: Pincher
+    characterIndex: 1
+    text: Lobsters! Royalty Free now, and forever!
+  - character: Craig
+    characterIndex: 2
+    text: Pincher! Be careful!
+  storySequence: 0
+--- !u!4 &2106711670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106711668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3455357, y: -1.2681348, z: 8.966725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2135413626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2135413628}
+  - component: {fileID: 2135413627}
+  m_Layer: 0
+  m_Name: PincherDyingDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2135413627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135413626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Craig
+    characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
+    flipSide: 0
+  - name: Pincher
+    characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Pincher
+    characterIndex: 1
+    text: "Craig\u2026 it\u2019s up to you now."
+  - character: Craig
+    characterIndex: 0
+    text: Pincher, no!
+  storySequence: 0
+--- !u!4 &2135413628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135413626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3455357, y: -1.2681348, z: 8.966725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
