@@ -15,7 +15,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	void Start()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Drag A Lobster to place them on the Floor";
+		tutorialText.text = "Each turn you can place a Lobster on the Floor";
 	}
 	public override IEnumerator CheckTurnEvent(int turn)
 	{
@@ -24,8 +24,11 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 			case 2:
 				yield return Turn2Event();
 				break;
-      case 3:
+      		case 3:
 				yield return Turn3Event();
+				break;
+			case 4:
+				yield return Turn4Event();
 				break;
 			case 6:
 				yield return Turn6Event();
@@ -42,7 +45,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	public IEnumerator Turn2Event()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Command Each Lobster To Attack";
+		tutorialText.text = "Click on Lobsters to give Attack command";
 		yield return new WaitForEndOfFrame();
 	}
 	public IEnumerator Turn3Event()
@@ -51,7 +54,14 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
 
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Defending Cards must be attacked First";
+		tutorialText.text = "Lobsters drop a rock when they die\nPlayers drop a rock when they get hurted";
+		yield return new WaitForEndOfFrame();
+	}
+
+	public IEnumerator Turn4Event()
+	{
+		tutorialPage.SetActive(true);
+		tutorialText.text = "Lobsters protect their Owner\nDefending Lobsters protect other Lobsters";
 		yield return new WaitForEndOfFrame();
 	}
 
