@@ -8,14 +8,14 @@ public class TopDownManager : MonoBehaviour {
   public GameObject player;
   public GameObject dialogueController;
 
-  public void StartDialogue(DialogueSequence sequence, Transform target) {
+  public virtual void StartDialogue(DialogueSequence sequence, Transform target) {
     player.GetComponent<movement>().SetTarget(target, false);
     dialogueController.GetComponent<DialogueController>().SetSequence(sequence);
     dialogueController.SetActive(true);
     // dialogue.SetActive(true);
   }
 
-  public void EndDialogue(int sequenceIndex) {
+  public virtual void EndDialogue(int sequenceIndex) {
     player.GetComponent<movement>().SetCanMove(true);
     storySequence = sequenceIndex;
   }
