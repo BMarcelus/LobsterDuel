@@ -39,6 +39,7 @@ public class SizeOnMouseOver : MonoBehaviour {
   }
   
   void OnMouseOver() {
+    // if(transform.rotation.eulerAngles.y!=0) return;
     if(!active)return;
     graphic.transform.localScale = size*scalar;
     graphic.transform.localPosition = Vector3.up*size.y*offset;
