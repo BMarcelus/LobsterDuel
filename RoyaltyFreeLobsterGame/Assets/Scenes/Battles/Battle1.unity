@@ -430,14 +430,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8634856, g: 1, b: 0.6084906, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9e8ec424cdf6f461481ad1162a8372d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1579,10 +1579,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1590,7 +1590,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Give Up
+  m_Text: Cancel
 --- !u!222 &532581308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2435,8 +2435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 194, y: -5.7}
-  m_SizeDelta: {x: 112.6, y: 36.3}
+  m_AnchoredPosition: {x: 234, y: -89}
+  m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947060375
 MonoBehaviour:
@@ -3880,7 +3880,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 161}
-  m_SizeDelta: {x: 620.7, y: 100}
+  m_SizeDelta: {x: 640, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1394439170
 MonoBehaviour:
@@ -4394,7 +4394,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 234, y: -89}
-  m_SizeDelta: {x: 99.6, y: 30}
+  m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543884249
 MonoBehaviour:
@@ -4663,7 +4663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1639667310
 RectTransform:
   m_ObjectHideFlags: 0
