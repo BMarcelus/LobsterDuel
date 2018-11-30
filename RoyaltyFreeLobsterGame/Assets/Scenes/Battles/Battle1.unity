@@ -5359,7 +5359,9 @@ MonoBehaviour:
   - type: {fileID: 11400000, guid: 27bf30c3583d64499b8aaf31ab5d6249, type: 2}
     number: 8
   - type: {fileID: 11400000, guid: 66e0d53aa0044422692d5d340b8cf72f, type: 2}
-    number: 7
+    number: 3
+  - type: {fileID: 11400000, guid: 510233bb4126b4e5ba02cf08f465410f, type: 2}
+    number: 4
   cardsInDeck: []
   shuffle: 0
 --- !u!4 &1991652598
