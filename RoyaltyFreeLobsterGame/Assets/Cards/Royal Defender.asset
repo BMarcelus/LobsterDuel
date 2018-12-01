@@ -9,13 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf7e5c6c3b3165d498a11d1cda595f91, type: 3}
-  m_Name: Royal Guard
+  m_Name: Royal Defender
   m_EditorClassIdentifier: 
-  cardName: Royal Guard
-  level: 1
+  cardName: Royal Defender
+  level: 2
   attack: 2
-  defense: 1
-  trigger: Death
-  description: Discard a card and return this to your hand
+  defense: 2
+  trigger: 
+  description: 
   sprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
-  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  spriteColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  moveMenuSelect: {fileID: 0}
+  isRock: 0
+  cardBackColor: {r: 0, g: 0, b: 0, a: 0}

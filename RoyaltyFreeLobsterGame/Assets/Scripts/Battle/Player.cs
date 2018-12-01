@@ -27,8 +27,8 @@ public class Player : MonoBehaviour {
         if(rockHealthDisplay) {
           rockHealthDisplay.setLevel(health);
         }
-        if(health==1&&perilIndicator) {
-          perilIndicator.SetActive(true);
+        if(perilIndicator) {
+          perilIndicator.SetActive(health == 1);
         }
     }
 

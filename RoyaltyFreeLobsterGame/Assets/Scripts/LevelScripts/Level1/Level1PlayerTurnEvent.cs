@@ -27,7 +27,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
       		case 3:
 				yield return Turn3Event();
 				break;
-			case 5:
+			case 4:
 				yield return Turn4Event();
 				break;
 			case 6:

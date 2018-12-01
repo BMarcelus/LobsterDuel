@@ -8,9 +8,9 @@ public class CardData : ScriptableObject {
     public string cardName;
     [Range(0, 3)]
     public int level;
-    [Range(0, 3)]
+    [Range(0, 4)]
     public int attack;
-    [Range(0, 3)]
+    [Range(0, 4)]
     public int defense;
 
     public string trigger;

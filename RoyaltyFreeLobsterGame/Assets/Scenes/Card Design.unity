@@ -657,6 +657,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1703282356850142, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
   m_IsPrefabAsset: 0
@@ -3097,6 +3101,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1856614791781768, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1003051713815558, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_Name
       value: Card (5)
@@ -3528,7 +3536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1856614791781768, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114084628538374934, guid: dda0459fc7cfe4f208315dd0c1d8fb4d,
         type: 2}

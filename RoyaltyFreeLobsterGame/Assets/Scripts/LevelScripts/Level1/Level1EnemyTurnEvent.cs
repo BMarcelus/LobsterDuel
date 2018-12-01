@@ -28,6 +28,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	private bool pincherHasDefended = false;
 
   public CardData royalDefender;
+  public CardData executionerData;
 
 
 	void Start()
@@ -39,41 +40,41 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 	public override IEnumerator CheckTurnEvent(int turn)
 	{
 		
-		if(turn >= 10)
-		{
-			//if have any material and player has pincher, play protest craker and DESTROY pincher
-			GameObject materialSpot = null;
-			//get a spot with a rock or other material
-			foreach(GameObject spot in spots)
-			{
-				GameObject cardHere = spot.GetComponent<FloorSpot>().GetCardInPlay();
-				if(cardHere && cardHere.GetComponent<Lobster>().GetLevel() == 1)
-				{
-					materialSpot = spot;
-					//if target is set to a rock, no need to continue looking, it's the best solution
-					if(cardHere.GetComponent<CardStats>().cardData.cardName == "Rock")
-					{
-						break;
-					}
-				}
-			}
-			//get Pincher
-			GameObject pincherSpot = null;
-			foreach(GameObject playerSpot in playerFloor.GetComponent<Floor>().spots)
-			{
-				GameObject cardHere = playerSpot.GetComponent<FloorSpot>().GetCardInPlay();
-				if(cardHere && cardHere.GetComponent<CardStats>().cardData.cardName == "Pincher")
-				{
-					pincherSpot = playerSpot;
-					break;
-				}
-			}
-			if(materialSpot && pincherSpot)
-			{
-				yield return Turn7Event(materialSpot, pincherSpot);
-				yield break;
-			}
-		}
+		// if(turn >= 10)
+		// {
+		// 	//if have any material and player has pincher, play protest craker and DESTROY pincher
+		// 	GameObject materialSpot = null;
+		// 	//get a spot with a rock or other material
+		// 	foreach(GameObject spot in spots)
+		// 	{
+		// 		GameObject cardHere = spot.GetComponent<FloorSpot>().GetCardInPlay();
+		// 		if(cardHere && cardHere.GetComponent<Lobster>().GetLevel() == 1)
+		// 		{
+		// 			materialSpot = spot;
+		// 			//if target is set to a rock, no need to continue looking, it's the best solution
+		// 			if(cardHere.GetComponent<CardStats>().cardData.cardName == "Rock")
+		// 			{
+		// 				break;
+		// 			}
+		// 		}
+		// 	}
+		// 	//get Pincher
+		// 	GameObject pincherSpot = null;
+		// 	foreach(GameObject playerSpot in playerFloor.GetComponent<Floor>().spots)
+		// 	{
+		// 		GameObject cardHere = playerSpot.GetComponent<FloorSpot>().GetCardInPlay();
+		// 		if(cardHere && cardHere.GetComponent<CardStats>().cardData.cardName == "Pincher")
+		// 		{
+		// 			pincherSpot = playerSpot;
+		// 			break;
+		// 		}
+		// 	}
+		// 	if(materialSpot && pincherSpot)
+		// 	{
+		// 		yield return Turn7Event(materialSpot, pincherSpot);
+		// 		yield break;
+		// 	}
+		// }
 		
 		//other cases
 		switch(turn)
@@ -90,6 +91,9 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 			case 5:
 				yield return DuringPincherEvent();
 				break;
+      case 10:
+        yield return ExecutionerKillPincher();
+        break;
 			default:
 				enemyManager.StartEnemyTurn();
 				break;
@@ -133,8 +137,8 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		//fill the spot with royal defenders
 		foreach(GameObject spot in enemyFloor.spots)
 		{
-      // GameObject active = spot.GetComponent<FloorSpot>().GetCardInPlay();
-			// if(!active || active.GetComponent<Lobster>().data.isRock)
+      GameObject active = spot.GetComponent<FloorSpot>().GetCardInPlay();
+			if(!active || active.GetComponent<Lobster>().data.level<2)
 			{
 				spot.GetComponent<FloorSpot>().SetCardWithData(royalDefender);
 			}
@@ -148,6 +152,27 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		dialogueManager.StartDialogue(pincherDefendingDialogue);
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
 	}
+
+  public IEnumerator ExecutionerKillPincher() {
+		//fill the spot with royal defenders
+    int i = 0;
+		foreach(GameObject spot in enemyFloor.spots)
+		{
+      if(i==1) {
+        spot.GetComponent<FloorSpot>().SetCardWithData(executionerData);
+      } else {
+        spot.GetComponent<FloorSpot>().SetCard(null);
+      }
+      ++i;
+		}
+		yield return new WaitForSeconds(1f);
+		dialogueManager.StartDialogue(pincherDyingDialogue);
+		yield return new WaitUntil(() => dialogueManager.HasFinish());
+		yield return new WaitForSeconds(0.5f);
+		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    player.GetHurt(-2);
+		enemyManager.StartEnemyTurn();
+  }
 
 	public IEnumerator Turn7Event(GameObject materialSpot, GameObject pincherSpot)
 	{

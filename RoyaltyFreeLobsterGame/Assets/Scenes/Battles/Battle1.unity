@@ -141,11 +141,12 @@ Transform:
   m_Children:
   - {fileID: 171727834}
   - {fileID: 279534348}
+  - {fileID: 342264116}
   - {fileID: 408678436}
-  - {fileID: 255710895}
   - {fileID: 820333915}
   - {fileID: 1655528178}
   - {fileID: 1077268827}
+  - {fileID: 255710895}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -720,7 +721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 70740499}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &255710896
 MonoBehaviour:
@@ -1303,6 +1304,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &342264115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342264116}
+  - component: {fileID: 342264117}
+  m_Layer: 0
+  m_Name: RoyalDefenderDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342264116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342264115}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5279802, y: -1.254832, z: 8.853227}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 70740499}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &342264117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342264115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562db4ee3ecc3496b830eddcef5b70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: Royal Guard
+    characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
+    flipSide: 1
+  - name: Pincher
+    characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
+    flipSide: 0
+  dialogue:
+  - character: Royal Guard
+    characterIndex: 0
+    text: 'Enough of this treason!
+
+      All protesters will be destroyed!'
+  storySequence: 0
 --- !u!1 &360886450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1475,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 70740499}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &408678437
 MonoBehaviour:
@@ -1436,7 +1491,7 @@ MonoBehaviour:
   characters:
   - name: Peasant 1
     characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
-    flipSide: 1
+    flipSide: 0
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 1
@@ -2903,7 +2958,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4173459231637528, guid: 9c04644df3ae64a1695bc49c8ac1c567, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224122699530463198, guid: 9c04644df3ae64a1695bc49c8ac1c567,
         type: 2}
@@ -3359,7 +3414,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4030357940593154, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.6716518
+      value: -22.7
       objectReference: {fileID: 0}
     - target: {fileID: 4030357940593154, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3388,6 +3443,26 @@ Prefab:
     - target: {fileID: 1148047156651156, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064439337103938, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.32699966
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064439337103938, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.077608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064439337103938, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.0776083
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064439337103938, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.83697724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064439337103938, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.52799857
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda0459fc7cfe4f208315dd0c1d8fb4d, type: 2}
@@ -5930,6 +6005,9 @@ MonoBehaviour:
   pincherDefendingDialogue: {fileID: 408678437}
   pincherDyingDialogue: {fileID: 255710896}
   pincherDiedDialogue: {fileID: 820333916}
+  royalDefenderDialogue: {fileID: 342264117}
+  royalDefender: {fileID: 11400000, guid: 38628e47ea74a4c868a72481934ae614, type: 2}
+  executionerData: {fileID: 11400000, guid: aaf7b405bc7be474c9483616466247df, type: 2}
 --- !u!114 &1967631825
 MonoBehaviour:
   m_ObjectHideFlags: 0

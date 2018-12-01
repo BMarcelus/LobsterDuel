@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Card Design.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 7183577da6f934ec88061adfed9e1e28
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: ee258e60b55d749f8b7f54ade939cd35
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndDemo.unity
     guid: c1f82a7dbbadb448c92fe49a1a5cc8ec
+  - enabled: 1
+    path: Assets/Scenes/credits.unity
+    guid: c909a98334d814f7d9eba9cbf251d3af
   m_configObjects: {}
