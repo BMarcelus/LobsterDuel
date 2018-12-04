@@ -5975,6 +5975,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 70740500}
   pincherDialogue: {fileID: 408678437}
   guardsAttackingDialogue: {fileID: 279534349}
+  playerFloor: {fileID: 1075860572}
 --- !u!114 &1967631824
 MonoBehaviour:
   m_ObjectHideFlags: 0

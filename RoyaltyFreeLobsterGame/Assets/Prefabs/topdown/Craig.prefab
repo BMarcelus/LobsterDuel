@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4029162507692558}
-  - component: {fileID: 114530244777401142}
   - component: {fileID: 58732363982856182}
   - component: {fileID: 50536206006501220}
+  - component: {fileID: 114523285339872428}
   m_Layer: 0
   m_Name: Craig
   m_TagString: Untagged
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1339929338483350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.66, y: -1.33, z: 0}
+  m_LocalPosition: {x: 0.31, y: -3.58, z: 0}
   m_LocalScale: {x: 0.12160827, y: 0.12160827, z: 0.12160827}
   m_Children:
   - {fileID: 4163370163020546}
@@ -138,7 +138,7 @@ CircleCollider2D:
   m_Offset: {x: -1.08, y: 0}
   serializedVersion: 2
   m_Radius: 3.29
---- !u!114 &114530244777401142
+--- !u!114 &114523285339872428
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,10 +146,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1339929338483350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85086e45a2e5a4171855e051f20055da, type: 3}
+  m_Script: {fileID: 11500000, guid: 77258e01bfd6f4bf7a3c77fc1e187e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  canMove: 1
+  input: {x: 0, y: 0, z: 0}
 --- !u!198 &198058718374924480
 ParticleSystem:
   m_ObjectHideFlags: 1

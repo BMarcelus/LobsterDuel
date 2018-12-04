@@ -34,6 +34,12 @@ public class DialogueController : MonoBehaviour {
     DialogueSequence.Character character = sequence.GetCharacter(current.characterIndex);
     DialogueDisplay box = character.flipSide ? theirBox : yourBox;
     box.Show(current.character, current.text, character.characterSprite);
+    if(character.gameObject && current.target) {
+      movement mv = character.gameObject.GetComponent<movement>();
+      if(mv) {
+        mv.SetTarget(current.target, false);
+      }
+    }
   }
 
   void Next() {

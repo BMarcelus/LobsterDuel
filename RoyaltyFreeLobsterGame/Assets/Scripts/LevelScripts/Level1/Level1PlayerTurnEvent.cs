@@ -11,14 +11,31 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 	public BattleDialogueManager dialogueManager;
 	public DialogueSequence pincherDialogue;
 	public DialogueSequence guardsAttackingDialogue;
+  public Floor playerFloor;
+  private bool hasPlayedReplacementText;
 
 	void Start()
 	{
 		tutorialPage.SetActive(true);
 		tutorialText.text = "Each turn you can place one Lobster on the Floor";
+    hasPlayedReplacementText = false;
 	}
 	public override IEnumerator CheckTurnEvent(int turn)
 	{
+    if(!hasPlayedReplacementText) {
+      bool full = true;
+      foreach(GameObject spot in playerFloor.spots)
+      {
+        if(!spot.GetComponent<FloorSpot>().GetCardInPlay())
+        {
+          full = false;
+        }
+      }
+      if(full) {
+        yield return ReplacementEvent();
+        hasPlayedReplacementText = true;
+      }
+    }
 		switch(turn)
 		{
 			case 2:
@@ -27,8 +44,8 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
       		case 3:
 				yield return Turn3Event();
 				break;
-			case 4:
-				yield return Turn4Event();
+			case 5:
+				yield return Turn5Event();
 				break;
 			case 6:
 				yield return Turn6Event();
@@ -58,10 +75,18 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 		yield return new WaitForEndOfFrame();
 	}
 
-	public IEnumerator Turn4Event()
+	public IEnumerator ReplacementEvent()
 	{
 		tutorialPage.SetActive(true);
-		tutorialText.text = "Players drop a rock when they take damage";
+		tutorialText.text = "You can play a card on top of another\nto replace it";
+    yield return new WaitForSeconds(0.5f);
+    yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+	}
+
+	public IEnumerator Turn5Event()
+	{
+		tutorialPage.SetActive(true);
+		tutorialText.text = "Overflow damage deals direct damage to the player";
 		yield return new WaitForEndOfFrame();
 	}
 

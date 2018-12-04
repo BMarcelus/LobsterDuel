@@ -170,7 +170,6 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		yield return new WaitForSeconds(0.5f);
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    player.GetHurt(-2);
 		enemyManager.StartEnemyTurn();
   }
 

@@ -11,12 +11,14 @@ public class DialogueSequence : MonoBehaviour {
     
     [TextArea]
     public string text;
+    public Transform target;
   }
   [System.Serializable]
   public struct Character {
     public string name;
     public Sprite characterSprite;
     public bool flipSide;
+    public GameObject gameObject;
   }
 
   public Character[] characters;

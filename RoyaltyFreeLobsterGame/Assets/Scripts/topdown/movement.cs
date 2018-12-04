@@ -9,18 +9,16 @@ public class movement : MonoBehaviour {
   private Transform targetPosition;
   private bool targetting = false;
   private Rigidbody2D rb;
+  public Vector3 input;
 	// Use this for initialization
 	void Start () {
+    input = Vector3.zero;
 		rb = GetComponent<Rigidbody2D>();
 	}
+
 	
 	// Update is called once per frame
-	void Update () {
-		Vector3 input = new Vector3(
-      Input.GetAxisRaw("Horizontal"),
-      Input.GetAxisRaw("Vertical"),
-      0
-    );
+	protected virtual void Update () {
     if(!canMove) {
       input = Vector3.zero;
       if(targetting) {
