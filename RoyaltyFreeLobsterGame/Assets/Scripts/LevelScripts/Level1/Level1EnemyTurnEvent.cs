@@ -137,11 +137,11 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		//fill the spot with royal defenders
 		foreach(GameObject spot in enemyFloor.spots)
 		{
-      GameObject active = spot.GetComponent<FloorSpot>().GetCardInPlay();
-			if(!active || active.GetComponent<Lobster>().data.level<2)
-			{
+      // GameObject active = spot.GetComponent<FloorSpot>().GetCardInPlay();
+			// if(!active || active.GetComponent<Lobster>().data.level<2)
+			// {
 				spot.GetComponent<FloorSpot>().SetCardWithData(royalDefender);
-			}
+			// }
 		}
 		yield return new WaitForSeconds(1.5f);
 		enemyManager.StartEnemyTurn();
@@ -170,7 +170,7 @@ public class Level1EnemyTurnEvent : EnemyTurnEvents {
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		yield return new WaitForSeconds(0.5f);
 		Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-		enemyManager.StartEnemyTurn();
+		enemyManager.StartEnemyMoveOrders();
   }
 
 	public IEnumerator Turn7Event(GameObject materialSpot, GameObject pincherSpot)

@@ -185,7 +185,7 @@ Transform:
   - {fileID: 2061612175}
   - {fileID: 2001319085}
   - {fileID: 1461392845}
-  - {fileID: 1139832494}
+  - {fileID: 1247126259}
   - {fileID: 2012641425}
   - {fileID: 765006035}
   m_Father: {fileID: 0}
@@ -1119,6 +1119,34 @@ Transform:
   m_Father: {fileID: 2012641425}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -31.442001}
+--- !u!1 &935848526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935848527}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &935848527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 935848526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.54, y: 7.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1308251723}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1139832492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,7 +1197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1187,13 +1215,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1139832492}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.41, y: -0.52, z: 0}
-  m_LocalScale: {x: 0.16862999, y: 0.16862999, z: 0.16862999}
+  m_LocalRotation: {x: -0, y: -0, z: -0.883934, w: -0.4676117}
+  m_LocalPosition: {x: 0, y: -0.00000035346412, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 36177395}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1247126259}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -235.759}
 --- !u!1001 &1141656865
 Prefab:
   m_ObjectHideFlags: 0
@@ -1495,6 +1523,87 @@ Transform:
   m_Father: {fileID: 2012641425}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1247126258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1247126259}
+  - component: {fileID: 1247126262}
+  - component: {fileID: 1247126261}
+  - component: {fileID: 1247126260}
+  m_Layer: 0
+  m_Name: Pincher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1247126259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247126258}
+  m_LocalRotation: {x: -0, y: -0, z: -0.8935351, w: 0.4489935}
+  m_LocalPosition: {x: 1.41, y: -0.52, z: 0}
+  m_LocalScale: {x: 0.16862999, y: 0.16862999, z: 0.16862999}
+  m_Children:
+  - {fileID: 1139832494}
+  m_Father: {fileID: 36177395}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -126.642006}
+--- !u!58 &1247126260
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247126258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.77
+--- !u!50 &1247126261
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247126258}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1247126262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247126258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85086e45a2e5a4171855e051f20055da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  canMove: 1
+  input: {x: 0, y: 0, z: 0}
 --- !u!1 &1292478796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1730,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.085535705, y: 1.101865, z: 8.966725}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 935848527}
   m_Father: {fileID: 833242163}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1640,43 +1750,55 @@ MonoBehaviour:
   - name: Craig
     characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 1
+    gameObject: {fileID: 1247126258}
   - name: Crowd
     characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   dialogue:
   - character: Pincher
     characterIndex: 1
     text: Listen, Craig. There's something I never told you about your father.
+    target: {fileID: 0}
   - character: Craig
     characterIndex: 0
     text: What is it, Pincher?
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 1
     text: Years ago, your father and I fought against the Lobarchy together.
+    target: {fileID: 0}
   - character: Craig
     characterIndex: 0
     text: My father... was a revolutionary?
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 1
     text: Yes. But the people were not ready to rise up. Our forces were weak. We
       stood no chance against their military.
+    target: {fileID: 0}
   - character: Craig
     characterIndex: 0
     text: Why are you telling me this now?
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 1
     text: "Because I\u2019m angry, Craig! The Lobarchy is oppressive. The people are
       stuck in poverty and the Lobarchy is doing nothing to fix it."
+    target: {fileID: 0}
   - character: Crowd
     characterIndex: 2
     text: HEY! MOVE THESE ROCKS!
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 1
     text: Hear that? All they need is the right lobster to guide them, and they will
       rise up.
+    target: {fileID: 935848527}
   storySequence: 0
 --- !u!1 &1461392843
 GameObject:
@@ -2145,7 +2267,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884322836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.7025392, y: 7.06, z: -0.10148125}
+  m_LocalPosition: {x: 2.7025392, y: 8.15, z: -0.10148125}
   m_LocalScale: {x: 17.4511, y: -1.198685, z: 1}
   m_Children: []
   m_Father: {fileID: 1550899556}

@@ -277,16 +277,20 @@ MonoBehaviour:
   - name: Royal Guard
     characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   dialogue:
   - character: Royal Guard
     characterIndex: 0
     text: If you touch this barricade, you'll leave us no choice...
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 1
     text: Destroy the barricade!
+    target: {fileID: 0}
   storySequence: 0
 --- !u!1 &185964536
 GameObject:
@@ -738,23 +742,29 @@ MonoBehaviour:
   - name: Craig
     characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   - name: Royal Guard
     characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   dialogue:
   - character: Royal Guard
     characterIndex: 2
     text: We warned you, old man. Now you'll be the example of what happens to peasants
       who step out of line
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 1
     text: "Craig\u2026 it\u2019s up to you now."
+    target: {fileID: 0}
   - character: Craig
     characterIndex: 0
     text: Pincher, no!
+    target: {fileID: 0}
   storySequence: 0
 --- !u!1 &279534347
 GameObject:
@@ -800,28 +810,36 @@ MonoBehaviour:
   - name: Peasant 1
     characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   - name: Peasant 2
     characterSprite: {fileID: 21300000, guid: 30bf4ac7b2cc74d329f288ea70cfd5b2, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   - name: Craig
     characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   dialogue:
   - character: Peasant 1
     characterIndex: 0
     text: "Guards! We\u2019re being attacked!"
+    target: {fileID: 0}
   - character: Peasant 2
     characterIndex: 1
     text: "You idiot! They\u2019re the ones attacking us!"
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 3
     text: Fight back, everyone!
+    target: {fileID: 0}
   - character: Craig
     characterIndex: 2
     text: Pincher, we need to get out of here! This is chaos!
+    target: {fileID: 0}
   storySequence: 0
 --- !u!1 &283255433
 GameObject:
@@ -1348,15 +1366,18 @@ MonoBehaviour:
   - name: Royal Guard
     characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   dialogue:
   - character: Royal Guard
     characterIndex: 0
     text: 'Enough of this treason!
 
       All protesters will be destroyed!'
+    target: {fileID: 0}
   storySequence: 0
 --- !u!1 &360886450
 GameObject:
@@ -1492,22 +1513,28 @@ MonoBehaviour:
   - name: Peasant 1
     characterSprite: {fileID: 21300000, guid: c1b2ead0b703747cfbbe51dd852253e1, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   - name: Pincher
     characterSprite: {fileID: 21300000, guid: 25e2291e386bc4ac6859bda5eb51c888, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   - name: Craig
     characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   dialogue:
   - character: Peasant 1
     characterIndex: 0
     text: We're all gonna die!
+    target: {fileID: 0}
   - character: Pincher
     characterIndex: 1
     text: Lobsters! Royalty Free now, and forever!
+    target: {fileID: 0}
   - character: Craig
     characterIndex: 2
     text: Pincher! Be careful!
+    target: {fileID: 0}
   storySequence: 0
 --- !u!1 &411699158
 GameObject:
@@ -2265,16 +2292,20 @@ MonoBehaviour:
   - name: Craig
     characterSprite: {fileID: 21300000, guid: 41a6f9680a9b54d17bdd818679c6af00, type: 3}
     flipSide: 0
+    gameObject: {fileID: 0}
   - name: Crowd
     characterSprite: {fileID: 21300000, guid: 06ffbe7e71dcd44afb0a444e1d6d6e98, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   dialogue:
   - character: Craig
     characterIndex: 0
     text: We need to avenge Pincher!
+    target: {fileID: 0}
   - character: Crowd
     characterIndex: 1
     text: DOWN WITH THE LOBARCHY! DOWN WITH THE LOBARCHY!
+    target: {fileID: 0}
   storySequence: 0
 --- !u!1 &845799185
 GameObject:
@@ -4838,16 +4869,20 @@ MonoBehaviour:
   - name: Royal Guard 1
     characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   - name: Royal Guard 2
     characterSprite: {fileID: 21300000, guid: d6ef7417091eb4761aa330a5fbf1fea6, type: 3}
     flipSide: 1
+    gameObject: {fileID: 0}
   dialogue:
   - character: Royal Guard 1
     characterIndex: 0
     text: Troops! Fall back! We'll get reinforcements and crush this treasonous scum.
+    target: {fileID: 0}
   - character: Royal Guard 2
     characterIndex: 1
     text: "You peasants don't stand a chance. The Lobarchy is too powerful.\r"
+    target: {fileID: 0}
   storySequence: 0
 --- !u!1 &1659737931
 GameObject:
@@ -5508,7 +5543,7 @@ GameObject:
   - component: {fileID: 1906556086}
   - component: {fileID: 1906556089}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: EndTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

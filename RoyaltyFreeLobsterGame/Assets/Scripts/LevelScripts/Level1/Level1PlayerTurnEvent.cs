@@ -96,7 +96,7 @@ public class Level1PlayerTurnEvent : PlayerTurnEvents {
 		dialogueManager.StartDialogue(pincherDialogue);
 		yield return new WaitUntil(() => dialogueManager.HasFinish());
 		tutorialPage.SetActive(true);
-		tutorialText.text = "You can replace level1 cards to summon level 2 cards";
+		tutorialText.text = "You can replace level1 cards on the floor to summon level 2 cards";
 		GetComponent<TurnManager>().ChangeTurn(Turn.Player);
 	}
 }

@@ -57,22 +57,12 @@ public class EnemyManager : MonoBehaviour {
 		StartCoroutine(EnemyTurn());
 	}
 
-	private IEnumerator EnemyTurn()
-	{
-		//draw card
-		enemyHand.AddCardToHand();
-		yield return new WaitForSeconds(0.5f);
-		if(turnManager.IsGameOver())
-			StopAllCoroutines();
-		//place card
-		PlaceCardInfo placeCardInfo = enemyAI.GetCardPlaceInfo(enemyHand.GetCardList(), spots);
-		if(placeCardInfo != null)
-		{
-			spots[placeCardInfo.spotIndex].GetComponent<FloorSpot>().SetCard(placeCardInfo.card);
-			enemyHand.RemoveCardFromhand(placeCardInfo.card);
-			yield return new WaitForSeconds(0.5f);
-		}
-		//decide move orders
+  public void StartEnemyMoveOrders() {
+		StartCoroutine(EnemyTurnMoveOrders());
+  }
+
+  private IEnumerator EnemyTurnMoveOrders() {
+//decide move orders
 		List<Lobster> lobsters = enemyAI.GetOrder(spots);
 		//reset all enemies
 		foreach(Lobster lob in lobsters)
@@ -135,6 +125,24 @@ public class EnemyManager : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		//end the turn
 		turnManager.SwitchToPlayer();
+  }
+
+	private IEnumerator EnemyTurn()
+	{
+		//draw card
+		enemyHand.AddCardToHand();
+		yield return new WaitForSeconds(0.5f);
+		if(turnManager.IsGameOver())
+			StopAllCoroutines();
+		//place card
+		PlaceCardInfo placeCardInfo = enemyAI.GetCardPlaceInfo(enemyHand.GetCardList(), spots);
+		if(placeCardInfo != null)
+		{
+			spots[placeCardInfo.spotIndex].GetComponent<FloorSpot>().SetCard(placeCardInfo.card);
+			enemyHand.RemoveCardFromhand(placeCardInfo.card);
+			yield return new WaitForSeconds(0.5f);
+		}
+		yield return EnemyTurnMoveOrders();
 	}
 
 	//=============================================================================
